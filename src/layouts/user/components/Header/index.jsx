@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 
 import * as S from "./styles";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { ROUTES } from "constants/routes";
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <S.Wrapper>
       <div className="navbar">
@@ -14,6 +15,7 @@ const Header = () => {
             className="img-logo"
             src="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
             alt=""
+            onClick={() => navigate(ROUTES.USER.HOME)}
           />
           <h4>Học Lập Trình Để Đi Làm</h4>
         </div>

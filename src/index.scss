@@ -1,4 +1,4 @@
-body {
+  body {
   margin: 0;
   font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -13,6 +13,17 @@ body {
     box-shadow: none !important;
     box-shadow: none;
     border: 1px solid #fff;
+  }
+
+  ul,
+  li {
+    padding: 0px;
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 }
 

@@ -1,8 +1,11 @@
-import "./App.scss";
-
 import { Routes, Route } from "react-router-dom";
 import { ROUTES } from "constants/routes";
+import "_variables.scss";
+
+// Layout
 import UserLayout from "layouts/user/UserLayout";
+
+// Page
 import HomePage from "pages/user/HomePage";
 import SearchPage from "pages/user/SearchPage";
 
