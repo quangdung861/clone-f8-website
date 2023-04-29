@@ -2,7 +2,7 @@ const jsonServer = require('json-server');
 const moment = require('moment');
 
 const server = jsonServer.create();
-const router = jsonServer.router('./database/db.json');
+const router = jsonServer.router('database/db.json');
 
 const middlewares = jsonServer.defaults();
 
