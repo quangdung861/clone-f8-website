@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   .navbar {
-    height: 65px;
+    height: var(--header-height);
     padding: 0px 28px;
     display: flex;
     justify-content: space-between;
