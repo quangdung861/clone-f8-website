@@ -144,18 +144,21 @@ export const Container = styled.div`
     }
   }
 
+  @media only screen and (max-width: 992px) {
+    & {
+      padding: 0px 20px 60px 40px;
+    }
+  }
+
   @media only screen and (max-width: 768px) {
+    & {
+      padding: 0px 16px 60px 16px;
+    }
     .image-slider {
       .next-arrow-slide,
       .prev-arrow-slide {
         display: none;
       }
-    }
-  }
-
-  @media only screen and (max-width: 992px) {
-    & {
-      padding: 20px 20px 40px 40px;
     }
   }
 `;
