@@ -2,12 +2,15 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   width: var(--sidebar-app-width);
+  flex-shrink: 0;
 `;
 
 export const Container = styled.div`
   position: sticky;
   left: 0px;
   top: 80px;
+  z-index: 1;
+
   .sidebar-wrapper {
     padding: 0px 8px;
     margin: 16px 0px 12px 0px;

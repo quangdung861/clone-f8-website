@@ -1,7 +1,8 @@
-import react, { useEffect } from "react";
+import { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { ROUTES } from "constants/routes";
 import "_variables.scss";
+
 
 // Layout
 import UserLayout from "layouts/user/UserLayout";
@@ -9,6 +10,8 @@ import UserLayout from "layouts/user/UserLayout";
 // Page
 import HomePage from "pages/user/HomePage";
 import SearchPage from "pages/user/SearchPage";
+
+import "pages/user/HomePage/slide"
 
 function App() {
   const { pathname } = useLocation();

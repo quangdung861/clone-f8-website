@@ -12,8 +12,8 @@ const UserLayout = () => {
     <S.Wrapper>
       <Header />
       <S.Container>
-        <Sidebar />
-        <Outlet />
+        <Sidebar className="sidebar" />
+        <Outlet className="outlet" />
       </S.Container>
       <Footer />
     </S.Wrapper>
