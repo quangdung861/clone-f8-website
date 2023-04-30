@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   width: var(--sidebar-app-width);
   flex-shrink: 0;
+
+  @media only screen and (max-width: 992px) {
+    display: none;
+  }
 `;
 
 export const Container = styled.div`
@@ -95,10 +99,6 @@ export const Container = styled.div`
           }
         }
       }
-    }
-
-    @media only screen and (max-width: 992px) {
-      display: none;
     }
 
     @keyframes fadeIn {

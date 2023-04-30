@@ -20,6 +20,9 @@ export const Container = styled.div`
 
   @media only screen and (max-width: 992px) {
     grid-template-columns: 1fr;
+    .sidebar {
+      /* display: none; */
+    }
     .oulet {
       grid-column: 1/2;
     }
