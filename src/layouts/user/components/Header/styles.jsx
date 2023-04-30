@@ -1,6 +1,12 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
+  position: sticky;
+  right: 0px;
+  left: 0px;
+  top: 0px;
+  background-color: #fff;
+  z-index: 2;
   .navbar {
     height: var(--header-height);
     padding: 0px 28px;
@@ -28,7 +34,7 @@ export const Wrapper = styled.div`
         height: 34px;
         padding: 0px 16px 0px 8px;
         border: 2px solid #e8e8e8;
-        transition: all 0.2s ease-in-out;
+        transition: border-color 0.2s ease-in-out;
         display: flex;
         align-items: center;
         &:focus-within {

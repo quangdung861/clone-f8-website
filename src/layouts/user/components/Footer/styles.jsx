@@ -49,6 +49,11 @@ export const Wrapper = styled.div`
       }
       .content {
         color: #a9b3bb;
+        .list-content {
+          > li {
+            margin-bottom: 8px;
+          }
+        }
       }
     }
 
