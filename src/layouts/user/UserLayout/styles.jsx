@@ -15,6 +15,13 @@ export const Container = styled.div`
     grid-column: 1/2;
   }
   .oulet {
-    grid-column: 2/4;
+    grid-column: 2/3;
+  }
+
+  @media only screen and (max-width: 992px) {
+    grid-template-columns: 1fr;
+    .oulet {
+      grid-column: 1/2  ;
+    }
   }
 `;

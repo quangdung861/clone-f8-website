@@ -97,6 +97,10 @@ export const Container = styled.div`
       }
     }
 
+    @media only screen and (max-width: 992px) {
+      display: none;
+    }
+
     @keyframes fadeIn {
       0% {
         opacity: 0;
