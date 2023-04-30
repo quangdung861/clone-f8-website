@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const Wrapper = styled.div``;
 
 export const Container = styled.div`
-  /* min-height: calc(100vh - var(--header-height));
-  display: flex;
+  min-height: calc(100vh - var(--header-height));
+  /* display: flex;
   .outlet {
     max-width: calc(100% - var(--sidebar-app-width));
     flex: 1;
@@ -21,7 +21,7 @@ export const Container = styled.div`
   @media only screen and (max-width: 992px) {
     grid-template-columns: 1fr;
     .oulet {
-      grid-column: 1/2  ;
+      grid-column: 1/2;
     }
   }
 `;
