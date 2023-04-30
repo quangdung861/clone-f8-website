@@ -111,17 +111,11 @@ const Footer = () => {
           </div>
           <div className="content">
             <ul className="list-content">
+              <li>Mã số thuế: 0109922901</li>
+              <li>Ngày thành lập: 04/03/2022</li>
               <li>
-                <Link>Mã số thuế: 0109922901</Link>
-              </li>
-              <li>
-                <Link>Ngày thành lập: 04/03/2022</Link>
-              </li>
-              <li>
-                <Link>
-                  Lĩnh vực: Công nghệ, giáo dục, lập trình. F8 xây dựng và phát
-                  triển những sản phẩm mang lại giá trị cho cộng đồng.
-                </Link>
+                Lĩnh vực: Công nghệ, giáo dục, lập trình. F8 xây dựng và phát
+                triển những sản phẩm mang lại giá trị cho cộng đồng.
               </li>
             </ul>
           </div>
@@ -131,9 +125,9 @@ const Footer = () => {
             © 2018 - 2023 F8. Nền tảng học lập trình hàng đầu Việt Nam
           </div>
           <div className="foo-bottom-right">
-            <i class="fa-brands fa-youtube icon-youtube"></i>
-            <i class="fa-brands fa-facebook icon-facebook"></i>
-            <i class="fa-brands fa-tiktok icon-tiktok"></i>
+            <i className="fa-brands fa-youtube icon-youtube"></i>
+            <i className="fa-brands fa-facebook icon-facebook"></i>
+            <i className="fa-brands fa-tiktok icon-tiktok"></i>
           </div>
         </div>
       </div>

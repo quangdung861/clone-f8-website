@@ -21,7 +21,7 @@ const Header = () => {
         </div>
         <div className="navbar-center">
           <div className="box-search">
-            <i class="fa-solid fa-magnifying-glass icon-search"></i>
+            <i className="fa-solid fa-magnifying-glass icon-search"></i>
             <input
               className="input-search"
               placeholder="Tìm kiếm khóa học, bài viết , video, ..."
@@ -30,7 +30,7 @@ const Header = () => {
         </div>
         <div className="navbar-right">
           <Link className="btn-search-mobile" to={ROUTES.USER.SEARCH}>
-            <i class="fa-solid fa-magnifying-glass icon-search"></i>
+            <i className="fa-solid fa-magnifying-glass icon-search"></i>
           </Link>
           <div className="btn-login">Đăng nhập</div>
         </div>
