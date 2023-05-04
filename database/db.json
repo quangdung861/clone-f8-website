@@ -1,9 +1,339 @@
 {
+  "courses": [
+    {
+      "id": 1,
+      "name": "HTML CSS Pro",
+      "price": 2499000,
+      "priceAfterDiscount": 1299000,
+      "image": "https://files.fullstack.edu.vn/f8-prod/courses/15/62f13d2424a47.png",
+      "logo": "https://fullstack.edu.vn/static/media/crown_icon.3e4800f7485935ab6ea312a7080a85fe.svg",
+      "active": true,
+      "numberOfMember": null,
+      "fee": true
+    },
+    {
+      "id": 2,
+      "name": "JavaScript Pro",
+      "price": null,
+      "priceAfterDiscount": null,
+      "image": "https://files.fullstack.edu.vn/f8-prod/courses/19/62f13cb607b4b.png",
+      "logo": "https://fullstack.edu.vn/static/media/crown_icon.3e4800f7485935ab6ea312a7080a85fe.svg",
+      "active": false,
+      "numberOfMember": null,
+      "fee": true
+    },
+    {
+      "id": 3,
+      "name": "ReactJS Pro",
+      "price": null,
+      "priceAfterDiscount": null,
+      "image": "https://files.fullstack.edu.vn/f8-prod/courses/20/62f13dded314e.png",
+      "logo": "https://fullstack.edu.vn/static/media/crown_icon.3e4800f7485935ab6ea312a7080a85fe.svg",
+      "active": false,
+      "numberOfMember": null,
+      "fee": true
+    },
+    {
+      "id": 4,
+      "name": "Kiến Thức Nhập Môn IT",
+      "price": null,
+      "priceAfterDiscount": null,
+      "image": "https://files.fullstack.edu.vn/f8-prod/courses/7.png",
+      "logo": null,
+      "active": true,
+      "numberOfMember": 105291,
+      "fee": false
+    },
+    {
+      "id": 5,
+      "name": "Lập trình C++ cơ bản, nâng cao",
+      "price": null,
+      "priceAfterDiscount": null,
+      "image": "https://files.fullstack.edu.vn/f8-prod/courses/21/63e1bcbaed1dd.png",
+      "logo": null,
+      "active": true,
+      "numberOfMember": 7792,
+      "fee": false
+    },
+    {
+      "id": 6,
+      "name": "HTML CSS từ Zero đến Hero",
+      "price": null,
+      "priceAfterDiscount": null,
+      "image": "https://files.fullstack.edu.vn/f8-prod/courses/2.png",
+      "logo": null,
+      "active": true,
+      "numberOfMember": 28051,
+      "fee": false
+    },
+    {
+      "id": 7,
+      "name": "Responsive Với Grid System",
+      "price": null,
+      "priceAfterDiscount": null,
+      "image": "https://files.fullstack.edu.vn/f8-prod/courses/3.png",
+      "logo": null,
+      "active": true,
+      "numberOfMember": 159176,
+      "fee": false
+    },
+    {
+      "id": 8,
+      "name": "Lập Trình JavaScript Cơ Bản",
+      "price": null,
+      "priceAfterDiscount": null,
+      "image": "https://files.fullstack.edu.vn/f8-prod/courses/1.png",
+      "logo": null,
+      "active": true,
+      "numberOfMember": 36149,
+      "fee": false
+    },
+    {
+      "id": 9,
+      "name": "Lập Trình JavaScript Nâng Cao",
+      "price": null,
+      "priceAfterDiscount": null,
+      "image": "https://files.fullstack.edu.vn/f8-prod/courses/12.png",
+      "logo": null,
+      "active": true,
+      "numberOfMember": 105611,
+      "fee": false
+    },
+    {
+      "id": 10,
+      "name": "Làm việc với Terminal & Ubuntu",
+      "price": null,
+      "priceAfterDiscount": null,
+      "image": "https://files.fullstack.edu.vn/f8-prod/courses/14/624faac11d109.png",
+      "logo": null,
+      "active": true,
+      "numberOfMember": 11983,
+      "fee": false
+    },
+    {
+      "id": 11,
+      "name": "Xây Dựng Website với ReactJS",
+      "price": null,
+      "priceAfterDiscount": null,
+      "image": "https://files.fullstack.edu.vn/f8-prod/courses/13/13.png",
+      "logo": null,
+      "active": true,
+      "numberOfMember": 46042,
+      "fee": false
+    },
+    {
+      "id": 12,
+      "name": "Node & ExpressJS",
+      "price": null,
+      "priceAfterDiscount": null,
+      "image": "https://files.fullstack.edu.vn/f8-prod/courses/6.png",
+      "logo": null,
+      "active": true,
+      "numberOfMember": 31549,
+      "fee": false
+    },
+    {
+      "id": 13,
+      "name": "App \"Đừng Chạm Tay Lên Mặt\"",
+      "price": null,
+      "priceAfterDiscount": null,
+      "image": "https://files.fullstack.edu.vn/f8-prod/courses/4/61a9e9e701506.png",
+      "logo": null,
+      "active": true,
+      "numberOfMember": 7446,
+      "fee": false
+    }
+  ],
+
+  "users": [
+    {
+      "id": 1,
+      "fullName": "Sơn Đặng",
+      "avatar": "https://files.fullstack.edu.vn/f8-prod/user_avatars/1/623d4b2d95cec.png",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "fullName": "Võ Minh Kha",
+      "avatar": "https://files.fullstack.edu.vn/f8-prod/user_avatars/18159/63465328ecec4.jpg",
+      "role": "user"
+    },
+    {
+      "id": 3,
+      "fullName": "Sơn Sơn",
+      "avatar": "https://graph.facebook.com/1642531882604203/picture?width=400&height=400",
+      "role": "user"
+    },
+    {
+      "id": 4,
+      "fullName": "Đông Ngô",
+      "avatar": "https://files.fullstack.edu.vn/f8-prod/user_avatars/9143/6263caafdf588.jpg",
+      "role": "user"
+    },
+    {
+      "id": 5,
+      "fullName": "Lê Thành Trung",
+      "avatar": "https://files.fullstack.edu.vn/f8-prod/user_avatars/74901/626aa252cdb22.jpg",
+      "role": "user"
+    },
+    {
+      "id": 6,
+      "fullName": "Tien Pham Ngoc",
+      "avatar": "https://fullstack.edu.vn/static/media/fallback-avatar.155cdb2376c5d99ea151.jpg",
+      "role": "user"
+    },
+    {
+      "id": 7,
+      "fullName": "Vương Dương",
+      "avatar": "https://files.fullstack.edu.vn/f8-prod/user_avatars/256991/63b63dc6657a1.jpg",
+      "role": "user"
+    },
+    {
+      "id": 8,
+      "fullName": "Vũ Chi",
+      "avatar": "https://files.fullstack.edu.vn/f8-prod/user_photos/315518/643b789615dd1.jpg",
+      "role": "user"
+    }
+  ],
+
   "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" }
+    {
+      "id": 1,
+      "name": "Tổng hợp các sản phẩm của học viên tại F8 👏👏",
+      "image": "https://files.fullstack.edu.vn/f8-prod/blog_posts/65/6139fe28a9844.png",
+      "userId": 1,
+      "createAt": "6 phút đọc"
+    },
+    {
+      "id": 2,
+      "name": "[Phần 1] Tạo dự án ReactJS với Webpack và Babel",
+      "image": "https://files.fullstack.edu.vn/f8-prod/blog_posts/279/6153f692d366e.jpg",
+      "userId": 1,
+      "createAt": "12 phút đọc"
+    },
+    {
+      "id": 3,
+      "name": "Cách đưa code lên GitHub và tạo GitHub Pages",
+      "image": "https://files.fullstack.edu.vn/f8-prod/blog_posts/677/615436b218d0a.png",
+      "userId": 2,
+      "createAt": "4 phút đọc"
+    },
+    {
+      "id": 4,
+      "name": "Ký sự ngày thứ 25 học ở F8 ",
+      "image": "https://files.fullstack.edu.vn/f8-prod/blog_posts/51/6139c6453456e.png",
+      "userId": 3,
+      "createAt": "1 phút đọc"
+    },
+    {
+      "id": 5,
+      "name": "Các nguồn tài nguyên hữu ích cho 1 front-end developer",
+      "image": "https://blog.planview.com/wp-content/uploads/2015/03/3asset.jpg",
+      "userId": 7,
+      "createAt": "2 phút đọc"
+    },
+    {
+      "id": 6,
+      "name": "Thời gian và Động lực",
+      "image": "https://files.fullstack.edu.vn/f8-prod/blog_posts/1671/61b6368983c16.jpg",
+      "userId": 4,
+      "createAt": "6 phút đọc"
+    },
+    {
+      "id": 7,
+      "name": "Tổng hợp tài liệu tự học tiếng anh cơ bản.",
+      "image": "https://files.fullstack.edu.vn/f8-prod/blog_posts/273/614043e523ad9.png",
+      "userId": 5,
+      "createAt": "8 phút đọc"
+    },
+    {
+      "id": 8,
+      "name": "Học như thế nào là phù hợp ?",
+      "image": "https://files.fullstack.edu.vn/f8-prod/blog_posts/791/615de64de7e8f.jpg",
+      "userId": 6,
+      "createAt": "4 phút đọc"
+    },
+    {
+      "id": 9,
+      "name": "Learn JavaScript while Playing Games — Gamify Your Learning",
+      "image": "https://files.fullstack.edu.vn/f8-prod/blog_posts/791/615de64de7e8f.jpg",
+      "userId": 8,
+      "createAt": "10 phút đọc"
+    }
   ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
-  ],
-  "profile": { "name": "typicode" }
+
+  "videos": [
+    {
+      "id": 1,
+      "name": "Sinh viên IT đi thực tập cần biết những gì? | Đi thực tập cần chuẩn bị những gì? | Thực tập IT",
+      "views": 224658,
+      "likes": 5730,
+      "comments": 228,
+      "logo": "",
+      "image": "https://i.ytimg.com/vi/YH-E4Y3EaT4/maxresdefault.jpg"
+    },
+    {
+      "id": 2,
+      "name": "\"Code Thiếu Nhi Battle\" Tranh Giành Trà Sữa Size L",
+      "views": 265407,
+      "likes": 5560,
+      "comments": 186,
+      "logo": "",
+      "image": "https://i.ytimg.com/vi/sgq7BH6WxL8/maxresdefault.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Phương pháp HỌC LẬP TRÌNH của Sơn Đặng! | Lộ trình học lập trình | Phương pháp học lập trình",
+      "views": 109167,
+      "likes": 5511,
+      "comments": 329,
+      "logo": "",
+      "image": "https://i.ytimg.com/vi/DpvYHLUiZpc/maxresdefault.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Nhận được gì sau khóa học? | Học lập trình web cơ bản | Tự học lập trình online",
+      "views": 672744,
+      "likes": 4153,
+      "comments": 121,
+      "logo": "",
+      "image": "https://i.ytimg.com/vi/R6plN3FvzFY/maxresdefault.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Ai có thu nhập cao và đi xa trong ngành IT? | Làm IT có thật sự kiếm nhiều kiền?",
+      "views": 75821,
+      "likes": 3273,
+      "comments": 236,
+      "logo": "",
+      "image": "https://i.ytimg.com/vi/oF7isq9IjZM/maxresdefault.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Javascript có thể làm được gì? Giới thiệu qua về trang F8 | Học lập trình Javascript cơ bản",
+      "views": 569269,
+      "likes": 3197,
+      "comments": 115,
+      "logo": "",
+      "image": "https://i.ytimg.com/vi/0SJE9dYdpps/maxresdefault.jpg"
+    },
+    {
+      "id": 7,
+      "name": "ReactJS là gì? Tại sao nên học ReactJS?",
+      "views": 285752,
+      "likes": 2952,
+      "comments": 350,
+      "logo": "",
+      "image": "https://i.ytimg.com/vi/x0fSBAgBrOQ/maxresdefault.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Học Flexbox qua ví dụ",
+      "views": 170450,
+      "likes": 2543,
+      "comments": 180,
+      "logo": "",
+      "image": "https://i.ytimg.com/vi/G19jZzK5FWI/maxresdefault.jpg"
+    }
+  ]
 }

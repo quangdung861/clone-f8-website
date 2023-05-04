@@ -1,10 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  padding: 0 ;
+  padding: 0;
   font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   font-size: 14px;
-  box-sizing: border-box;
   input:focus {
     outline: none !important;
     box-shadow: none !important;
@@ -21,11 +24,14 @@ body {
     text-decoration: none;
     color: inherit;
   }
+  
 }
 
 :root {
   box-sizing: border-box;
   overflow-y: auto;
+  overflow-x: hidden;
+
   &::-webkit-scrollbar {
     -webkit-appearance: none;
   }
