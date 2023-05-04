@@ -11,8 +11,6 @@ import UserLayout from "layouts/user/UserLayout";
 import HomePage from "pages/user/HomePage";
 import SearchPage from "pages/user/SearchPage";
 
-import "pages/user/HomePage/slide"
-
 function App() {
   const { pathname } = useLocation();
 

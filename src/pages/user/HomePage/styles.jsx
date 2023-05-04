@@ -63,7 +63,7 @@ export const Container = styled.div`
 
     .slick-dots {
       position: absolute;
-      left: 0px;
+      left: 44px;
       bottom: -38px;
       list-style: none;
       text-align: left;
@@ -144,6 +144,106 @@ export const Container = styled.div`
     }
   }
 
+  .wrapper-content {
+    margin-top: 70px;
+    padding: 0px 44px 74px;
+    .box-header {
+      display: flex;
+      align-items: center;
+      .title {
+        font-size: 24px;
+        font-weight: 900;
+        margin: 10px 0px;
+      }
+      .logo {
+        font-size: 12px;
+        font-weight: 500;
+        padding: 3px 6px;
+        color: #fff;
+        background-color: #1473e6;
+        border-radius: 4px;
+        margin-left: 8px;
+        text-transform: uppercase;
+      }
+    }
+    .box-content {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: -12px;
+      .content-item {
+        width: 25%;
+        padding: 12px;
+        .box-image {
+          position: relative;
+          overflow: hidden;
+          border-radius: 16px;
+          width: 100%;
+          padding-top: 56.25%; // set padding để ảnh có thể được co giản theo tỉ lệ màn hình
+          background-size: cover; // cách 1 truyền trực tiếp URL vào box
+          cursor: pointer;
+          .hover-action {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            inset: 0 0 0 0;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 16px;
+            animation-name: fadeIn;
+            animation-duration: 0.4s;
+            .btn-action {
+              background-color: #fff;
+              padding: 9px 16px;
+              text-align: center;
+              border-radius: 20px;
+              font-weight: 500;
+              animation-name: trans;
+              animation-duration: 0.4s;
+            }
+          }
+          &:hover {
+            .hover-action {
+              display: flex;
+            }
+          }
+          .image {
+            border-radius: 16px;
+            position: absolute; // cách 2 style thẻ img
+            width: 100%;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            object-fit: cover;
+          }
+          .box-logo {
+            padding: 3px 6px;
+            border-radius: 6px;
+            background-color: rgba(0, 0, 0, 0.3);
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            z-index: 1;
+            img {
+              width: 18px;
+            }
+          }
+        }
+        .name {
+          font-weight: 600;
+          margin: 8px 0px;
+          display: -webkit-box;
+          -webkit-line-clamp: 1; /* số dòng hiển thị */
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+        .sub-name {
+          margin: 12px 0px;
+        }
+      }
+    }
+  }
+
   @media only screen and (max-width: 992px) {
     & {
       padding: 0px 20px 60px 40px;
@@ -159,6 +259,24 @@ export const Container = styled.div`
       .prev-arrow-slide {
         display: none;
       }
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes trans {
+    from {
+      transform: translate(0px, 42px);
+    }
+    to {
+      transform: translate(0px, 0px);
     }
   }
 `;

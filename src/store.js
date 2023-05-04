@@ -2,10 +2,18 @@ import { configureStore } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "./redux/sagaCommon";
 
+import courseReducer from "redux/user/reducers/course.reducer";
+import postReducer from "redux/user/reducers/post.reducer";
+import videoReducer from "redux/user/reducers/video.reducer";
+
 const sagaMiddleware = createSagaMiddleware();
 
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    courseReducer,
+    postReducer,
+    videoReducer,
+  },
   middleware: (getDefaultMiddleware) => [
     ...getDefaultMiddleware({ thunk: false, serializableCheck: false }),
     sagaMiddleware,
