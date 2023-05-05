@@ -3,7 +3,7 @@
   --sidebar-app-width: 96px;
 }
 
-.btn-default {
+.--btn-default {
   padding: 9px 16px;
   background-color: #f05123;
   color: white;
@@ -15,6 +15,7 @@
   display: inline-block;
   transition: all 0.2s ease;
   border: none;
+  user-select: none;
   &:hover {
     opacity: 0.9;
   }

@@ -3,5 +3,7 @@ export const ROUTES = {
     HOME: "/",
     SEARCH: "/search",
     LEARNING_PATHS: "/learning-paths",
+    COURSES: "/courses",
+    BLOG: "/blog",
   },
 };

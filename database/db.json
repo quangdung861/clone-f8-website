@@ -335,5 +335,70 @@
       "logo": "",
       "image": "https://i.ytimg.com/vi/G19jZzK5FWI/maxresdefault.jpg"
     }
+  ],
+  "blogs": [
+    {
+      "id": 1,
+      "title": "Học viên Funix lạc đường tới F8",
+      "content": "Mình đã tham gia khóa học lập trình 6 tháng ở funix và cũng có nhiều lý do khác dẫn đến quá hạn quá học và cũng đã hoàn thành 4 môn hiện đang cố nodejs để xong. Thực sự là ngoài hứa hẹn và tự bơi thì không có gì để bàn nhiều. Thậm chí để học xong chứng chỉ bên đó với người vừa đi làm vừa nonIT còn rất bất khả thi. Ban đầu mình cũng nghĩ tự học là tốt nhưng chính bản thân đi xin việc dơ chứng chỉ bên đó NTD nói không yên tâm với chất lượng. Cũng may là lạc sang f8 mà mình đã thuận lợi qua 4 chứng chỉ kia của funix. Tuy nhiên vì thời gian học ngắn nên chưa học kỹ hết các video bên F8. Bản thân mình thấy f8 dạy khá dễ hiểu và hiểu trước thì mới làm được. Đồng thời cộng đồng F8 chắc lạc không ít con đẻ của Funix.",
+      "userId": 1,
+      "createAt": 3
+    },
+    {
+      "id": 2,
+      "title": "Đánh giá ÉP TÁM với một số trường",
+      "content": "Hí anh em! Vào vấn đề luôn, trong thời gian mình có quá nhiều thời gian rỗi nên mình đã bỏ 1 ít thời gian và tiền đi kiểm chứng và so sánh với các trường dạy và F8 ",
+      "userId": 2,
+      "createAt": 10
+    },
+    {
+      "id": 3,
+      "title": "Tìm hiểu về Serif và Sans-serif",
+      "content": "Serif và Sans-serif là gì? Giải mã những lầm tưởng về Serif và Sans-serif",
+      "userId": 3,
+      "createAt": 12
+    },
+    {
+      "id": 4,
+      "title": "Ngành gì đang hot hiện nay? Top ngành nghề dự báo trở thành xu thế ",
+      "content": "Nếu bạn đang phân vân trong việc chọn ngành, chuyển ngành thì có thể tham khảo bài viết này để biết ngành gì đang hot hiện nay và top các ngành nghề được dự đoán sẽ trở thành xu thế nhé! (Lưu ý: thứ tự các ngành nghề không sắp xếp theo mức độ tăng/giảm dần mà là ngẫu nhiên)",
+      "userId": 4,
+      "createAt": 7
+    },
+    {
+      "id": 5,
+      "title": "Lương lập trình website cao hay thấp? Cơ hội nghề nghiệp ra sao?",
+      "content": "Trong những năm gần đây, nghề IT đã trở thành một nghề siêu hot với mức thu nhập được cho là “cực khủng”. Vậy với ngách lập trình website thì sao? Lương lập trình website cao hay thấp?",
+      "userId": 5,
+      "createAt": 6
+    },
+    {
+      "id": 6,
+      "title": "Điểm danh những ngành nghề thu nhập cao nhất hiện nay",
+      "content": "Bạn có bao giờ thắc mắc rằng không biết hiện nay ngành nghề nào có thu nhập cao nhất không? Cùng xem nhé! (Thông tin mang tính chất tham khảo)",
+      "userId": 6,
+      "createAt": 4
+    },
+    {
+      "id": 7,
+      "title": "Góc chia sẻ: Nữ giới có nên lựa chọn theo nghề IT không? ",
+      "content": "Hồi còn là học sinh lớp 12, khi tham dự vào 1 hội thảo hướng nghiệp, mình đã từng được nghe cô tư vấn nói với một bạn nữ có ý định theo ngành IT rằng “là con gái, đừng nên chọn IT vì sẽ rất vất vả”. Vậy thực tế, nữ giới có nên lựa chọn theo nghề IT không?",
+      "userId": 1,
+      "createAt": 2
+    },
+    {
+      "id": 8,
+      "title": "Khám phá IT là gì? Những vị trí đang phổ biến trong ngành IT",
+      "content": "Ai cũng biết IT là một ngành hot bởi nó có thể đem lại mức thu nhập rất “khủng”, tuy nhiên vẫn còn nhiều người chưa rõ IT là gì và cụ thể trong ngành IT sẽ có những vị trí công việc nào. Bài viết này sẽ giúp các bạn có góc nhìn toàn cảnh hơn về nghề IT.",
+      "userId": 2,
+      "createAt": 15
+    },
+    {
+      "id": 9,
+      "title": "Fullstack là gì? Cần kỹ năng gì để trở thành fullstack developer?",
+      "content": "Chắc hẳn hầu hết các bạn trong giới lập trình đều đã ít nhất một lần nghe đến từ “fullstack”. Tuy nhiên vẫn còn nhiều người hiểu lầm về khái niệm đang hot này. Cùng đọc bài viết để biết fullstack là gì nhé!",
+      "userId": 1,
+      "createAt": 3
+    }
   ]
 }

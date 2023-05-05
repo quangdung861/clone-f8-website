@@ -33,7 +33,7 @@ const LearningPathsPage = () => {
               </div>
             </div>
             <div>
-              <div className="btn-default">Xem chi tiết</div>
+              <div className="--btn-default">Xem chi tiết</div>
             </div>
           </div>
           <div className="section-right">
@@ -54,7 +54,7 @@ const LearningPathsPage = () => {
               </div>
             </div>
             <div>
-              <div className="btn-default">Xem chi tiết</div>
+              <div className="--btn-default">Xem chi tiết</div>
             </div>
           </div>
         </div>
@@ -66,7 +66,7 @@ const LearningPathsPage = () => {
               gia hỏi đáp, chia sẻ và hỗ trợ nhau trong quá trình học nhé.
             </p>
             <div>
-              <button className="btn-default btn-default--custome">
+              <button className="--btn-default --btn-default--custome">
                 Tham gia nhóm
               </button>
             </div>

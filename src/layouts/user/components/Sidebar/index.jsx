@@ -22,12 +22,12 @@ const Sidebar = () => {
     {
       icon: <i className="fa-sharp fa-solid fa-lightbulb"></i>,
       name: <span>Học</span>,
-      pathname: "#",
+      pathname: ROUTES.USER.COURSES,
     },
     {
       icon: <i className="fa-solid fa-book"></i>,
       name: <span>Blog</span>,
-      pathname: "#",
+      pathname: ROUTES.USER.BLOG,
     },
   ];
 

@@ -297,7 +297,7 @@ const HomePage = () => {
               <div style={{ fontWeight: "500" }}>{item.user?.fullName}</div>
               {item.user.role === "admin" && (
                 <i
-                  class="fa-solid fa-circle-check"
+                  className="fa-solid fa-circle-check"
                   style={{
                     fontSize: "12px",
                     color: "#1b74e4",
@@ -351,7 +351,7 @@ const HomePage = () => {
                 }}
               >
                 <i
-                  class="fa-solid fa-play"
+                  className="fa-solid fa-play"
                   style={{ color: "#000", fontSize: "12px" }}
                 ></i>
               </div>
@@ -378,18 +378,18 @@ const HomePage = () => {
             style={{ display: "flex", flexWrap: "wrap", color: "#666" }}
           >
             <div className="views" style={{ marginRight: "24px" }}>
-              <i class="fa-solid fa-eye" style={{ marginRight: "8px" }}></i>
+              <i className="fa-solid fa-eye" style={{ marginRight: "8px" }}></i>
               {item.views}
             </div>
             <div className="likes" style={{ marginRight: "24px" }}>
               <i
-                class="fa-solid fa-thumbs-up"
+                className="fa-solid fa-thumbs-up"
                 style={{ marginRight: "8px" }}
               ></i>
               {item.likes}
             </div>
             <div className="comments" style={{ marginRight: "24px" }}>
-              <i class="fa-solid fa-comment" style={{ marginRight: "8px" }}></i>
+              <i className="fa-solid fa-comment" style={{ marginRight: "8px" }}></i>
               {item.comments}
             </div>
           </div>
