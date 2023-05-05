@@ -48,7 +48,7 @@ export const Container = styled.div`
       grid-column: 1/2;
       align-self: center;
       width: 400px;
-      .btn-default--custome {
+      .--btn-default--custome {
         border: 2px solid #292929;
         color: #292929;
         background-color: transparent;

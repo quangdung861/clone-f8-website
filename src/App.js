@@ -10,6 +10,8 @@ import UserLayout from "layouts/user/UserLayout";
 import HomePage from "pages/user/HomePage";
 import SearchPage from "pages/user/SearchPage";
 import LearningPathsPage from "pages/user/LearningPathsPage";
+import CoursesPage from "pages/user/CoursePage";
+import BlogPage from "pages/user/BlogPage";
 
 function App() {
   const { pathname } = useLocation();
@@ -30,6 +32,8 @@ function App() {
           path={ROUTES.USER.LEARNING_PATHS}
           element={<LearningPathsPage />}
         />
+        <Route path={ROUTES.USER.COURSES} element={<CoursesPage />} />
+        <Route path={ROUTES.USER.BLOG} element={<BlogPage />} />
       </Route>
     </Routes>
   );
