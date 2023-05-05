@@ -17,7 +17,7 @@ const Sidebar = () => {
     {
       icon: <i className="fa-solid fa-road"></i>,
       name: <span>Lộ trình</span>,
-      pathname: ROUTES.USER.SEARCH,
+      pathname: ROUTES.USER.LEARNING_PATHS,
     },
     {
       icon: <i className="fa-sharp fa-solid fa-lightbulb"></i>,
