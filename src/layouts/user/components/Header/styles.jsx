@@ -37,6 +37,113 @@ export const Wrapper = styled.div`
         transition: border-color 0.2s ease-in-out;
         display: flex;
         align-items: center;
+        position: relative;
+        .container-search-result {
+          display: none;
+          position: absolute;
+          left: 0;
+          top: 42px;
+          width: 100%;
+          max-height: calc(90vh - 66px);
+          overflow: hidden;
+          overflow-y: auto;
+          &::-webkit-scrollbar {
+            -webkit-appearance: none;
+          }
+          &::-webkit-scrollbar:vertical {
+            width: 10px;
+          }
+          &::-webkit-scrollbar-thumb {
+            background-color: #ccc;
+            border-radius: 10px;
+          }
+          &::-webkit-scrollbar-track {
+            background: transparent;
+          }
+          padding: 12px 24px;
+          box-shadow: 0 -4px 32px rgba(0, 0, 0, 0.2);
+          border-radius: 10px;
+          background-color: #fff;
+          .top {
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            overflow-x: auto;
+            &::-webkit-scrollbar {
+              -webkit-appearance: none;
+            }
+            &::-webkit-scrollbar:horizontal {
+              height: 10px;
+            }
+            &::-webkit-scrollbar-thumb {
+              background-color: #ccc;
+              border-radius: 10px;
+            }
+            &::-webkit-scrollbar-track {
+              background: transparent;
+            }
+            > i {
+              color: #585757;
+              padding: 0 8px 0 0;
+            }
+            > span {
+              color: #0000008a;
+            }
+            .icon-spin--active {
+              margin-right: 8px;
+              animation: mymove 1s linear infinite;
+              animation-duration: 1s;
+              padding: 0px;
+            }
+          }
+          .center {
+            .content-list {
+              .content-item {
+                .result-header {
+                  padding: 24px 0 12px;
+                  margin-bottom: 6px;
+                  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  &__left {
+                    font-weight: 500;
+                    text-transform: uppercase;
+                    margin: 0;
+                  }
+                  &__right {
+                    color: #0000008a;
+                    cursor: pointer;
+                    &:hover {
+                      color: #f05123;
+                    }
+                  }
+                }
+                .result-list {
+                  .result-item {
+                    display: flex;
+                    align-items: center;
+                    margin: 12px 0px;
+                    cursor: pointer;
+                    > img {
+                      width: 32px;
+                      height: 32px;
+                      border-radius: 50%;
+                      object-fit: cover;
+                      margin-right: 12px;
+                    }
+                    > span {
+                      line-height: 1.6;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        .container-search-result--active {
+          display: block;
+        }
         &:focus-within {
           border-color: #444;
         }
@@ -107,6 +214,15 @@ export const Wrapper = styled.div`
           display: block;
         }
       }
+    }
+  }
+
+  @keyframes mymove {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
     }
   }
 `;
