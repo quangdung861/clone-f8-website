@@ -6,6 +6,7 @@ import courseReducer from "redux/user/reducers/course.reducer";
 import postReducer from "redux/user/reducers/post.reducer";
 import videoReducer from "redux/user/reducers/video.reducer";
 import blogReducer from "redux/user/reducers/blog.reducer";
+import searchReducer from "redux/user/reducers/search.reducer";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -15,6 +16,7 @@ const store = configureStore({
     postReducer,
     videoReducer,
     blogReducer,
+    searchReducer,
   },
   middleware: (getDefaultMiddleware) => [
     ...getDefaultMiddleware({ thunk: false, serializableCheck: false }),
