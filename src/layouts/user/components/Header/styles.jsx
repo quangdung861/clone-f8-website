@@ -28,10 +28,11 @@ export const Wrapper = styled.div`
     }
     .navbar-center {
       flex: 1;
+      z-index: 3;
       .box-search {
         width: 420px;
         border-radius: 20px;
-        height: 34px;
+        height: 42px;
         padding: 0px 16px 0px 8px;
         border: 2px solid #e8e8e8;
         transition: border-color 0.2s ease-in-out;
@@ -42,7 +43,7 @@ export const Wrapper = styled.div`
           display: none;
           position: absolute;
           left: 0;
-          top: 42px;
+          top: 50px;
           width: 100%;
           max-height: calc(90vh - 66px);
           overflow: hidden;
@@ -152,6 +153,10 @@ export const Wrapper = styled.div`
           padding: 0px 8px;
           color: #929191;
         }
+        .icon-close {
+          color: #929191;
+          cursor: pointer;
+        }
         .input-search {
           height: 100%;
           width: 100%;
@@ -188,6 +193,11 @@ export const Wrapper = styled.div`
     }
   }
 
+  .modal-overlay {
+    position: fixed;
+    inset: 0 0 0 0;
+  }
+
   @media only screen and (max-width: 992px) {
     .navbar {
       .navbar-left {
@@ -208,7 +218,7 @@ export const Wrapper = styled.div`
       }
       .navbar-right {
         display: flex;
-        justify-content: center;
+        justify-content: end;
         align-items: center;
         .btn-search-mobile {
           display: block;

@@ -5,13 +5,14 @@ import { FAIL, REQUEST, SEARCH_ACTION, SUCCESS } from "../constants";
 function* getSearchListSaga(action) {
   try {
     const { params } = action.payload;
-    console.log("🚀 ~ file: search.saga.js:8 ~ function*getSearchListSaga ~ params:", params.q)
     const resultCourses = yield axios.get("http://localhost:4000/courses", {
       params: {
         ...(params.q && {
           q: params.q,
         }),
-        _limit: 3,
+        ...(params && {
+          _limit: params.limit,
+        }),
       },
     });
     const resultPosts = yield axios.get("http://localhost:4000/posts", {
@@ -19,7 +20,9 @@ function* getSearchListSaga(action) {
         ...(params.q && {
           q: params.q,
         }),
-        _limit: 3,
+        ...(params && {
+          _limit: params.limit,
+        }),
       },
     });
     const resultVideos = yield axios.get("http://localhost:4000/videos", {
@@ -27,7 +30,9 @@ function* getSearchListSaga(action) {
         ...(params.q && {
           q: params.q,
         }),
-        _limit: 3,
+        ...(params && {
+          _limit: params.limit,
+        }),
       },
     });
     yield put({

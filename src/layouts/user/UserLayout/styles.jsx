@@ -4,6 +4,7 @@ export const Wrapper = styled.div``;
 
 export const Container = styled.div`
   min-height: calc(100vh - var(--header-height));
+
   /* display: flex;
   .outlet {
     max-width: calc(100% - var(--sidebar-app-width));
@@ -25,6 +26,7 @@ export const Container = styled.div`
     }
     .oulet {
       grid-column: 1/2;
+      
     }
   }
 `;
