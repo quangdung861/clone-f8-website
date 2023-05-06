@@ -1,19 +1,30 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 
 import * as S from "./styles";
-import { Link, useNavigate } from "react-router-dom";
+import {
+  Link,
+  useNavigate,
+  useLocation,
+  useNavigation,
+} from "react-router-dom";
 
 import { ROUTES } from "constants/routes";
 import { useDispatch, useSelector } from "react-redux";
 import { getSearchListAction } from "redux/user/actions";
 
+import { MyContext } from "App";
+
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { searchList } = useSelector((state) => state.searchReducer);
-  console.log("🚀 ~ file: index.jsx:14 ~ Header ~ searchList:", searchList);
   const [keyword, setKeyword] = useState("");
   const inputRef = useRef(null);
+  const { pathname } = useLocation();
+
+  const { isBoxSearch } = useContext(MyContext);
+
+  const [isOverlayModal, setIsOverlayModal] = useState(false);
 
   useEffect(() => {
     if (keyword.length > 1) {
@@ -21,6 +32,7 @@ const Header = () => {
         getSearchListAction({
           params: {
             q: keyword,
+            limit: 3,
           },
         })
       );
@@ -35,12 +47,28 @@ const Header = () => {
     }
   }, [keyword]);
 
-  const handleBlurSearch = () => {
-    setKeyword("");
-  };
+  useEffect(() => {
+    if (inputRef.current) {
+      setKeyword("");
+      inputRef.current.value = "";
+    }
+    setIsOverlayModal(false);
+  }, [pathname]);
 
   const handleFocusSearch = (e) => {
+    setIsOverlayModal(true);
     setKeyword(e.target.value);
+  };
+
+  const handleOverlayModal = () => {
+    setKeyword("");
+    setIsOverlayModal(false);
+  };
+
+  const handleCloseSearch = () => {
+    inputRef.current.value = "";
+    setKeyword("");
+    setIsOverlayModal(false);
   };
 
   const renderCourses = () => {
@@ -57,7 +85,13 @@ const Header = () => {
         <div className="content-item">
           <div className="result-header">
             <h4 className="result-header__left">Khoá học</h4>
-            <div className="result-header__right">Xem thêm</div>
+            <Link
+              className="result-header__right"
+              state={{ category: "courses", keyword }}
+              to={ROUTES.USER.SEARCH}
+            >
+              Xem thêm
+            </Link>
           </div>
           <div className="result-list">{courses}</div>
         </div>
@@ -79,7 +113,13 @@ const Header = () => {
         <div className="content-item">
           <div className="result-header">
             <h4 className="result-header__left">Bài viết</h4>
-            <div className="result-header__right">Xem thêm</div>
+            <Link
+              className="result-header__right"
+              state={{ category: "posts", keyword }}
+              to={ROUTES.USER.SEARCH}
+            >
+              Xem thêm
+            </Link>
           </div>
           <div className="result-list">{posts}</div>
         </div>
@@ -100,8 +140,14 @@ const Header = () => {
       return (
         <div className="content-item">
           <div className="result-header">
-            <h4 className="result-header__left">Videos</h4>
-            <div className="result-header__right">Xem thêm</div>
+            <h4 className="result-header__left">Video</h4>
+            <Link
+              className="result-header__right"
+              state={{ category: "videos", keyword }}
+              to={ROUTES.USER.SEARCH}
+            >
+              Xem thêm
+            </Link>
           </div>
           <div className="result-list">{videos}</div>
         </div>
@@ -123,63 +169,80 @@ const Header = () => {
           />
           <h4>Học Lập Trình Để Đi Làm</h4>
         </div>
-        <div className="navbar-center">
-          <div className="box-search">
-            <i className="fa-solid fa-magnifying-glass icon-search"></i>
-            <input
-              className="input-search"
-              placeholder="Tìm kiếm khóa học, bài viết , video, ..."
-              onChange={(e) => setKeyword(e.target.value)}
-              onBlur={() => handleBlurSearch()}
-              onFocus={(e) => handleFocusSearch(e)}
-              ref={inputRef}
-            />
-            <div
-              className={
-                !keyword
-                  ? "container-search-result"
-                  : "container-search-result  container-search-result--active"
-              }
-            >
-              <div className="top">
-                {!searchList.loading ? (
-                  <i
-                    className="fa-solid fa-magnifying-glass icon-search"
-                    style={{ fontSize: "14px" }}
-                  ></i>
-                ) : (
-                  <i className="fa-solid fa-spinner icon-spin--active"></i>
-                )}
+        {isBoxSearch && (
+          <div className="navbar-center">
+            <div className="box-search">
+              <i className="fa-solid fa-magnifying-glass icon-search"></i>
+              <input
+                className="input-search"
+                placeholder="Tìm kiếm khóa học, bài viết , video, ..."
+                onChange={(e) => setKeyword(e.target.value)}
+                onFocus={(e) => handleFocusSearch(e)}
+                ref={inputRef}
+              />
+              {inputRef.current?.value && (
+                <i
+                  class="fa-solid fa-xmark icon-close"
+                  onClick={() => handleCloseSearch()}
+                ></i>
+              )}
 
-                {searchList.loading ? (
-                  <span>Tìm '{keyword}'</span>
-                ) : !!searchList.data.courses[0] === false &&
-                  !!searchList.data.posts[0] === false &&
-                  !!searchList.data.videos[0] === false ? (
-                  <span>Không có kết quả cho '{keyword}'</span>
-                ) : (
-                  <span>Kết quả cho '{keyword}'</span>
-                )}
-              </div>
-              <div className="center">
-                <div className="content-list">
-                  {renderCourses()}
-                  {/*  */}
-                  {renderPosts()}
-                  {/*  */}
-                  {renderVideos()}
+              <div
+                className={
+                  !keyword
+                    ? "container-search-result"
+                    : "container-search-result  container-search-result--active"
+                }
+              >
+                <div className="top">
+                  {!searchList.loading ? (
+                    <i
+                      className="fa-solid fa-magnifying-glass icon-search"
+                      style={{ fontSize: "14px" }}
+                    ></i>
+                  ) : (
+                    <i className="fa-solid fa-spinner icon-spin--active"></i>
+                  )}
+
+                  {searchList.loading ? (
+                    <span>Tìm '{keyword}'</span>
+                  ) : !!searchList.data.courses[0] === false &&
+                    !!searchList.data.posts[0] === false &&
+                    !!searchList.data.videos[0] === false ? (
+                    <span>Không có kết quả cho '{keyword}'</span>
+                  ) : (
+                    <span>Kết quả cho '{keyword}'</span>
+                  )}
+                </div>
+                <div className="center">
+                  <div className="content-list">
+                    {renderCourses()}
+                    {/*  */}
+                    {renderPosts()}
+                    {/*  */}
+                    {renderVideos()}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
+
         <div className="navbar-right">
-          <Link className="btn-search-mobile" to={ROUTES.USER.SEARCH}>
-            <i className="fa-solid fa-magnifying-glass icon-search"></i>
-          </Link>
+          {isBoxSearch && (
+            <Link className="btn-search-mobile" to={ROUTES.USER.SEARCH}>
+              <i className="fa-solid fa-magnifying-glass icon-search"></i>
+            </Link>
+          )}
           <div className="btn-login">Đăng nhập</div>
         </div>
       </div>
+      {isOverlayModal && (
+        <div
+          onClick={() => handleOverlayModal()}
+          className="modal-overlay"
+        ></div>
+      )}
     </S.Wrapper>
   );
 };

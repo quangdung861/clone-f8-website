@@ -4,6 +4,7 @@ export const Wrapper = styled.div``;
 
 export const Container = styled.div`
   padding: 0px 40px 20px 20px;
+  max-width: 100vw;
   .image-slider {
     margin-top: 20px;
     display: grid;
@@ -15,8 +16,8 @@ export const Container = styled.div`
       border-radius: 16px;
       flex-shrink: 0;
       .box-text {
-        max-width: 640px;
-        width: 100%;
+        max-width: 100%;
+        width: 640px;
         flex-shrink: 0;
         padding-right: 32px;
         .box-title {
@@ -54,8 +55,7 @@ export const Container = styled.div`
         }
       }
       img {
-        width: 100%;
-        height: 270px;
+        height: 100%;
         object-fit: cover;
         border-radius: 12px;
       }
@@ -245,19 +245,53 @@ export const Container = styled.div`
   }
 
   @media only screen and (max-width: 992px) {
-    & {
-      padding: 0px 20px 60px 40px;
+    padding: 0px 20px 60px 40px;
+    .wrapper-content {
+      padding: 0px 0px 74px 16px;
+      .box-content {
+        .content-item {
+          width: 33.33%;
+        }
+      }
     }
   }
 
   @media only screen and (max-width: 768px) {
-    & {
-      padding: 0px 16px 60px 16px;
-    }
+    padding: 0px 16px 60px 16px;
     .image-slider {
       .next-arrow-slide,
       .prev-arrow-slide {
         display: none;
+      }
+    }
+    .wrapper-content {
+      .box-content {
+        flex-wrap: nowrap;
+        overflow: hidden;
+        overflow-x: auto;
+        &::-webkit-scrollbar {
+          -webkit-appearance: none;
+        }
+        &::-webkit-scrollbar:horizontal {
+          height: 12px;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: #ccc;
+          border-radius: 10px;
+        }
+        .content-item {
+          min-width: 35vw;
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 575px) {
+    .wrapper-content {
+      .box-content {
+        .content-item {
+          min-width: 62vw;
+        }
       }
     }
   }
