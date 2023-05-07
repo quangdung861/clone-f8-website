@@ -15,7 +15,7 @@ export const Container = styled.div`
     &__left {
       width: 66.66%;
       .content-list {
-        padding: 0 64px 44px 0px;
+        padding: 0 64px 0px 0px;
         .content-item {
           border: 2px solid #e8e8e8;
           border-radius: 16px;
@@ -85,11 +85,36 @@ export const Container = styled.div`
           }
         }
       }
-      .pagination-wrapper {
-        margin-top: 30px;
-        .pagination-pages {
+      .pagination {
+        padding: 0px 64px 44px 0px;
+        .pagination-list {
+          justify-content: end;
           display: flex;
-          .pagination-page__btn {
+          user-select: none;
+          .pagination-item {
+            margin-right: 8px;
+            .pagination-item__button {
+              border: none;
+              min-width: 32px;
+              height: 30px;
+              line-height: 30px;
+              text-align: center;
+              border-radius: 6px;
+              cursor: pointer;
+              background-color: #f0f0f0;
+              &:hover {
+                opacity: 0.9;
+              }
+            }
+            .pagination-item__button--custome {
+              background-color: transparent;
+              cursor: text;
+            }
+            .pagination-item__button--active {
+              background-color: #f05123;
+              color: white;
+              border: none;
+            }
           }
         }
       }

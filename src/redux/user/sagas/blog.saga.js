@@ -16,6 +16,11 @@ function* getBlogListSaga(action) {
       type: SUCCESS(BLOG_ACTION.GET_BLOG_LIST_ACTION),
       payload: {
         data: result.data,
+        meta: {
+          total: parseInt(result.headers["x-total-count"]),
+          page: params.page,
+          limit: params.limit,
+        },
       },
     });
   } catch (error) {
