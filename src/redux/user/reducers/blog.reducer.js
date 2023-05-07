@@ -5,6 +5,11 @@ import { REQUEST, SUCCESS, FAIL, BLOG_ACTION } from "../constants";
 const initialState = {
   blogList: {
     data: [],
+    meta: {
+      total: null,
+      page: null,
+      limit: null,
+    },
     loading: false,
     error: null,
   },
@@ -22,12 +27,13 @@ const blogReducer = createReducer(initialState, (builder) => {
       };
     })
     .addCase(SUCCESS(BLOG_ACTION.GET_BLOG_LIST_ACTION), (state, action) => {
-      const { data } = action.payload;
+      const { data, meta } = action.payload;
       return {
         ...state,
         blogList: {
           ...state.blogList,
           data,
+          meta,
           loading: false,
         },
       };

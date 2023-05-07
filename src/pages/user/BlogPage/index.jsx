@@ -1,17 +1,240 @@
-import React, { useEffect } from "react";
-import * as S from "./styles";
+import React, { useEffect, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { getBlogListAction } from "redux/user/actions";
 
+import * as S from "./styles";
+
 const BlogPage = () => {
   const dispatch = useDispatch();
   const { blogList } = useSelector((state) => state.blogReducer);
+
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const { total } = blogList.meta;
+  const paginations = Math.ceil(total / blogList.meta.limit);
+
+  const handleGetPage = (page) => {
+    setCurrentPage(page);
+  };
+
+  const renderpaginations = () => {
+    let paginationhandle = [];
+    if (paginations) {
+      if (currentPage < 5) {
+        for (let i = 1; i <= 5; i++) {
+          paginationhandle.push(
+            <li key={i} className="pagination-item">
+              <button
+                className={
+                  currentPage === i
+                    ? "pagination-item__button pagination-item__button--active"
+                    : "pagination-item__button"
+                }
+                onClick={(e) => handleGetPage(parseInt(e.target.innerHTML))}
+              >
+                {i}
+              </button>
+            </li>
+          );
+        }
+        return (
+          <ul className="pagination-list">
+            <li className="pagination-item">
+              <button
+                className="pagination-item__button"
+                onClick={() =>
+                  currentPage > 1 && setCurrentPage(currentPage - 1)
+                }
+              >
+                <i className="fa-solid fa-chevron-left"></i>
+              </button>
+            </li>
+            {paginationhandle}
+            <li className="pagination-item">
+              <button className="pagination-item__button pagination-item__button--custome">
+                <i className="fa-solid fa-ellipsis"></i>
+              </button>
+            </li>
+            <li className="pagination-item">
+              <button
+                className={
+                  currentPage === paginations
+                    ? "pagination-item__button pagination-item__button--active"
+                    : "pagination-item__button"
+                }
+                onClick={() => setCurrentPage(paginations)}
+              >
+                {paginations}
+              </button>
+            </li>
+            <li className="pagination-item">
+              <button
+                className="pagination-item__button"
+                onClick={() =>
+                  currentPage < paginations && setCurrentPage(currentPage + 1)
+                }
+              >
+                <i className="fa-solid fa-chevron-left fa-rotate-180"></i>
+              </button>
+            </li>
+          </ul>
+        );
+      }
+
+      if (currentPage >= 5 && currentPage < paginations - 4) {
+        for (let i = currentPage; i <= currentPage + 2; i++) {
+          if (i < paginations) {
+            paginationhandle.push(
+              <li key={i - 1} className="pagination-item">
+                <button
+                  className={
+                    currentPage === i - 1
+                      ? "pagination-item__button pagination-item__button--active"
+                      : "pagination-item__button"
+                  }
+                  onClick={(e) => handleGetPage(parseInt(e.target.innerHTML))}
+                >
+                  {i - 1}
+                </button>
+              </li>
+            );
+          }
+        }
+        return (
+          <ul className="pagination-list">
+            <li className="pagination-item">
+              <button
+                className="pagination-item__button"
+                onClick={() =>
+                  currentPage > 1 && setCurrentPage(currentPage - 1)
+                }
+              >
+                <i className="fa-solid fa-chevron-left"></i>
+              </button>
+            </li>
+            <li className="pagination-item">
+              <button
+                className="pagination-item__button"
+                onClick={() => setCurrentPage(1)}
+              >
+                1
+              </button>
+            </li>
+            <li className="pagination-item">
+              <button className="pagination-item__button pagination-item__button--custome">
+                <i className="fa-solid fa-ellipsis"></i>
+              </button>
+            </li>
+            {paginationhandle}
+            <li className="pagination-item">
+              <button className="pagination-item__button pagination-item__button--custome">
+                <i className="fa-solid fa-ellipsis"></i>
+              </button>
+            </li>
+            <li className="pagination-item">
+              <button
+                className={
+                  currentPage === paginations
+                    ? "pagination-item__button pagination-item__button--active"
+                    : "pagination-item__button"
+                }
+                onClick={() => setCurrentPage(paginations)}
+              >
+                {paginations}
+              </button>
+            </li>
+            <li className="pagination-item">
+              <button
+                className="pagination-item__button"
+                onClick={() =>
+                  currentPage < paginations && setCurrentPage(currentPage + 1)
+                }
+              >
+                <i className="fa-solid fa-chevron-left fa-rotate-180"></i>
+              </button>
+            </li>
+          </ul>
+        );
+      }
+
+      if (currentPage >= paginations - 4) {
+        for (let i = paginations - 4; i <= paginations; i++) {
+          paginationhandle.push(
+            <li key={i} className="pagination-item">
+              <button
+                className={
+                  currentPage === i
+                    ? "pagination-item__button pagination-item__button--active"
+                    : "pagination-item__button"
+                }
+                onClick={(e) => handleGetPage(parseInt(e.target.innerHTML))}
+              >
+                {i}
+              </button>
+            </li>
+          );
+        }
+        return (
+          <ul className="pagination-list">
+            <li className="pagination-item">
+              <button
+                className="pagination-item__button"
+                onClick={() =>
+                  currentPage > 1 && setCurrentPage(currentPage - 1)
+                }
+              >
+                <i className="fa-solid fa-chevron-left"></i>
+              </button>
+            </li>
+            <li className="pagination-item">
+              <button
+                className="pagination-item__button"
+                onClick={() => setCurrentPage(1)}
+              >
+                1
+              </button>
+            </li>
+            <li className="pagination-item">
+              <button className="pagination-item__button pagination-item__button--custome">
+                <i className="fa-solid fa-ellipsis"></i>
+              </button>
+            </li>
+            {paginationhandle}
+            <li className="pagination-item">
+              <button
+                className="pagination-item__button"
+                onClick={() =>
+                  currentPage < paginations && setCurrentPage(currentPage + 1)
+                }
+              >
+                <i className="fa-solid fa-chevron-left fa-rotate-180"></i>
+              </button>
+            </li>
+          </ul>
+        );
+      }
+    }
+  };
+
   useEffect(() => {
     dispatch(
       getBlogListAction({
         params: {
-          limit: 3,
+          limit: 4,
+          page: currentPage,
+        },
+      })
+    );
+
+    window.scrollTo(0, 0);
+  }, [currentPage]);
+
+  useEffect(() => {
+    dispatch(
+      getBlogListAction({
+        params: {
+          limit: 4,
           page: 1,
         },
       })
@@ -19,20 +242,17 @@ const BlogPage = () => {
   }, []);
 
   const renderBlogList = () => {
-    return blogList.data.map((item) => {
+    return blogList.data.map((item, index) => {
       const convertContent = item.content
         ?.slice(0, 150)
         .split(" ")
         .slice(0, item.content.slice(0, 140).split(" ").length - 1)
         .join(" ");
       return (
-        <div className="content-item">
+        <div className="content-item" key={index}>
           <div className="content-item__top">
             <div className="left">
-              <img
-                src={item.user.avatar}
-                alt=""
-              />
+              <img src={item.user.avatar} alt="" />
               <span>{item.user.fullName}</span>
             </div>
             <div className="right">
@@ -64,6 +284,7 @@ const BlogPage = () => {
       );
     });
   };
+
   return (
     <S.Wrapper>
       <S.Container>
@@ -77,13 +298,9 @@ const BlogPage = () => {
         <div className="container">
           <div className="container__left">
             <div className="content-list">{renderBlogList()}</div>
-            {/* <div className="pagination-wrapper">
-              <div className="pagination-pages">
-                <div className="pagiation-page__btn">1</div>
-                <div className="pagiation-page__btn">2</div>
-                <div className="pagiation-page__btn">3</div>
-              </div>
-            </div> */}
+            <div className="pagination">
+              <ul className="pagination-list">{renderpaginations()}</ul>
+            </div>
           </div>
 
           <div className="container__right">
