@@ -32,6 +32,9 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
 
+  --header-height: 65px;
+  --sidebar-app-width: 96px;
+
   &::-webkit-scrollbar {
     -webkit-appearance: none;
   }
