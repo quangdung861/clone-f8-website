@@ -289,7 +289,7 @@ const BlogPage = () => {
   return (
     <S.Wrapper>
       <S.Container>
-        <div className="header" style={{ marginBottom: "80px" }}>
+        <div className="header">
           <h1 style={{ fontWeight: "900" }}>Bài viết nổi bật</h1>
           <p style={{ maxWidth: "840px" }}>
             Tổng hợp các bài viết chia sẻ về kinh nghiệm tự học lập trình online

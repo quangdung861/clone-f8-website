@@ -6,9 +6,9 @@ const LearningPathsPage = () => {
   return (
     <S.Wrapper>
       <S.Container>
-        <div style={{marginBottom: "80px"}}>
+        <div style={{ marginBottom: "80px" }}>
           <h1 style={{ fontWeight: "900" }}>Lộ trình học</h1>
-          <p style={{maxWidth: "840px"}}>
+          <p style={{ maxWidth: "840px" }}>
             Để bắt đầu một cách thuận lợi, bạn nên tập trung vào một lộ trình
             học. Ví dụ: Để đi làm với vị trí "Lập trình viên Front-end bạn nên
             tập trung vào lộ trình "Front-end".
@@ -32,13 +32,15 @@ const LearningPathsPage = () => {
                 />
               </div>
             </div>
-            <div>
-              <div className="--btn-default">Xem chi tiết</div>
+            <div className="content-bottom">
+              <div className="--btn-default --btn-default--custome">
+                Xem chi tiết
+              </div>
             </div>
           </div>
           <div className="section-right">
             <div className="content">
-              <div className="content-right">
+              <div className="content-left">
                 <h2>Lộ trình học Front-end</h2>
                 <p>
                   Trái với Front-end thì lập trình viên Back-end là người làm
@@ -53,8 +55,10 @@ const LearningPathsPage = () => {
                 />
               </div>
             </div>
-            <div>
-              <div className="--btn-default">Xem chi tiết</div>
+            <div className="content-bottom">
+              <div className="--btn-default --btn-default--custome">
+                Xem chi tiết
+              </div>
             </div>
           </div>
         </div>

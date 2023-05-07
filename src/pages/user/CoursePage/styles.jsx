@@ -4,6 +4,7 @@ export const Wrapper = styled.div``;
 
 export const Container = styled.div`
   padding: 0px 40px 20px 20px;
+  max-width: 100vw;
 
   .wrapper-content {
     margin-top: 70px;
@@ -110,7 +111,8 @@ export const Container = styled.div`
       &__left {
         grid-column: 1/2;
         align-self: center;
-        width: 400px;
+        max-width: 400px;
+        width: 100%;
         .--btn-default--custome {
           border: 2px solid #292929;
           color: #292929;
@@ -127,26 +129,67 @@ export const Container = styled.div`
         align-self: center;
         justify-self: right;
         > img {
-          width: 420px;
+          max-width: 420px;
+          width: 100%;
         }
       }
     }
   }
 
   @media only screen and (max-width: 992px) {
-    & {
-      padding: 0px 20px 60px 40px;
+    padding: 0px 20px 60px 40px;
+    .wrapper-content {
+      .box-content {
+        .content-item {
+          width: 33.33%;
+        }
+      }
     }
   }
 
   @media only screen and (max-width: 768px) {
-    & {
-      padding: 0px 16px 60px 16px;
+    padding: 0;
+    .wrapper-content {
+      padding: 0px 16px 60px;
+      .box-content {
+        flex-wrap: nowrap;
+        overflow: hidden;
+        overflow-x: auto;
+        &::-webkit-scrollbar {
+          -webkit-appearance: none;
+        }
+        &::-webkit-scrollbar:horizontal {
+          height: 12px;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: #ccc;
+          border-radius: 10px;
+        }
+        .content-item {
+          min-width: 35vw;
+        }
+      }
+      .section-suggest {
+        &__left {
+          grid-column: 1/3;
+          max-width: 100%;
+          .--btn-default--custome {
+            width: 100%;
+          }
+        }
+        &__right {
+          display: none;
+        }
+      }
     }
-    .image-slider {
-      .next-arrow-slide,
-      .prev-arrow-slide {
-        display: none;
+  }
+
+  @media only screen and (max-width: 576px) {
+    .wrapper-content {
+      .box-content {
+        .content-item {
+          min-width: 62vw;
+        }
       }
     }
   }
