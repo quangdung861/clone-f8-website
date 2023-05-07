@@ -286,7 +286,7 @@ export const Container = styled.div`
     }
   }
 
-  @media only screen and (max-width: 575px) {
+  @media only screen and (max-width: 576px) {
     .wrapper-content {
       .box-content {
         .content-item {

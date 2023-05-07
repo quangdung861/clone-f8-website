@@ -1,17 +1,18 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
-  padding: 0px 40px 0px 20px;
-`;
+export const Wrapper = styled.div``;
 
 export const Container = styled.div`
-  padding: 8px 44px 0px;
+  padding: 8px 88px 20px;
   margin: 0px 0px 60px;
-
+  .header {
+    margin-bottom: 80px;
+  }
   .container {
     display: flex;
     align-items: start;
     position: relative;
+
     &__left {
       width: 66.66%;
       .content-list {
@@ -151,6 +152,54 @@ export const Container = styled.div`
           &:hover {
             cursor: pointer;
             opacity: 0.9;
+          }
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 992px) {
+    padding: 8px 24px 20px;
+    .header {
+      margin-bottom: 20px;
+    }
+    .container {
+      flex-direction: column-reverse;
+      &__left {
+        width: 100%;
+        .content-list {
+          padding-right: 0;
+        }
+        .pagination {
+          padding: 0;
+          .pagination-list {
+            justify-content: center;
+          }
+        }
+      }
+      &__right {
+        width: 100%;
+        margin-bottom: 12px;
+        padding-left: 0;
+        .box-image {
+          display: none;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    padding: 8px 12px 20px;
+    .container {
+      &__left {
+        .content-list {
+          .content-item {
+            .content-item__center {
+              flex-direction: column-reverse;
+              align-items: start;
+              .right {
+                margin-top: 16px;
+              }
+            }
           }
         }
       }
