@@ -12,6 +12,7 @@ import SearchPage from "pages/user/SearchPage";
 import LearningPathsPage from "pages/user/LearningPathsPage";
 import CoursesPage from "pages/user/CoursePage";
 import BlogPage from "pages/user/BlogPage";
+import NotFoundPage from "pages/user/NotFoundPage";
 
 export const MyContext = createContext();
 
@@ -40,6 +41,7 @@ function App() {
           <Route path={ROUTES.USER.COURSES} element={<CoursesPage />} />
           <Route path={ROUTES.USER.BLOG} element={<BlogPage />} />
         </Route>
+        <Route path={ROUTES.NOT_FOUND} element={<NotFoundPage />} />
       </Routes>
     </MyContext.Provider>
   );

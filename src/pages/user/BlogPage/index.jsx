@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { getBlogListAction } from "redux/user/actions";
+import { PAGINATE } from "constants/paginate";
 
 import * as S from "./styles";
 
@@ -221,7 +222,7 @@ const BlogPage = () => {
     dispatch(
       getBlogListAction({
         params: {
-          limit: 4,
+          limit: PAGINATE.BLOG,
           page: currentPage,
         },
       })
@@ -234,7 +235,7 @@ const BlogPage = () => {
     dispatch(
       getBlogListAction({
         params: {
-          limit: 4,
+          limit: PAGINATE.BLOG,
           page: 1,
         },
       })

@@ -6,4 +6,5 @@ export const ROUTES = {
     COURSES: "/courses",
     BLOG: "/blog",
   },
+  NOT_FOUND: "*",
 };
