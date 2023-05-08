@@ -25,6 +25,24 @@ export const Wrapper = styled.div`
         margin-right: 16px;
         cursor: pointer;
       }
+      .btn-back {
+        padding: 8px 8px;
+        font-size: 12px;
+        font-weight: 500;
+        color: #808990;
+        cursor: pointer;
+        &:hover {
+          .btn-back__icon {
+            transform: translate(-4px, 0);
+          }
+        }
+        .btn-back__icon {
+          margin-right: 4px;
+          transition: transform 0.2s ease;
+        }
+        .btn-back__text {
+        }
+      }
     }
     .navbar-center {
       flex: 1;
