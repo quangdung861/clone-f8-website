@@ -21,6 +21,12 @@ const Header = () => {
   const [keyword, setKeyword] = useState("");
   const inputRef = useRef(null);
   const { pathname } = useLocation();
+  console.log("🚀 ~ file: index.jsx:24 ~ Header ~ pathname:", pathname);
+
+  const pathnameFinal = pathname.split("/");
+  const newPathnameFinal = pathnameFinal
+    .slice(0, pathnameFinal.length - 1)
+    .join("/");
 
   const { isBoxSearch } = useContext(MyContext);
 
@@ -167,7 +173,17 @@ const Header = () => {
             alt=""
             onClick={() => navigate(ROUTES.USER.HOME)}
           />
-          <h4>Học Lập Trình Để Đi Làm</h4>
+          {pathname !== "/" ? (
+            <div
+              className="btn-back"
+              onClick={() => navigate(newPathnameFinal)}
+            >
+              <i className="fa-solid fa-chevron-left btn-back__icon"></i>
+              <span className="btn-back__text">QUAY LẠI</span>
+            </div>
+          ) : (
+            <h4>Học Lập Trình Để Đi Làm</h4>
+          )}
         </div>
         {isBoxSearch && (
           <div className="navbar-center">
