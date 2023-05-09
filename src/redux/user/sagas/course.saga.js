@@ -30,7 +30,7 @@ function* getCourseProListSaga(action) {
 
 function* getCourseFreeListSaga(action) {
   try {
-    const result = yield axios.get(`${API.DEPLOY}/courses", {
+    const result = yield axios.get(`${API.DEPLOY}/courses`, {
       params: {
         fee: false,
       },
