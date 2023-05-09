@@ -24,18 +24,15 @@ body {
     text-decoration: none;
     color: inherit;
   }
-
-  overflow-x: hidden;
   
+  overflow-x: hidden;
 }
 
 :root {
-  box-sizing: border-box;
-  overflow-y: auto;
-
   --header-height: 65px;
   --sidebar-app-width: 96px;
 
+  overflow-y: auto;
   &::-webkit-scrollbar {
     -webkit-appearance: none;
   }
