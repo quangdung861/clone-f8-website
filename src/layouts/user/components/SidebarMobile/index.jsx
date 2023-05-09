@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -12,6 +12,10 @@ const SidebarMobile = ({ isShowSidebarMobile, setIsShowSidebarMobile }) => {
   const [showDropdown2nd, setShowDropdown2nd] = useState();
 
   const firstPathName = "/" + pathname.split("/")[1];
+
+  useEffect(() => {
+    setIsShowSidebarMobile(null)
+  }, [firstPathName])
 
   return (
     <S.Wrapper>

@@ -331,6 +331,7 @@ export const Container = styled.div`
 
   @media only screen and (max-width: 576px) {
     .wrapper-content {
+      padding: 0px 0px 74px 0px;
       .box-content {
         .content-item {
           min-width: 62vw;
