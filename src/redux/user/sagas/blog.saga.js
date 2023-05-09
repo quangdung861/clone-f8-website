@@ -5,7 +5,7 @@ import { REQUEST, SUCCESS, FAIL, BLOG_ACTION } from "../constants";
 function* getBlogListSaga(action) {
   try {
     const { params } = action.payload;
-    const result = yield axios.get("http://localhost:4000/blogs", {
+    const result = yield axios.get("https://f8-server-ih5gftkoe-quangdung861.vercel.app/blogs", {
       params: {
         _limit: params.limit,
         _page: params.page,
