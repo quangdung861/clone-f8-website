@@ -150,6 +150,28 @@ export const Container = styled.div`
     .box-header {
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      .box-header__right {
+        color: #f05123;
+        font-weight: 500;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        > span {
+          margin-right: 4px;
+        }
+        > i {
+          transition: transform 0.3s ease;
+        }
+        &:hover {
+          > span {
+            text-decoration: underline;
+          }
+          > i {
+            transform: translateX(4px);
+          }
+        }
+      }
       .title {
         font-size: 24px;
         font-weight: 900;
@@ -166,6 +188,7 @@ export const Container = styled.div`
         text-transform: uppercase;
       }
     }
+
     .box-content {
       display: flex;
       flex-wrap: wrap;

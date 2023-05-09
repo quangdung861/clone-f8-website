@@ -336,7 +336,7 @@ const HomePage = () => {
                 justifyContent: "space-between",
                 alignItems: "center",
                 padding: "16px",
-                zIndex: "1"
+                zIndex: "1",
               }}
             >
               <div
@@ -360,7 +360,7 @@ const HomePage = () => {
                   color: "#fff",
                   borderRadius: "20px",
                   border: "2px solid #fff",
-                  padding: "6px 14px"
+                  padding: "6px 14px",
                 }}
               >
                 03:15
@@ -389,7 +389,10 @@ const HomePage = () => {
               {item.likes}
             </div>
             <div className="comments" style={{ marginRight: "24px" }}>
-              <i className="fa-solid fa-comment" style={{ marginRight: "8px" }}></i>
+              <i
+                className="fa-solid fa-comment"
+                style={{ marginRight: "8px" }}
+              ></i>
               {item.comments}
             </div>
           </div>
@@ -416,14 +419,26 @@ const HomePage = () => {
           </p>
           <div className="box-header">
             <h2 className="title">Khóa học miễn phí</h2>
+            <Link className="box-header__right">
+              <span>Xem lộ trình</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </Link>
           </div>
           <div className="box-content">{renderCourseFreeList()}</div>
           <div className="box-header">
             <h2 className="title">Bài viết nổi bật</h2>
+            <Link className="box-header__right">
+              <span>Xem tất cả</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </Link>
           </div>
           <div className="box-content">{renderPostList()}</div>
           <div className="box-header">
             <h2 className="title">Videos nổi bật</h2>
+            <Link className="box-header__right">
+              <span>Xem tất cả</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </Link>
           </div>
           <div className="box-content">{renderVideoList()}</div>
         </div>
