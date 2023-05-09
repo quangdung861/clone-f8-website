@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getSearchListAction } from "redux/user/actions";
 
 import { MyContext } from "App";
+import SidebarMobile from "../SidebarMobile";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -21,7 +22,6 @@ const Header = () => {
   const [keyword, setKeyword] = useState("");
   const inputRef = useRef(null);
   const { pathname } = useLocation();
-  console.log("🚀 ~ file: index.jsx:24 ~ Header ~ pathname:", pathname);
 
   const pathnameFinal = pathname.split("/");
   const newPathnameFinal = pathnameFinal
@@ -31,6 +31,8 @@ const Header = () => {
   const { isBoxSearch } = useContext(MyContext);
 
   const [isOverlayModal, setIsOverlayModal] = useState(false);
+
+  const [isShowSidebarMobile, setIsShowSidebarMobile] = useState(null);
 
   useEffect(() => {
     if (keyword.length > 1) {
@@ -173,6 +175,10 @@ const Header = () => {
             alt=""
             onClick={() => navigate(ROUTES.USER.HOME)}
           />
+          <i
+            className="fa-solid fa-bars icon-menu-mobile"
+            onClick={() => setIsShowSidebarMobile(true)}
+          ></i>
           {pathname !== "/" ? (
             <div
               className="btn-back"
@@ -198,7 +204,7 @@ const Header = () => {
               />
               {inputRef.current?.value && (
                 <i
-                  class="fa-solid fa-xmark icon-close"
+                  className="fa-solid fa-xmark icon-close"
                   onClick={() => handleCloseSearch()}
                 ></i>
               )}
@@ -259,6 +265,10 @@ const Header = () => {
           className="modal-overlay"
         ></div>
       )}
+      <SidebarMobile
+        setIsShowSidebarMobile={setIsShowSidebarMobile}
+        isShowSidebarMobile={isShowSidebarMobile}
+      />
     </S.Wrapper>
   );
 };

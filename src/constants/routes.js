@@ -2,9 +2,9 @@ export const ROUTES = {
   USER: {
     HOME: "/",
     SEARCH: "/search",
-    LEARNING_PATHS: "/learning-paths",
+    LEARNING_PATHS: "/learning-paths/:id",
     COURSES: "/courses",
-    BLOG: "/blog",
+    BLOG: "/blogs",
   },
   NOT_FOUND: "*",
 };

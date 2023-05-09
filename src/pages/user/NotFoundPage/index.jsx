@@ -39,7 +39,7 @@ const NotFoundPage = () => {
             </button>
           </Link>
           <div className="content__footer">
-            <i class="fa-regular fa-copyright"></i>&nbsp; 2018 - 2023 F8. Nền
+            <i className="fa-regular fa-copyright"></i>&nbsp; 2018 - 2023 F8. Nền
             tảng học lập trình hàng đầu Việt Nam
           </div>
         </div>
