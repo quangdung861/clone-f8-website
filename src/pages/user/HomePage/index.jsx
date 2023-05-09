@@ -13,6 +13,7 @@ import {
 } from "redux/user/actions";
 
 import * as S from "./styles";
+import { ROUTES } from "constants/routes";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -419,7 +420,7 @@ const HomePage = () => {
           </p>
           <div className="box-header">
             <h2 className="title">Khóa học miễn phí</h2>
-            <Link className="box-header__right">
+            <Link className="box-header__right" to={ROUTES.USER.LEARNING_PATHS}>
               <span>Xem lộ trình</span>
               <i class="fa-solid fa-angle-right"></i>
             </Link>
@@ -427,7 +428,7 @@ const HomePage = () => {
           <div className="box-content">{renderCourseFreeList()}</div>
           <div className="box-header">
             <h2 className="title">Bài viết nổi bật</h2>
-            <Link className="box-header__right">
+            <Link className="box-header__right" to={ROUTES.USER.BLOG}>
               <span>Xem tất cả</span>
               <i class="fa-solid fa-angle-right"></i>
             </Link>

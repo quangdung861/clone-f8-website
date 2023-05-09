@@ -288,6 +288,11 @@ export const Container = styled.div`
       }
     }
     .wrapper-content {
+      .box-header {
+        .box-header__right {
+          display: none;
+        }
+      }
       .box-content {
         flex-wrap: nowrap;
         overflow: hidden;

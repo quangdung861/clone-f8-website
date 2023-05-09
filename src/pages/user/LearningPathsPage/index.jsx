@@ -41,7 +41,7 @@ const LearningPathsPage = () => {
           <div className="section-right">
             <div className="content">
               <div className="content-left">
-                <h2>Lộ trình học Front-end</h2>
+                <h2>Lộ trình học Back-end</h2>
                 <p>
                   Trái với Front-end thì lập trình viên Back-end là người làm
                   việc với dữ liệu, công việc thường nặng tính logic hơn. Chúng
