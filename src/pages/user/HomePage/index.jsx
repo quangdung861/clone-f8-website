@@ -175,7 +175,7 @@ const HomePage = () => {
   };
 
   const renderCourseProList = () => {
-    return courseProList.data.map((item) => {
+    return courseProList.data?.map((item) => {
       return (
         <div
           className="content-item"
