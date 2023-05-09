@@ -3,9 +3,11 @@ import axios from "axios";
 
 import { REQUEST, SUCCESS, FAIL, COURSE_ACTION } from "../constants";
 
+import { API } from "constants/api";
+
 function* getCourseProListSaga(action) {
   try {
-    const result = yield axios.get("API.DEPLOY/courses", {
+    const result = yield axios.get(`${API.DEPLOY}/courses`, {
       params: {
         fee: true,
       },
@@ -28,7 +30,7 @@ function* getCourseProListSaga(action) {
 
 function* getCourseFreeListSaga(action) {
   try {
-    const result = yield axios.get("API.DEPLOY/courses", {
+    const result = yield axios.get(`${API.DEPLOY}/courses", {
       params: {
         fee: false,
       },

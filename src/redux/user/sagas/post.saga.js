@@ -3,10 +3,12 @@ import axios from "axios";
 
 import { REQUEST, SUCCESS, FAIL, POST_ACTION } from "../constants";
 
+import { API } from "constants/api";
+
 function* getPostListSaga(action) {
   try {
     const { limit } = action.payload;
-    const result = yield axios.get("API.DEPLOY/posts", {
+    const result = yield axios.get(`${API.DEPLOY}/posts`, {
       params: {
         _expand: "user",
         _limit: limit,

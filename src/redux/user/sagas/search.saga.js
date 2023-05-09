@@ -2,10 +2,12 @@ import { put, takeEvery, debounce } from "redux-saga/effects";
 import axios from "axios";
 import { FAIL, REQUEST, SEARCH_ACTION, SUCCESS } from "../constants";
 
+import { API } from "constants/api";
+
 function* getSearchListSaga(action) {
   try {
     const { params } = action.payload;
-    const resultCourses = yield axios.get("API.DEPLOY/courses", {
+    const resultCourses = yield axios.get(`${API.DEPLOY}/courses`, {
       params: {
         ...(params.q && {
           q: params.q,
@@ -15,7 +17,7 @@ function* getSearchListSaga(action) {
         }),
       },
     });
-    const resultPosts = yield axios.get("API.DEPLOY/posts", {
+    const resultPosts = yield axios.get(`${API.DEPLOY}/posts", {
       params: {
         ...(params.q && {
           q: params.q,
@@ -25,7 +27,7 @@ function* getSearchListSaga(action) {
         }),
       },
     });
-    const resultVideos = yield axios.get("API.DEPLOY/videos", {
+    const resultVideos = yield axios.get(`${API.DEPLOY}/videos", {
       params: {
         ...(params.q && {
           q: params.q,
