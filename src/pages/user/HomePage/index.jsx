@@ -420,7 +420,7 @@ const HomePage = () => {
         </Slider>
         <div className="wrapper-content">
           <div className="box-header">
-            <h2 className="title">Khóa học Prodsadsads</h2>
+            <h2 className="title">Khóa học</h2>
             <span className="logo">mới</span>
           </div>
           <div className="box-content">{renderCourseProList()}</div>

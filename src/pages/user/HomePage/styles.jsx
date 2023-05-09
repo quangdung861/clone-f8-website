@@ -4,6 +4,7 @@ export const Wrapper = styled.div``;
 
 export const Container = styled.div`
   padding: 0px 40px 20px 20px;
+  max-width: 100vw;
   .image-slider {
     margin-top: 20px;
     display: grid;
