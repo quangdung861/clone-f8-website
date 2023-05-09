@@ -214,7 +214,7 @@ const HomePage = () => {
             </div>
           ) : (
             <div className="sub-name">
-              <span>{item.price?.toLocaleString()}đ</span>
+              <span>{item.price && `${item.price?.toLocaleString()}đ`}</span>
             </div>
           )}
         </div>
