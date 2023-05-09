@@ -261,6 +261,11 @@ export const Wrapper = styled.div`
       }
     }
   }
+  @media only screen and (max-width: 576px) {
+    .navbar {
+      padding: 0px 16px;
+    }
+  }
 
   @keyframes mymove {
     0% {
