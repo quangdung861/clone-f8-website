@@ -4,9 +4,10 @@ export const Wrapper = styled.div``;
 export const Container = styled.div`
   .sidebar-mobile {
     display: block;
-    transform: translateX(-75vw);
+    visibility: hidden;
     position: fixed;
     inset: 0 25vw 0 0;
+    transform: translateX(-100%);
     background-color: white;
     height: 100vh;
     padding: 16px 0px 0px 16px;
@@ -136,6 +137,7 @@ export const Container = styled.div`
     animation-name: moveToRight, fadeInToRight;
     animation-duration: 0.5s;
     transform: translateX(0vw);
+    visibility: visible;
   }
 
   .sidebar-mobile--close {
@@ -147,7 +149,7 @@ export const Container = styled.div`
     background-color: rgba(0, 0, 0, 0.3);
     position: fixed;
     inset: 0 0 0 0;
-    transform: translate(-100vw);
+    transform: translate(-100%);
   }
 
   .modal-overlay-sidebar-open {
@@ -182,9 +184,11 @@ export const Container = styled.div`
   @keyframes moveToLeft {
     0% {
       transform: translateX(0vw);
+      visibility: visible;
     }
     100% {
       transform: translateX(-75vw);
+      visibility: visible;
     }
   }
 
