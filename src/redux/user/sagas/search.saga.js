@@ -5,7 +5,7 @@ import { FAIL, REQUEST, SEARCH_ACTION, SUCCESS } from "../constants";
 function* getSearchListSaga(action) {
   try {
     const { params } = action.payload;
-    const resultCourses = yield axios.get("https://f8-server-ih5gftkoe-quangdung861.vercel.app/courses", {
+    const resultCourses = yield axios.get("API.DEPLOY/courses", {
       params: {
         ...(params.q && {
           q: params.q,
@@ -15,7 +15,7 @@ function* getSearchListSaga(action) {
         }),
       },
     });
-    const resultPosts = yield axios.get("https://f8-server-ih5gftkoe-quangdung861.vercel.app/posts", {
+    const resultPosts = yield axios.get("API.DEPLOY/posts", {
       params: {
         ...(params.q && {
           q: params.q,
@@ -25,7 +25,7 @@ function* getSearchListSaga(action) {
         }),
       },
     });
-    const resultVideos = yield axios.get("https://f8-server-ih5gftkoe-quangdung861.vercel.app/videos", {
+    const resultVideos = yield axios.get("API.DEPLOY/videos", {
       params: {
         ...(params.q && {
           q: params.q,

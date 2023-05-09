@@ -6,7 +6,7 @@ import { REQUEST, SUCCESS, FAIL, POST_ACTION } from "../constants";
 function* getPostListSaga(action) {
   try {
     const { limit } = action.payload;
-    const result = yield axios.get("https://f8-server-ih5gftkoe-quangdung861.vercel.app/posts", {
+    const result = yield axios.get("API.DEPLOY/posts", {
       params: {
         _expand: "user",
         _limit: limit,

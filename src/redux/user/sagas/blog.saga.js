@@ -2,10 +2,12 @@ import { put, takeEvery } from "redux-saga/effects";
 import axios from "axios";
 import { REQUEST, SUCCESS, FAIL, BLOG_ACTION } from "../constants";
 
+import { API } from "constants/api";
+
 function* getBlogListSaga(action) {
   try {
     const { params } = action.payload;
-    const result = yield axios.get("https://f8-server-ih5gftkoe-quangdung861.vercel.app/blogs", {
+    const result = yield axios.get("API.DEPLOY/blogs", {
       params: {
         _limit: params.limit,
         _page: params.page,

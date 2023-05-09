@@ -6,7 +6,7 @@ import { REQUEST, SUCCESS, FAIL, VIDEO_ACTION } from "../constants";
 function* getVideoListSaga(action) {
   try {
     const { limit } = action.payload;
-    const result = yield axios.get("https://f8-server-ih5gftkoe-quangdung861.vercel.app/videos", {
+    const result = yield axios.get("API.DEPLOY/videos", {
       params: {
         _limit: limit,
       },
