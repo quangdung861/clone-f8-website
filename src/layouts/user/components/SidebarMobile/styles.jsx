@@ -87,6 +87,7 @@ export const Container = styled.div`
               align-items: center;
               > i {
                 margin-left: 120px;
+                margin-right: 12px;
               }
             }
           }
