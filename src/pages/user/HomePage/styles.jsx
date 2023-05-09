@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+`;
 
 export const Container = styled.div`
   padding: 0px 40px 20px 20px;
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
+  width: 100vw;
   .image-slider {
     margin-top: 20px;
     display: grid;
