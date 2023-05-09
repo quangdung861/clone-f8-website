@@ -5,7 +5,7 @@ import { REQUEST, SUCCESS, FAIL, COURSE_ACTION } from "../constants";
 
 function* getCourseProListSaga(action) {
   try {
-    const result = yield axios.get("http://localhost:4000/courses", {
+    const result = yield axios.get("https://f8-server-ih5gftkoe-quangdung861.vercel.app/courses", {
       params: {
         fee: true,
       },
@@ -28,7 +28,7 @@ function* getCourseProListSaga(action) {
 
 function* getCourseFreeListSaga(action) {
   try {
-    const result = yield axios.get("http://localhost:4000/courses", {
+    const result = yield axios.get("https://f8-server-ih5gftkoe-quangdung861.vercel.app/courses", {
       params: {
         fee: false,
       },
