@@ -25,11 +25,20 @@ export const Wrapper = styled.div`
         margin-right: 16px;
         cursor: pointer;
       }
+      .icon-menu-mobile {
+        display: none;
+        font-size: 24px;
+        color: #808990;
+        cursor: pointer;
+        padding: 4px;
+      }
       .btn-back {
+        min-width: 90px;
         padding: 8px 8px;
         font-size: 12px;
         font-weight: 500;
         color: #808990;
+        margin-left: 4px;
         cursor: pointer;
         &:hover {
           .btn-back__icon {
@@ -229,6 +238,14 @@ export const Wrapper = styled.div`
 
   @media only screen and (max-width: 768px) {
     .navbar {
+      .navbar-left {
+        .img-logo {
+          display: none;
+        }
+        .icon-menu-mobile {
+          display: block;
+        }
+      }
       .navbar-center {
         .box-search {
           display: none;
