@@ -206,7 +206,17 @@ const HomePage = () => {
               {item.name}
             </Link>
           </h3>
-          <div className="sub-name">{item.price}</div>
+
+          {item.priceAfterDiscount ? (
+            <div className="sub-name">
+              <span className="price-cancel">{item.price.toLocaleString()}đ</span>
+              <span className="discount-price">{item.priceAfterDiscount.toLocaleString()}đ</span>
+            </div>
+          ) : (
+            <div className="sub-name">
+              <span>{item.price?.toLocaleString()}đ</span>
+            </div>
+          )}
         </div>
       );
     });

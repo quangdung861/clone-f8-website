@@ -262,6 +262,21 @@ export const Container = styled.div`
         }
         .sub-name {
           margin: 12px 0px;
+          display: flex;
+          align-items: end;
+          .price-cancel {
+            text-decoration: line-through;
+            margin-right: 8px;
+          }
+          .discount-price {
+            font-weight: 500;
+            color: #f05123;
+            font-size: 16px;
+          }
+          .price {
+            font-weight: 500;
+            font-size: 16px;
+          }
         }
       }
     }
