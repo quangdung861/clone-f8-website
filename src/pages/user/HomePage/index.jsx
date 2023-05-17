@@ -432,7 +432,7 @@ const HomePage = () => {
             <h2 className="title">Khóa học miễn phí</h2>
             <Link className="box-header__right" to={ROUTES.USER.LEARNING_PATHS}>
               <span>Xem lộ trình</span>
-              <i class="fa-solid fa-angle-right"></i>
+              <i className="fa-solid fa-angle-right"></i>
             </Link>
           </div>
           <div className="box-content">{renderCourseFreeList()}</div>
@@ -440,7 +440,7 @@ const HomePage = () => {
             <h2 className="title">Bài viết nổi bật</h2>
             <Link className="box-header__right" to={ROUTES.USER.BLOG}>
               <span>Xem tất cả</span>
-              <i class="fa-solid fa-angle-right"></i>
+              <i className="fa-solid fa-angle-right"></i>
             </Link>
           </div>
           <div className="box-content">{renderPostList()}</div>
@@ -448,7 +448,7 @@ const HomePage = () => {
             <h2 className="title">Videos nổi bật</h2>
             <Link className="box-header__right">
               <span>Xem tất cả</span>
-              <i class="fa-solid fa-angle-right"></i>
+              <i className="fa-solid fa-angle-right"></i>
             </Link>
           </div>
           <div className="box-content">{renderVideoList()}</div>

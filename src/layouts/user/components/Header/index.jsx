@@ -256,7 +256,12 @@ const Header = () => {
               <i className="fa-solid fa-magnifying-glass icon-search"></i>
             </Link>
           )}
-          <div className="btn-login">Đăng nhập</div>
+          <div
+            className="btn-login"
+            onClick={() => navigate(ROUTES.USER.LOGIN)}
+          >
+            Đăng nhập
+          </div>
         </div>
       </div>
       {isOverlayModal && (

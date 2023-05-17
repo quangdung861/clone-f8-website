@@ -5,6 +5,8 @@ export const ROUTES = {
     LEARNING_PATHS: "/learning-paths",
     COURSES: "/courses",
     BLOG: "/blogs",
+    REGISTER: "/register",
+    LOGIN: "/login",
   },
   NOT_FOUND: "*",
 };
