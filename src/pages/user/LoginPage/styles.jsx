@@ -61,6 +61,12 @@ export const Container = styled.div`
                 flex: 1;
               }
             }
+            .btn-custome--disbale {
+              :hover {
+                background-color: transparent;
+              }
+              cursor: not-allowed;
+            }
           }
         }
       }
@@ -76,6 +82,16 @@ export const Container = styled.div`
       margin-top: 16px;
       letter-spacing: 1px;
     }
+  }
+
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0 0 0 0;
+  }
+
+  .modal-overlay-active {
+    display: block;
   }
 
   @media only screen and (max-width: 768px) {

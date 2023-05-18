@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
 
 import { API } from "constants/api";
-
-import { Link } from "react-router-dom";
-import { ROUTES } from "constants/routes";
+import { useNavigate, Link } from "react-router-dom";
 
 import * as S from "./styles";
 
-const FormPhoneNumber = ({
-  setRegisterWay,
+import { ROUTES } from "constants/routes";
+
+const PhoneNumberFormLogin = ({
+  setLoginWay,
   dropdownContries,
   setDropdownContries,
 }) => {
+  const navigate = useNavigate();
+
   const [contriesList, setContriesList] = useState();
   const [countriesValue, setCountriesValue] = useState("+84");
   const [keyword, setKeyword] = useState("");
@@ -52,24 +54,27 @@ const FormPhoneNumber = ({
 
   return (
     <S.Wrapper>
+      <div className="btn-back">
+        <i
+          className="fa-solid fa-chevron-left"
+          style={{
+            fontSize: "20px",
+            cursor: "pointer",
+            padding: "16px 24px 16px 0px",
+          }}
+          onClick={() => setLoginWay("")}
+        ></i>
+      </div>
       <div className="register-container">
+        <div className="login-header">
+          <img
+            src="https://accounts.fullstack.edu.vn/assets/icon/f8_icon.png"
+            alt=""
+            onClick={() => navigate(ROUTES.USER.HOME)}
+          />
+          <h1>Đăng nhập vào F8</h1>
+        </div>
         <form name="register-form-phone-number" id="register-form-phone-number">
-          <div style={{ fontWeight: "500", margin: "0px 8px 8px 8px" }}>
-            Tên của bạn?
-          </div>
-          <div className="box-fullName">
-            <input
-              type="text"
-              placeholder="Họ và tên của bạn"
-              name="fullName"
-              className="fullName"
-              required
-              maxLength="32"
-            />
-          </div>
-          <div className="error-fullname"></div>
-          {/*  */}
-
           <div
             style={{
               display: "flex",
@@ -82,7 +87,7 @@ const FormPhoneNumber = ({
             <span>Số điện thoại</span>
             <span
               style={{ cursor: "pointer" }}
-              onClick={() => setRegisterWay("email")}
+              onClick={() => setLoginWay("email")}
             >
               Đăng ký với email
             </span>
@@ -120,7 +125,7 @@ const FormPhoneNumber = ({
             <input
               type="text"
               className="confirm"
-              placeholder="Nhập mã xác minh"
+              placeholder="Nhập mã xác nhận"
               disabled
               autoComplete="off"
             />
@@ -132,13 +137,13 @@ const FormPhoneNumber = ({
             Đăng ký
           </button>
         </form>
-        <div style={{ color: "#35414c", margin: "16px", textAlign: "center" }}>
-          Bạn đã có tài khoản?{" "}
+        <div style={{ color: "#35414c" }}>
+          Bạn chưa có tài khoản?{" "}
           <Link
             style={{ color: "#f05123", fontWeight: 500 }}
-            to={ROUTES.USER.LOGIN}
+            to={ROUTES.USER.REGISTER}
           >
-            Đăng nhập
+            Đăng ký
           </Link>
         </div>
       </div>
@@ -146,4 +151,4 @@ const FormPhoneNumber = ({
   );
 };
 
-export default FormPhoneNumber;
+export default PhoneNumberFormLogin;
