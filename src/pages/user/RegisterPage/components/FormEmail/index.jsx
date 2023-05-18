@@ -208,101 +208,112 @@ const FormEmail = ({ setRegisterWay }) => {
     <S.Wrapper>
       <div className="register-container">
         {!isRegisterSuccess ? (
-          <form
-            name="register-form-email"
-            id="register-form-email"
-            onSubmit={handleSubmit}
-          >
-            <div style={{ fontWeight: "500", margin: "0px 8px 8px 8px" }}>
-              Tên của bạn?
-            </div>
-            <div className="box-fullName">
-              <input
-                type="text"
-                placeholder="Họ và tên của bạn"
-                name="fullName"
-                className="fullName"
-                onChange={(e) => handleChange(e)}
-              />
-            </div>
-            <div className="error-fullname">{formData.fullName.error}</div>
-            {/*  */}
-
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                fontWeight: "500",
-                margin: "16px 8px 8px 8px",
-              }}
+          <>
+            <form
+              name="register-form-email"
+              id="register-form-email"
+              onSubmit={handleSubmit}
             >
-              <span>Email</span>
-              <span
-                style={{ cursor: "pointer" }}
-                onClick={() => setRegisterWay("phoneNumber")}
+              <div style={{ fontWeight: "500", margin: "0px 8px 8px 8px" }}>
+                Tên của bạn?
+              </div>
+              <div className="box-fullName">
+                <input
+                  type="text"
+                  placeholder="Họ và tên của bạn"
+                  name="fullName"
+                  className="fullName"
+                  onChange={(e) => handleChange(e)}
+                />
+              </div>
+              <div className="error-fullname">{formData.fullName.error}</div>
+              {/*  */}
+
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  fontWeight: "500",
+                  margin: "16px 8px 8px 8px",
+                }}
               >
-                Đăng ký với SĐT
-              </span>
-            </div>
+                <span>Email</span>
+                <span
+                  style={{ cursor: "pointer" }}
+                  onClick={() => setRegisterWay("phoneNumber")}
+                >
+                  Đăng ký với SĐT
+                </span>
+              </div>
 
-            <div className="box-email">
-              <input
-                type="text"
-                placeholder="Địa chỉ email"
-                name="email"
-                className="email"
-                onChange={(e) => handleChange(e)}
-              />
-            </div>
-            <div className="error-fullname error-fullname--custome">
-              {formData.email.error}
-            </div>
+              <div className="box-email">
+                <input
+                  type="text"
+                  placeholder="Địa chỉ email"
+                  name="email"
+                  className="email"
+                  onChange={(e) => handleChange(e)}
+                />
+              </div>
+              <div className="error-fullname error-fullname--custome">
+                {formData.email.error}
+              </div>
 
-            <div className="box-password">
-              <input
-                type="password"
-                placeholder="Mật khẩu"
-                name="password"
-                className="password"
-                onChange={(e) => handleChange(e)}
-              />
-            </div>
-            <div className="error-fullname">{formData.password.error}</div>
+              <div className="box-password">
+                <input
+                  type="password"
+                  placeholder="Mật khẩu"
+                  name="password"
+                  className="password"
+                  onChange={(e) => handleChange(e)}
+                />
+              </div>
+              <div className="error-fullname">{formData.password.error}</div>
 
-            <div
-              style={{
-                margin: "8px 0px 20px 8px",
-                fontSize: "12px",
-                color: "#6b6f74",
-              }}
-            >
-              Gợi ý: Mật khẩu cần có ít nhất 8 ký tự
-            </div>
+              <div
+                style={{
+                  margin: "8px 0px 20px 8px",
+                  fontSize: "12px",
+                  color: "#6b6f74",
+                }}
+              >
+                Gợi ý: Mật khẩu cần có ít nhất 8 ký tự
+              </div>
 
-            <div className="box-confirm">
-              <input
-                type="text"
-                className="confirm"
-                placeholder="Nhập mã xác minh"
-                disabled
-                autoComplete="off"
-              />
-              <div className="btn-sendCode">Gửi mã</div>
-            </div>
+              <div className="box-confirm">
+                <input
+                  type="text"
+                  className="confirm"
+                  placeholder="Nhập mã xác minh"
+                  disabled
+                  autoComplete="off"
+                />
+                <div className="btn-sendCode">Gửi mã</div>
+              </div>
 
-            {/*  */}
-            <button className="btn-submit btn-submit--active" type="submit">
-              Đăng ký
-            </button>
-          </form>
+              {/*  */}
+              <button className="btn-submit btn-submit--active" type="submit">
+                Đăng ký
+              </button>
+            </form>
+            <div style={{ color: "#35414c", margin: "16px", textAlign: "center" }}>
+              Bạn đã có tài khoản?{" "}
+              <Link
+                style={{ color: "#f05123", fontWeight: 500 }}
+                to={ROUTES.USER.LOGIN}
+              >
+                Đăng nhập
+              </Link>
+            </div>
+          </>
         ) : (
           <div className="register-success">
             <i className="fa-regular fa-circle-check"></i>
             <div className="register-success-title">
-              Đăng ký tài khoản thành công,{" "}
+              Đăng ký tài khoản thành công{" "}
               <span>
-                <Link to={ROUTES.USER.LOGIN}>đăng nhập</Link>
+                <Link to={ROUTES.USER.LOGIN}>Đăng nhập</Link>
               </span>
             </div>
           </div>

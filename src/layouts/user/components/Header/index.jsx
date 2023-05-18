@@ -19,6 +19,7 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { searchList } = useSelector((state) => state.searchReducer);
+  const { userInfo } = useSelector((state) => state.userReducer);
   const [keyword, setKeyword] = useState("");
   const inputRef = useRef(null);
   const { pathname } = useLocation();
@@ -256,12 +257,15 @@ const Header = () => {
               <i className="fa-solid fa-magnifying-glass icon-search"></i>
             </Link>
           )}
-          <div
-            className="btn-login"
-            onClick={() => navigate(ROUTES.USER.LOGIN)}
-          >
-            Đăng nhập
-          </div>
+          {!userInfo.data.id && (
+            <div
+              className="btn-login"
+              onClick={() => navigate(ROUTES.USER.LOGIN)}
+            >
+              Đăng nhập
+            </div>
+          )}
+          {userInfo.data.id && <div>Logo</div>}
         </div>
       </div>
       {isOverlayModal && (

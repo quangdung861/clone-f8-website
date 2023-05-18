@@ -4,6 +4,7 @@ import postSaga from "./user/sagas/post.saga";
 import videoSaga from "./user/sagas/video.saga";
 import blogSaga from "./user/sagas/blog.saga";
 import searchSaga from "./user/sagas/search.saga";
+import userSaga from "./user/sagas/user.Saga";
 
 export default function* rootSaga() {
   yield fork(courseSaga);
@@ -11,4 +12,5 @@ export default function* rootSaga() {
   yield fork(videoSaga);
   yield fork(blogSaga);
   yield fork(searchSaga);
+  yield fork(userSaga);
 }
