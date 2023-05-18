@@ -187,6 +187,15 @@ const FormEmail = ({ setRegisterWay }) => {
         fullName: formData.fullName.value,
         email: formData.email.value,
         password: formData.password.value,
+        role: "user",
+        images: {
+          cover: {
+            url: "https://fullstack.edu.vn/static/media/cover-profile.3fb9fed576da4b28386a.png",
+          },
+          avatar: {
+            url: "https://dvdn247.net/wp-content/uploads/2020/07/avatar-mac-dinh-1.png",
+          },
+        },
       });
       if (result.data) {
         setIsRegisterSuccess(true);
@@ -297,7 +306,9 @@ const FormEmail = ({ setRegisterWay }) => {
                 Đăng ký
               </button>
             </form>
-            <div style={{ color: "#35414c", margin: "16px", textAlign: "center" }}>
+            <div
+              style={{ color: "#35414c", margin: "16px", textAlign: "center" }}
+            >
               Bạn đã có tài khoản?{" "}
               <Link
                 style={{ color: "#f05123", fontWeight: 500 }}

@@ -10,7 +10,11 @@ import {
 
 import { ROUTES } from "constants/routes";
 import { useDispatch, useSelector } from "react-redux";
-import { getSearchListAction } from "redux/user/actions";
+import {
+  getSearchListAction,
+  getUserInfoAction,
+  logoutAction,
+} from "redux/user/actions";
 
 import { MyContext } from "App";
 import SidebarMobile from "../SidebarMobile";
@@ -34,6 +38,13 @@ const Header = () => {
   const [isOverlayModal, setIsOverlayModal] = useState(false);
 
   const [isShowSidebarMobile, setIsShowSidebarMobile] = useState(null);
+
+  const [isDropdownAccount, setIsDropdownAccount] = useState(false);
+
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken");
+    dispatch(logoutAction());
+  };
 
   useEffect(() => {
     if (keyword.length > 1) {
@@ -72,6 +83,7 @@ const Header = () => {
   const handleOverlayModal = () => {
     setKeyword("");
     setIsOverlayModal(false);
+    setIsDropdownAccount(false);
   };
 
   const handleCloseSearch = () => {
@@ -265,7 +277,37 @@ const Header = () => {
               Đăng nhập
             </div>
           )}
-          {userInfo.data.id && <div>Logo</div>}
+          {userInfo.data.id && (
+            <>
+              <div
+                className="account"
+                onClick={() => {
+                  setIsOverlayModal(true);
+                  setIsDropdownAccount(true);
+                }}
+              >
+                <img src={userInfo.data?.images?.avatar?.url} alt="" />
+              </div>
+
+              {isDropdownAccount && (
+                <div className="dropdown-acount-action">
+                  <div className="dropdown-acount-action__header">
+                    <img src={userInfo.data?.images?.avatar?.url} alt="" />
+                    <span>{userInfo.data.fullName}</span>
+                  </div>
+                  <div className="dividing-line"></div>
+                  <ul className="action-list">
+                    <Link to={ROUTES.USER.ACCOUNT.PROFILE}>
+                      <li className="action-item">Trang cá nhân</li>
+                    </Link>
+                    <li className="action-item" onClick={() => handleLogout()}>
+                      Đăng xuất
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </>
+          )}
         </div>
       </div>
       {isOverlayModal && (

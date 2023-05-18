@@ -8,6 +8,7 @@ import jwtDecode from "jwt-decode";
 import UserLayout from "layouts/user/UserLayout";
 import LoginLayout from "layouts/LoginLayout";
 import RegisterLayout from "layouts/RegisterLayout";
+import AccountLayout from "layouts/AccountLayout";
 
 // Page
 import HomePage from "pages/user/HomePage";
@@ -18,8 +19,9 @@ import BlogPage from "pages/user/BlogPage";
 import NotFoundPage from "pages/user/NotFoundPage";
 import RegisterPage from "pages/user/RegisterPage";
 import LoginPage from "pages/user/LoginPage";
-import { useDispatch, useSelector } from "react-redux";
+import ProfilePage from "pages/user/ProfilePage";
 
+import { useDispatch, useSelector } from "react-redux";
 import { getUserInfoAction } from "redux/user/actions";
 
 export const MyContext = createContext();
@@ -31,7 +33,6 @@ function App() {
   const [isBoxSearch, setIsBoxSearch] = useState(true);
 
   const { userInfo } = useSelector((state) => state.userReducer);
-  console.log("🚀 ~ file: App.js:32 ~ App ~ userInfo:", userInfo);
 
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
@@ -62,6 +63,11 @@ function App() {
         </Route>
         <Route element={<LoginLayout />}>
           <Route path={ROUTES.USER.LOGIN} element={<LoginPage />} />
+        </Route>
+
+        <Route element={<AccountLayout />}>
+          <Route path="/account" element={<ProfilePage />} />
+          <Route path={ROUTES.USER.ACCOUNT.PROFILE} element={<ProfilePage />} />
         </Route>
 
         <Route element={<UserLayout />}>

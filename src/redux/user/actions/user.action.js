@@ -6,3 +6,9 @@ export const loginAction = createAction(REQUEST(USER_ACTION.LOGIN));
 export const getUserInfoAction = createAction(
   REQUEST(USER_ACTION.GET_USER_INFO)
 );
+export const updateUserInfoAction = createAction(
+  REQUEST(USER_ACTION.UPDATE_USER_INFO)
+)
+export const logoutAction = createAction(
+  REQUEST(USER_ACTION.LOGOUT)
+)

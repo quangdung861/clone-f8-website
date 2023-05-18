@@ -49,7 +49,33 @@ function* getUserInfoSaga(action) {
   }
 }
 
+function* updateUserInfoSaga(action) {
+  try {
+    const { userId, callback, ...values } = action.payload;
+    console.log(
+      "🚀 ~ file: user.Saga.js:55 ~ function*updateUserInfoSaga ~ action.payload:",
+      action.payload
+    );
+
+    yield axios.patch(`http://localhost:4000/users/${userId}`, {
+      images: values.images,
+    });
+    yield put({
+      type: REQUEST(USER_ACTION.GET_USER_INFO),
+      payload: {
+        id: userId,
+      },
+    });
+    if (callback?.resetImagePreview) {
+      yield callback.resetImagePreview();
+    }
+  } catch (error) {
+    yield console.log(error);
+  }
+}
+
 export default function* userSaga() {
   yield takeEvery(REQUEST(USER_ACTION.LOGIN), loginSaga);
   yield takeEvery(REQUEST(USER_ACTION.GET_USER_INFO), getUserInfoSaga);
+  yield takeEvery(REQUEST(USER_ACTION.UPDATE_USER_INFO), updateUserInfoSaga);
 }

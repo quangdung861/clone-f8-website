@@ -7,6 +7,9 @@ export const ROUTES = {
     BLOG: "/blogs",
     REGISTER: "/register",
     LOGIN: "/login",
+    ACCOUNT: {
+      PROFILE: "/account/profile",
+    },
   },
   NOT_FOUND: "*",
 };

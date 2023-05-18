@@ -85,10 +85,20 @@ const userReducer = createReducer(initialState, (builder) => {
       const { error } = action.payload;
       return {
         ...state,
-        userList: {
+        userInfo: {
           ...state.userInfo,
           error,
           loading: false,
+        },
+      };
+    })
+    .addCase(REQUEST(USER_ACTION.LOGOUT), (state, action) => {
+      return {
+        ...state,
+        userInfo: {
+          data: {},
+          loading: false,
+          error: null,
         },
       };
     });

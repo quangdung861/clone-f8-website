@@ -196,6 +196,65 @@ export const Wrapper = styled.div`
       flex: 1;
       display: flex;
       justify-content: end;
+      position: relative;
+      .account {
+        > img {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          overflow: hidden;
+          object-fit: cover;
+          cursor: pointer;
+          :hover {
+            opacity: 0.9;
+          }
+        }
+      }
+      .dropdown-acount-action {
+        position: absolute;
+        top: 43px;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px 20px 0px 20px;
+        max-width: 250px;
+        width: 100%;
+        user-select: none;
+        box-shadow: 0 -4px 32px rgba(0, 0, 0, 0.2);
+        animation-name: fadeIn, moveToBottom;
+        animation-duration: 0.3s;
+        z-index: 1;
+        .dividing-line {
+          border-bottom: 1px solid rgba(121, 119, 119, 0.1);
+          margin: 12px 0px;
+        }
+        .dropdown-acount-action__header {
+          display: flex;
+          align-items: center;
+          font-weight: 500;
+          font-size: 16px;
+          >img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            margin-right: 12px;
+            object-fit: cover;
+          }
+        }
+        .action-list {
+          .action-item {
+            height: 40px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            color: #7a7777;
+            cursor: pointer;
+            transition: color 0.2s ease;
+            :hover {
+              color: black;
+            }
+          }
+        }
+      }
       .btn-login {
         flex-shrink: 0;
         border-radius: 20px;
@@ -275,4 +334,23 @@ export const Wrapper = styled.div`
       transform: rotate(360deg);
     }
   }
+
+  @keyframes fadeIn{
+    0% {
+      opacity: 0.2;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes moveToBottom{
+    0% {
+      transform: translateY(-16px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
 `;
