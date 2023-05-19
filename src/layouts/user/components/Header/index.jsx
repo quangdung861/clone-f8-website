@@ -196,7 +196,7 @@ const Header = () => {
       updateNotificationAction({
         id: postId,
         status: "watched",
-        limit: limitNotification,
+        limit: limitNotification - 10,
       })
     );
   };
