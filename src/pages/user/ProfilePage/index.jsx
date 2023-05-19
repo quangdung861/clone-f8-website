@@ -9,7 +9,6 @@ import { updateUserInfoAction } from "redux/user/actions";
 
 const ProfilePage = () => {
   const { userInfo } = useSelector((state) => state.userReducer);
-  console.log("🚀 ~ file: index.jsx:12 ~ ProfilePage ~ userInfo:", userInfo);
   const dispatch = useDispatch();
   const [imgPreview, setImgPreview] = useState("");
 
@@ -51,7 +50,6 @@ const ProfilePage = () => {
       if (userInfo.data.id) {
         const file = e.target.files[0];
         const imageAvatar = convertImageToBase64(file);
-        console.log(userInfo.data.id);
         imageAvatar.then((res) => {
           dispatch(
             updateUserInfoAction({

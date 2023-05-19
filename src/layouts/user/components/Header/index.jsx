@@ -24,10 +24,6 @@ const Header = () => {
   const { notificationList } = useSelector(
     (state) => state.notificationReducer
   );
-  console.log(
-    "🚀 ~ file: index.jsx:25 ~ Header ~ notificationList:",
-    notificationList
-  );
   const [keyword, setKeyword] = useState("");
   const inputRef = useRef(null);
   const { pathname } = useLocation();

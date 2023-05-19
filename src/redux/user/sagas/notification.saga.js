@@ -15,10 +15,6 @@ function* getNotificationListSaga(action) {
         }),
       },
     });
-    console.log(
-      "🚀 ~ file: notification.saga.js:13 ~ function*getNotificationListSaga ~ result:",
-      result
-    );
     yield put({
       type: SUCCESS(NOTIFICATION_ACTION.GET_NOTIFICATION_LIST),
       payload: {
@@ -57,7 +53,6 @@ function* updateNotificationSaga(action) {
             : { _limit: 10 }),
         },
       });
-      console.log(result.data);
 
       for (let i = 0; i < result.data.length; i++) {
         yield axios.patch(`${API}/posts/${result.data[i].id}`, {
