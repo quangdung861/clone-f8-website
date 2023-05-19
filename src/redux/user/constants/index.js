@@ -5,3 +5,4 @@ export * from "./video.constant";
 export * from "./blog.constant";
 export * from "./search.constant";
 export * from "./user.constant";
+export * from "./notification";

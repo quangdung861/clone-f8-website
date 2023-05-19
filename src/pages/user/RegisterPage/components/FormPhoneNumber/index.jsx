@@ -21,7 +21,7 @@ const FormPhoneNumber = ({
   }, [keyword]);
 
   const getContriesList = (keyword) => {
-    fetch(`${API.DEV}/countries?q=${keyword}`)
+    fetch(`${API}/countries?q=${keyword}`)
       .then((res) => {
         return res.json();
       })

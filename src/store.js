@@ -8,6 +8,7 @@ import videoReducer from "redux/user/reducers/video.reducer";
 import blogReducer from "redux/user/reducers/blog.reducer";
 import searchReducer from "redux/user/reducers/search.reducer";
 import userReducer from "redux/user/reducers/user.reducer";
+import notificationReducer from "redux/user/reducers/notification.reducer";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -19,6 +20,7 @@ const store = configureStore({
     blogReducer,
     searchReducer,
     userReducer,
+    notificationReducer,
   },
   middleware: (getDefaultMiddleware) => [
     ...getDefaultMiddleware({ thunk: false, serializableCheck: false }),

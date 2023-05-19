@@ -7,7 +7,7 @@ import { API } from "constants/api";
 
 function* getCourseProListSaga(action) {
   try {
-    const result = yield axios.get(`${API.DEPLOY}/courses`, {
+    const result = yield axios.get(`${API}/courses`, {
       params: {
         fee: true,
       },
@@ -30,7 +30,7 @@ function* getCourseProListSaga(action) {
 
 function* getCourseFreeListSaga(action) {
   try {
-    const result = yield axios.get(`${API.DEPLOY}/courses`, {
+    const result = yield axios.get(`${API}/courses`, {
       params: {
         fee: false,
       },

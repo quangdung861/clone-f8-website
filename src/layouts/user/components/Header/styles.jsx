@@ -6,7 +6,8 @@ export const Wrapper = styled.div`
   left: 0px;
   top: 0px;
   background-color: #fff;
-  /* background-color: ${(props) => props.cssHeader ? props.cssHeader.backgroundColor : "#fff"}; */
+  /* background-color: ${(props) =>
+    props.cssHeader ? props.cssHeader.backgroundColor : "#fff"}; */
   z-index: 2;
   border-bottom: 1px solid #e8ebed;
   .navbar {
@@ -198,6 +199,118 @@ export const Wrapper = styled.div`
       display: flex;
       justify-content: end;
       position: relative;
+      align-items: center;
+      .notification {
+        position: relative;
+        > i {
+          cursor: pointer;
+          padding: 5px;
+          margin-right: 18px;
+          color: #727070;
+          font-size: 20px;
+        }
+        .dropdownNotification {
+          position: absolute;
+          background-color: #fff;
+          padding-top: 20px;
+          width: 100%;
+          min-width: 450px;
+          max-width: 450px;
+          z-index: 5;
+          right: 12px;
+          top: 40px;
+          box-shadow: 0 -4px 32px rgba(0, 0, 0, 0.2);
+          border-radius: 10px;
+          user-select: none;
+          animation-name: fadeIn, moveToBottom;
+          animation-duration: 0.3s;
+          .notification-header {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0px 20px;
+            > *:first-child {
+              font-size: 16px;
+              font-weight: 500;
+            }
+            > *:last-child {
+              color: #f05123;
+              display: inline-block;
+              padding: 6px;
+              border-radius: 3px;
+              user-select: none;
+              cursor: pointer;
+              :hover {
+                background-color: #f1f1f1;
+              }
+            }
+          }
+          .notification-list {
+            max-height: 450px;
+            overflow: hidden;
+            overflow-y: auto;
+            &::-webkit-scrollbar {
+              -webkit-appearance: none;
+            }
+            &::-webkit-scrollbar:vertical {
+              width: 8px;
+            }
+            &::-webkit-scrollbar-thumb {
+              background-color: #ccc;
+              border-radius: 10px;
+            }
+            .notification-item {
+              display: flex;
+              align-items: center;
+              margin: 0px 8px 8px;
+              padding: 8px 36px 8px 12px;
+              background-color: rgba(240, 81, 35, 0.1);
+              border-radius: 10px;
+              transition: all 0.1s ease;
+              cursor: pointer;
+              > img {
+                width: 40px;
+                height: 40px;
+                object-fit: cover;
+                border-radius: 50%;
+                margin-right: 12px;
+              }
+              .notification-item__box {
+                word-break: break-word;
+                .notification-item-message {
+                  > span {
+                    font-weight: 500;
+                  }
+                }
+                .notification-item-date {
+                  color: #f05123;
+                  font-weight: 500;
+                  margin-top: 6px;
+                }
+              }
+            }
+            .notification-item-watched {
+              background-color: #fff;
+              :hover {
+                background-color: #f1f1f1;
+              }
+            }
+            .see-more {
+              text-align: center;
+              > span {
+                color: #747272;
+                padding: 6px 10px;
+                cursor: pointer;
+                :hover {
+                  color: #333;
+                }
+              }
+            }
+          }
+        }
+      }
+
       .account {
         > img {
           width: 32px;
@@ -233,7 +346,7 @@ export const Wrapper = styled.div`
           align-items: center;
           font-weight: 500;
           font-size: 16px;
-          >img {
+          > img {
             width: 45px;
             height: 45px;
             border-radius: 50%;
@@ -336,7 +449,7 @@ export const Wrapper = styled.div`
     }
   }
 
-  @keyframes fadeIn{
+  @keyframes fadeIn {
     0% {
       opacity: 0.2;
     }
@@ -345,7 +458,7 @@ export const Wrapper = styled.div`
     }
   }
 
-  @keyframes moveToBottom{
+  @keyframes moveToBottom {
     0% {
       transform: translateY(-16px);
     }
@@ -353,5 +466,4 @@ export const Wrapper = styled.div`
       transform: translateY(0px);
     }
   }
-
 `;

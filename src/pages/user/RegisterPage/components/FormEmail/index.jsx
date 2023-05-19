@@ -172,7 +172,7 @@ const FormEmail = ({ setRegisterWay }) => {
   const [isRegisterSuccess, setIsRegisterSuccess] = useState(false);
 
   async function createRegister() {
-    // fetch(`${API.DEV}/register`, {
+    // fetch(`${API}/register`, {
     //   method: "POST",
     //   body: JSON.stringify({
     //     fullName: formData.fullName.value,

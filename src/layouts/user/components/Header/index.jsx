@@ -1,27 +1,33 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 
 import * as S from "./styles";
-import {
-  Link,
-  useNavigate,
-  useLocation,
-} from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import { ROUTES } from "constants/routes";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  getNotificationListAction,
   getSearchListAction,
   logoutAction,
+  updateNotificationAction,
 } from "redux/user/actions";
 
 import { MyContext } from "App";
 import SidebarMobile from "../SidebarMobile";
+import moment from "moment";
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { searchList } = useSelector((state) => state.searchReducer);
   const { userInfo } = useSelector((state) => state.userReducer);
+  const { notificationList } = useSelector(
+    (state) => state.notificationReducer
+  );
+  console.log(
+    "🚀 ~ file: index.jsx:25 ~ Header ~ notificationList:",
+    notificationList
+  );
   const [keyword, setKeyword] = useState("");
   const inputRef = useRef(null);
   const { pathname } = useLocation();
@@ -38,6 +44,9 @@ const Header = () => {
   const [isShowSidebarMobile, setIsShowSidebarMobile] = useState(null);
 
   const [isDropdownAccount, setIsDropdownAccount] = useState(false);
+
+  const [isShowDropdownNotification, setIsShowDropdownNotification] =
+    useState(false);
 
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
@@ -82,6 +91,7 @@ const Header = () => {
     setKeyword("");
     setIsOverlayModal(false);
     setIsDropdownAccount(false);
+    setIsShowDropdownNotification(false);
   };
 
   const handleCloseSearch = () => {
@@ -174,6 +184,72 @@ const Header = () => {
     } else {
       return;
     }
+  };
+
+  const [limitNotification, setLimitNotification] = useState(20);
+
+  const handleSeeMore = () => {
+    if (limitNotification - 10 < notificationList.meta.total) {
+      dispatch(getNotificationListAction({ limit: limitNotification }));
+      setLimitNotification(limitNotification + 10);
+    }
+  };
+
+  const handleNotificationItem = (postId) => {
+    dispatch(
+      updateNotificationAction({
+        id: postId,
+        status: "watched",
+        limit: limitNotification,
+      })
+    );
+  };
+
+  const handleOpenDropdownNotification = () => {
+    dispatch(getNotificationListAction({ limit: 10 }));
+    setIsShowDropdownNotification(true);
+    setIsOverlayModal(true);
+    setLimitNotification(20);
+  };
+
+  const renderNotificationList = () => {
+    return notificationList.data?.map((item) => {
+      var createAt = moment(item.createdAt).fromNow();
+      let message = item.name;
+      if (message.length > 50) {
+        message =
+          item.name
+            .slice(0, 50)
+            .split(" ")
+            .splice(0, item.name.slice(0, 50).split(" ").length - 1)
+            .join(" ") + "...";
+      }
+      return (
+        <li
+          key={item.id}
+          className={
+            item.status === "not seen"
+              ? "notification-item"
+              : "notification-item notification-item-watched"
+          }
+          onClick={() =>
+            item.status !== "watched" && handleNotificationItem(item.id)
+          }
+        >
+          <img
+            src="https://fullstack.edu.vn/assets/images/f8_avatar.png"
+            alt=""
+          />
+          <div className="notification-item__box">
+            <div className="notification-item-message">
+              Bài học&nbsp;<span>{message}</span>
+              &nbsp;mới được thêm mới được thêm vào.
+            </div>
+            <div className="notification-item-date">{createAt}</div>
+          </div>
+        </li>
+      );
+    });
   };
 
   return (
@@ -277,6 +353,30 @@ const Header = () => {
           )}
           {userInfo.data.id && (
             <>
+              <div className="notification">
+                <i
+                  className="fa-solid fa-bell"
+                  onClick={() => handleOpenDropdownNotification()}
+                ></i>
+                {isShowDropdownNotification && (
+                  <div className="dropdownNotification">
+                    <div className="notification-header">
+                      <span>Thông báo</span>
+                      <span onClick={() => handleNotificationItem()}>
+                        Đánh dấu đã đọc
+                      </span>
+                    </div>
+
+                    <ul className="notification-list">
+                      {renderNotificationList()}
+                      <div className="see-more">
+                        <span onClick={() => handleSeeMore()}>Xem thêm</span>
+                      </div>
+                    </ul>
+                  </div>
+                )}
+              </div>
+
               <div
                 className="account"
                 onClick={() => {

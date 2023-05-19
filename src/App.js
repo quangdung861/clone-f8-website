@@ -2,7 +2,8 @@ import { useEffect, createContext, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { ROUTES } from "constants/routes";
 import "_variables.scss";
-import jwtDecode from "jwt-decode";
+import jwtDecode from "jwt-decode"
+import "moment/locale/vi";
 
 // Layout
 import UserLayout from "layouts/user/UserLayout";
@@ -34,6 +35,7 @@ function App() {
   const [cssHeader, setCssHeader] = useState({});
 
   const { userInfo } = useSelector((state) => state.userReducer);
+
 
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");

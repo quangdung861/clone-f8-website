@@ -7,7 +7,7 @@ import { API } from "constants/api";
 function* getBlogListSaga(action) {
   try {
     const { params } = action.payload;
-    const result = yield axios.get(`${API.DEPLOY}/blogs`, {
+    const result = yield axios.get(`${API}/blogs`, {
       params: {
         _limit: params.limit,
         _page: params.page,

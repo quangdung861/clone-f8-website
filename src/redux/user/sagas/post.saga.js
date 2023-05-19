@@ -8,10 +8,12 @@ import { API } from "constants/api";
 function* getPostListSaga(action) {
   try {
     const { limit } = action.payload;
-    const result = yield axios.get(`${API.DEPLOY}/posts`, {
+    const result = yield axios.get(`${API}/posts`, {
       params: {
         _expand: "user",
-        _limit: limit,
+        ...(limit && {
+          _limit: limit,
+        }),
       },
     });
     yield put({

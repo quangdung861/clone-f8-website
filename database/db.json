@@ -329,77 +329,110 @@
       "name": "Tổng hợp các sản phẩm của học viên tại F8 👏👏",
       "image": "https://files.fullstack.edu.vn/f8-prod/blog_posts/65/6139fe28a9844.png",
       "userId": 1,
-      "createAt": "6 phút đọc"
+      "createAt": "6 phút đọc",
+      "createdAt": 1684385948091,
+      "updatedAt": 1684487343434,
+      "status": "watched"
     },
     {
       "id": 2,
       "name": "[Phần 1] Tạo dự án ReactJS với Webpack và Babel",
       "image": "https://files.fullstack.edu.vn/f8-prod/blog_posts/279/6153f692d366e.jpg",
       "userId": 1,
-      "createAt": "12 phút đọc"
+      "createAt": "12 phút đọc",
+      "createdAt": 1684385944091,
+      "updatedAt": 1684487343564,
+      "status": "not seen"
     },
     {
       "id": 3,
       "name": "Cách đưa code lên GitHub và tạo GitHub Pages",
       "image": "https://files.fullstack.edu.vn/f8-prod/blog_posts/677/615436b218d0a.png",
       "userId": 2,
-      "createAt": "4 phút đọc"
+      "createAt": "4 phút đọc",
+      "createdAt": 1684385968091,
+      "updatedAt": 1684487343687,
+      "status": "not seen"
     },
     {
       "id": 4,
       "name": "Ký sự ngày thứ 25 học ở F8 ",
       "image": "https://files.fullstack.edu.vn/f8-prod/blog_posts/51/6139c6453456e.png",
       "userId": 3,
-      "createAt": "1 phút đọc"
+      "createAt": "1 phút đọc",
+      "createdAt": 1684384948491,
+      "updatedAt": 1684487343807,
+      "status": "watched"
     },
     {
       "id": 5,
       "name": "Các nguồn tài nguyên hữu ích cho 1 front-end developer",
       "image": "https://blog.planview.com/wp-content/uploads/2015/03/3asset.jpg",
       "userId": 7,
-      "createAt": "2 phút đọc"
+      "createAt": "2 phút đọc",
+      "createdAt": 1684200777439,
+      "updatedAt": 1684487343879,
+      "status": "not seen"
     },
     {
       "id": 6,
       "name": "Thời gian và Động lực",
       "image": "https://files.fullstack.edu.vn/f8-prod/blog_posts/1671/61b6368983c16.jpg",
       "userId": 4,
-      "createAt": "6 phút đọc"
+      "createAt": "6 phút đọc",
+      "createdAt": 1684400790469,
+      "updatedAt": 1684487343974,
+      "status": "not seen"
     },
     {
       "id": 7,
       "name": "Tổng hợp tài liệu tự học tiếng anh cơ bản.",
       "image": "https://files.fullstack.edu.vn/f8-prod/blog_posts/273/614043e523ad9.png",
       "userId": 5,
-      "createAt": "8 phút đọc"
+      "createAt": "8 phút đọc",
+      "createdAt": 1684406147069,
+      "updatedAt": 1684487344071,
+      "status": "not seen"
     },
     {
       "id": 8,
       "name": "Học như thế nào là phù hợp ?",
       "image": "https://files.fullstack.edu.vn/f8-prod/blog_posts/791/615de64de7e8f.jpg",
       "userId": 6,
-      "createAt": "4 phút đọc"
+      "createAt": "4 phút đọc",
+      "createdAt": 1624401747260,
+      "updatedAt": 1684487344153,
+      "status": "not seen"
     },
     {
       "id": 9,
       "name": "Learn JavaScript while Playing Games — Gamify Your Learning",
       "image": "https://files.fullstack.edu.vn/f8-prod/blog_posts/791/615de64de7e8f.jpg",
       "userId": 8,
-      "createAt": "10 phút đọc"
+      "createAt": "10 phút đọc",
+      "createdAt": 1624401747260,
+      "updatedAt": 1684487344251,
+      "status": "not seen"
     },
     {
       "id": 10,
       "name": "Learn JavaScript while Playing Games — Gamify Your Learning",
       "image": "https://files.fullstack.edu.vn/f8-prod/blog_posts/791/615de64de7e8f.jpg",
       "userId": 8,
-      "createAt": "10 phút đọc"
+      "createAt": "10 phút đọc",
+      "createdAt": 1624400747260,
+      "updatedAt": 1684487344322,
+      "status": "not seen"
     },
     {
       "id": 11,
       "name": "Learn JavaScript while Playing Games — Gamify Your Learning",
       "image": "https://files.fullstack.edu.vn/f8-prod/blog_posts/791/615de64de7e8f.jpg",
       "userId": 3,
-      "createAt": "5 phút đọc"
+      "createAt": "5 phút đọc",
+      "createdAt": 1624401747260,
+      "updatedAt": 1684487344407,
+      "status": "not seen"
     }
   ],
   "videos": [

@@ -7,7 +7,7 @@ import { API } from "constants/api";
 function* getSearchListSaga(action) {
   try {
     const { params } = action.payload;
-    const resultCourses = yield axios.get(`${API.DEPLOY}/courses`, {
+    const resultCourses = yield axios.get(`${API}/courses`, {
       params: {
         ...(params.q && {
           q: params.q,
@@ -17,7 +17,7 @@ function* getSearchListSaga(action) {
         }),
       },
     });
-    const resultPosts = yield axios.get(`${API.DEPLOY}/posts`, {
+    const resultPosts = yield axios.get(`${API}/posts`, {
       params: {
         ...(params.q && {
           q: params.q,
@@ -27,7 +27,7 @@ function* getSearchListSaga(action) {
         }),
       },
     });
-    const resultVideos = yield axios.get(`${API.DEPLOY}/videos`, {
+    const resultVideos = yield axios.get(`${API}/videos`, {
       params: {
         ...(params.q && {
           q: params.q,

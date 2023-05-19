@@ -8,7 +8,7 @@ import { API } from "constants/api";
 function* getVideoListSaga(action) {
   try {
     const { limit } = action.payload;
-    const result = yield axios.get(`${API.DEPLOY}/videos`, {
+    const result = yield axios.get(`${API}/videos`, {
       params: {
         _limit: limit,
       },

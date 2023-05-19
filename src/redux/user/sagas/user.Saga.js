@@ -8,7 +8,7 @@ import { API } from "constants/api";
 function* loginSaga(action) {
   try {
     const { email, password } = action.payload;
-    const result = yield axios.post(`${API.DEV}/login`, {
+    const result = yield axios.post(`${API}/login`, {
       email,
       password,
     });
@@ -32,7 +32,7 @@ function* loginSaga(action) {
 function* getUserInfoSaga(action) {
   try {
     const { id } = action.payload;
-    const result = yield axios.get(`${API.DEV}/users/${id}`);
+    const result = yield axios.get(`${API}/users/${id}`);
     yield put({
       type: SUCCESS(USER_ACTION.GET_USER_INFO),
       payload: {
