@@ -52,11 +52,6 @@ function* getUserInfoSaga(action) {
 function* updateUserInfoSaga(action) {
   try {
     const { userId, callback, ...values } = action.payload;
-    console.log(
-      "🚀 ~ file: user.Saga.js:55 ~ function*updateUserInfoSaga ~ action.payload:",
-      action.payload
-    );
-
     yield axios.patch(`http://localhost:4000/users/${userId}`, {
       images: values.images,
     });
