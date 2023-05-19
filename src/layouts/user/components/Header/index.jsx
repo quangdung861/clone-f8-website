@@ -5,14 +5,12 @@ import {
   Link,
   useNavigate,
   useLocation,
-  useNavigation,
 } from "react-router-dom";
 
 import { ROUTES } from "constants/routes";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getSearchListAction,
-  getUserInfoAction,
   logoutAction,
 } from "redux/user/actions";
 
@@ -33,7 +31,7 @@ const Header = () => {
     .slice(0, pathnameFinal.length - 1)
     .join("/");
 
-  const { isBoxSearch } = useContext(MyContext);
+  const { isBoxSearch, cssHeader } = useContext(MyContext);
 
   const [isOverlayModal, setIsOverlayModal] = useState(false);
 
@@ -179,7 +177,7 @@ const Header = () => {
   };
 
   return (
-    <S.Wrapper>
+    <S.Wrapper style={cssHeader}>
       <div className="navbar">
         <div className="navbar-left">
           <img

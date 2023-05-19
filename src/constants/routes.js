@@ -8,7 +8,7 @@ export const ROUTES = {
     REGISTER: "/register",
     LOGIN: "/login",
     ACCOUNT: {
-      PROFILE: "/account/profile",
+      PROFILE: "/account",
     },
   },
   NOT_FOUND: "*",

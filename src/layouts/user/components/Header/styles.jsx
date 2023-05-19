@@ -6,14 +6,15 @@ export const Wrapper = styled.div`
   left: 0px;
   top: 0px;
   background-color: #fff;
+  /* background-color: ${(props) => props.cssHeader ? props.cssHeader.backgroundColor : "#fff"}; */
   z-index: 2;
+  border-bottom: 1px solid #e8ebed;
   .navbar {
     height: var(--header-height);
     padding: 0px 28px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #e8ebed;
     .navbar-left {
       flex: 1;
       display: flex;

@@ -31,6 +31,7 @@ function App() {
   const { pathname } = useLocation();
 
   const [isBoxSearch, setIsBoxSearch] = useState(true);
+  const [cssHeader, setCssHeader] = useState({});
 
   const { userInfo } = useSelector((state) => state.userReducer);
 
@@ -56,7 +57,9 @@ function App() {
   }, [pathname]);
 
   return (
-    <MyContext.Provider value={{ isBoxSearch, setIsBoxSearch }}>
+    <MyContext.Provider
+      value={{ isBoxSearch, setIsBoxSearch, cssHeader, setCssHeader }}
+    >
       <Routes>
         <Route element={<RegisterLayout />}>
           <Route path={ROUTES.USER.REGISTER} element={<RegisterPage />} />
