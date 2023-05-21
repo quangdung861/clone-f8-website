@@ -213,9 +213,7 @@ export const Wrapper = styled.div`
           position: absolute;
           background-color: #fff;
           padding-top: 20px;
-          width: 100%;
-          min-width: 450px;
-          max-width: 450px;
+          width: 35vw;
           z-index: 5;
           right: 12px;
           top: 40px;
@@ -312,6 +310,7 @@ export const Wrapper = styled.div`
       }
 
       .account {
+        position: relative;
         > img {
           width: 32px;
           height: 32px;
@@ -327,6 +326,9 @@ export const Wrapper = styled.div`
       .dropdown-acount-action {
         position: absolute;
         top: 43px;
+        right: 0;
+        min-width: 250px;
+        overflow: hidden;
         background-color: #fff;
         border-radius: 10px;
         padding: 20px 20px 0px 20px;
@@ -406,6 +408,13 @@ export const Wrapper = styled.div`
           display: none;
         }
       }
+      .navbar-right {
+        .notification {
+          .dropdownNotification {
+            width: 50vw;
+          }
+        }
+      }
     }
   }
 
@@ -431,12 +440,33 @@ export const Wrapper = styled.div`
         .btn-search-mobile {
           display: block;
         }
+        .notification {
+          .dropdownNotification {
+            width: 80vw;
+          }
+        }
       }
     }
   }
   @media only screen and (max-width: 576px) {
     .navbar {
       padding: 0px 16px;
+      .navbar-right {
+        .notification {
+          > i {
+            margin-right: 0px;
+          }
+        }
+        .notification {
+          .dropdownNotification {
+            width: 95vw;
+            right: -12px;
+          }
+        }
+      }
+    }
+    .account {
+      display: none;
     }
   }
 

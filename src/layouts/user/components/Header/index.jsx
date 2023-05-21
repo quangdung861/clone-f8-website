@@ -44,6 +44,36 @@ const Header = () => {
   const [isShowDropdownNotification, setIsShowDropdownNotification] =
     useState(false);
 
+  const dropdownRef1 = useRef(null);
+  const dropdownRef2 = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        dropdownRef1.current &&
+        !dropdownRef1.current.contains(event.target)
+      ) {
+        setIsShowDropdownNotification(false);
+      }
+      if (
+        dropdownRef2.current &&
+        !dropdownRef2.current.contains(event.target)
+      ) {
+        setIsDropdownAccount(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const toggleDropdown = () => {
+    setIsShowDropdownNotification(!isShowDropdownNotification);
+    dispatch(getNotificationListAction({ limit: 10 }));
+    setLimitNotification(20);
+  };
+
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
     dispatch(logoutAction());
@@ -201,12 +231,12 @@ const Header = () => {
     );
   };
 
-  const handleOpenDropdownNotification = () => {
-    dispatch(getNotificationListAction({ limit: 10 }));
-    setIsShowDropdownNotification(true);
-    setIsOverlayModal(true);
-    setLimitNotification(20);
-  };
+  // const handleOpenDropdownNotification = () => {
+  //   dispatch(getNotificationListAction({ limit: 10 }));
+  //   setIsShowDropdownNotification(true);
+  //   // setIsOverlayModal(true);
+  //   setLimitNotification(20);
+  // };
 
   const renderNotificationList = () => {
     return notificationList.data?.map((item) => {
@@ -349,10 +379,10 @@ const Header = () => {
           )}
           {userInfo.data.id && (
             <>
-              <div className="notification">
+              <div className="notification" ref={dropdownRef1}>
                 <i
                   className="fa-solid fa-bell"
-                  onClick={() => handleOpenDropdownNotification()}
+                  onClick={() => toggleDropdown()}
                 ></i>
                 {isShowDropdownNotification && (
                   <div className="dropdownNotification">
@@ -373,33 +403,35 @@ const Header = () => {
                 )}
               </div>
 
-              <div
-                className="account"
-                onClick={() => {
-                  setIsOverlayModal(true);
-                  setIsDropdownAccount(true);
-                }}
-              >
-                <img src={userInfo.data?.images?.avatar?.url} alt="" />
-              </div>
-
-              {isDropdownAccount && (
-                <div className="dropdown-acount-action">
-                  <div className="dropdown-acount-action__header">
-                    <img src={userInfo.data?.images?.avatar?.url} alt="" />
-                    <span>{userInfo.data.fullName}</span>
+              <div className="account" ref={dropdownRef2}>
+                <img
+                  src={userInfo.data?.images?.avatar?.url}
+                  alt=""
+                  onClick={() => {
+                    setIsDropdownAccount(!isDropdownAccount);
+                  }}
+                />
+                {isDropdownAccount && (
+                  <div className="dropdown-acount-action">
+                    <div className="dropdown-acount-action__header">
+                      <img src={userInfo.data?.images?.avatar?.url} alt="" />
+                      <span>{userInfo.data.fullName}</span>
+                    </div>
+                    <div className="dividing-line"></div>
+                    <ul className="action-list">
+                      <Link to={ROUTES.USER.ACCOUNT.PROFILE}>
+                        <li className="action-item">Trang cá nhân</li>
+                      </Link>
+                      <li
+                        className="action-item"
+                        onClick={() => handleLogout()}
+                      >
+                        Đăng xuất
+                      </li>
+                    </ul>
                   </div>
-                  <div className="dividing-line"></div>
-                  <ul className="action-list">
-                    <Link to={ROUTES.USER.ACCOUNT.PROFILE}>
-                      <li className="action-item">Trang cá nhân</li>
-                    </Link>
-                    <li className="action-item" onClick={() => handleLogout()}>
-                      Đăng xuất
-                    </li>
-                  </ul>
-                </div>
-              )}
+                )}
+              </div>
             </>
           )}
         </div>

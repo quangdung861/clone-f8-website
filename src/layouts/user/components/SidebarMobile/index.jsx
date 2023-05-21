@@ -4,9 +4,12 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import * as S from "./styles";
 import { ROUTES } from "constants/routes";
+import { useSelector } from "react-redux";
 const SidebarMobile = ({ isShowSidebarMobile, setIsShowSidebarMobile }) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+
+  const { userInfo } = useSelector((state) => state.userReducer);
 
   const [showDropdown, setShowDropdown] = useState();
   const [showDropdown2nd, setShowDropdown2nd] = useState();
@@ -14,8 +17,8 @@ const SidebarMobile = ({ isShowSidebarMobile, setIsShowSidebarMobile }) => {
   const firstPathName = "/" + pathname.split("/")[1];
 
   useEffect(() => {
-    setIsShowSidebarMobile(null)
-  }, [firstPathName])
+    setIsShowSidebarMobile(null);
+  }, [firstPathName]);
 
   return (
     <S.Wrapper>
@@ -47,12 +50,34 @@ const SidebarMobile = ({ isShowSidebarMobile, setIsShowSidebarMobile }) => {
                   ? "sidebar-mobile-item"
                   : "sidebar-mobile-item sidebar-mobile-item--active"
               }
-              onClick={() => navigate("/login")}
             >
-              <div className="sidebar-mobile-item__content">
-                <i className="fa-solid fa-right-to-bracket content-icon"></i>
-                <div className="content-text">Đăng nhập</div>
-              </div>
+              {!userInfo.data.id ? (
+                <div
+                  className="sidebar-mobile-item__content"
+                  onClick={() => navigate(ROUTES.USER.LOGIN)}
+                >
+                  <i className="fa-solid fa-right-to-bracket content-icon"></i>
+                  <div className="content-text">Đăng nhập</div>
+                </div>
+              ) : (
+                <div
+                  className="sidebar-mobile-item__content"
+                  onClick={() => navigate(ROUTES.USER.ACCOUNT.PROFILE)}
+                >
+                  <img
+                    src={userInfo.data.images?.avatar.url}
+                    alt=""
+                    style={{
+                      width: "40px",
+                      height: "40px",
+                      objectFit: "cover",
+                      borderRadius: "50%",
+                      marginRight: "12px",
+                    }}
+                  />
+                  <span>{userInfo.data.fullName}</span>
+                </div>
+              )}
             </li>
           </ul>
           <ul className="sidebar-mobile-list">

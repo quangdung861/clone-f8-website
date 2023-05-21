@@ -307,7 +307,7 @@
     },
     {
       "email": "quangdung861@gmail.com",
-      "password": "$2a$10$sHKijVlw4HWnS.95JS9SEuxGrajyyeqJjDtY/za8URctfesyLETMa",
+      "password": "$2a$10$.ttvW4yAxmod5vGycV.yE.nLn2xg2ypqhrttMTd/lUXC9PUZCfoD.",
       "fullName": "Phan Quang Dũng",
       "role": "user",
       "images": {
@@ -320,8 +320,8 @@
           "type": "image/jpeg"
         }
       },
-      "createdAt": 1684400747469,
-      "updatedAt": 1684487883409,
+      "createdAt": 1684635429307,
+      "updatedAt": 1684644355917,
       "id": 9
     }
   ],
@@ -333,7 +333,7 @@
       "userId": 1,
       "createAt": "6 phút đọc",
       "createdAt": 1684385948091,
-      "updatedAt": 1684487343434,
+      "updatedAt": 1684644311813,
       "status": "watched"
     },
     {
@@ -343,8 +343,8 @@
       "userId": 1,
       "createAt": "12 phút đọc",
       "createdAt": 1684385944091,
-      "updatedAt": 1684487343564,
-      "status": "not seen"
+      "updatedAt": 1684644311911,
+      "status": "watched"
     },
     {
       "id": 3,
@@ -353,8 +353,8 @@
       "userId": 2,
       "createAt": "4 phút đọc",
       "createdAt": 1684385968091,
-      "updatedAt": 1684487343687,
-      "status": "not seen"
+      "updatedAt": 1684644311976,
+      "status": "watched"
     },
     {
       "id": 4,
@@ -363,7 +363,7 @@
       "userId": 3,
       "createAt": "1 phút đọc",
       "createdAt": 1684384948491,
-      "updatedAt": 1684487343807,
+      "updatedAt": 1684644312055,
       "status": "watched"
     },
     {
@@ -373,8 +373,8 @@
       "userId": 7,
       "createAt": "2 phút đọc",
       "createdAt": 1684200777439,
-      "updatedAt": 1684487343879,
-      "status": "not seen"
+      "updatedAt": 1684644312131,
+      "status": "watched"
     },
     {
       "id": 6,
@@ -383,8 +383,8 @@
       "userId": 4,
       "createAt": "6 phút đọc",
       "createdAt": 1684400790469,
-      "updatedAt": 1684487343974,
-      "status": "not seen"
+      "updatedAt": 1684644312209,
+      "status": "watched"
     },
     {
       "id": 7,
@@ -393,8 +393,8 @@
       "userId": 5,
       "createAt": "8 phút đọc",
       "createdAt": 1684406147069,
-      "updatedAt": 1684487344071,
-      "status": "not seen"
+      "updatedAt": 1684644312286,
+      "status": "watched"
     },
     {
       "id": 8,
@@ -403,8 +403,8 @@
       "userId": 6,
       "createAt": "4 phút đọc",
       "createdAt": 1624401747260,
-      "updatedAt": 1684487344153,
-      "status": "not seen"
+      "updatedAt": 1684644312362,
+      "status": "watched"
     },
     {
       "id": 9,
@@ -413,8 +413,8 @@
       "userId": 8,
       "createAt": "10 phút đọc",
       "createdAt": 1624401747260,
-      "updatedAt": 1684487344251,
-      "status": "not seen"
+      "updatedAt": 1684644312437,
+      "status": "watched"
     },
     {
       "id": 10,
@@ -423,8 +423,8 @@
       "userId": 8,
       "createAt": "10 phút đọc",
       "createdAt": 1624400747260,
-      "updatedAt": 1684487344322,
-      "status": "not seen"
+      "updatedAt": 1684644312506,
+      "status": "watched"
     },
     {
       "id": 11,
@@ -433,8 +433,8 @@
       "userId": 3,
       "createAt": "5 phút đọc",
       "createdAt": 1624401747260,
-      "updatedAt": 1684487344407,
-      "status": "not seen"
+      "updatedAt": 1684644312582,
+      "status": "watched"
     }
   ],
   "videos": [

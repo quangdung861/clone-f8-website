@@ -49,11 +49,15 @@ function* getUserInfoSaga(action) {
   }
 }
 
-function* updateUserInfoSaga(action) {
+function* updateAvatarImageSaga(action) {
   try {
-    const { userId, callback, ...values } = action.payload;
+    const { userId, avatarData } = action.payload;
+    const result = yield axios.get(`${API}/users/${userId}`);
     yield axios.patch(`http://localhost:4000/users/${userId}`, {
-      images: values.images,
+      images: {
+        ...result.data.images,
+        avatar: avatarData,
+      },
     });
     yield put({
       type: REQUEST(USER_ACTION.GET_USER_INFO),
@@ -61,9 +65,27 @@ function* updateUserInfoSaga(action) {
         id: userId,
       },
     });
-    if (callback?.resetImagePreview) {
-      yield callback.resetImagePreview();
-    }
+  } catch (error) {
+    yield console.log(error);
+  }
+}
+function* updateCoverImageSaga(action) {
+  try {
+    const { userId, imgPreviewCover, callback } = action.payload;
+    const result = yield axios.get(`${API}/users/${userId}`);
+    yield axios.patch(`http://localhost:4000/users/${userId}`, {
+      images: {
+        ...result.data.images,
+        cover: imgPreviewCover,
+      },
+    });
+    yield put({
+      type: REQUEST(USER_ACTION.GET_USER_INFO),
+      payload: {
+        id: userId,
+      },
+    });
+    if (callback.resetImagePreview) yield callback.resetImagePreview();
   } catch (error) {
     yield console.log(error);
   }
@@ -72,5 +94,12 @@ function* updateUserInfoSaga(action) {
 export default function* userSaga() {
   yield takeEvery(REQUEST(USER_ACTION.LOGIN), loginSaga);
   yield takeEvery(REQUEST(USER_ACTION.GET_USER_INFO), getUserInfoSaga);
-  yield takeEvery(REQUEST(USER_ACTION.UPDATE_USER_INFO), updateUserInfoSaga);
+  yield takeEvery(
+    REQUEST(USER_ACTION.UPDATE_AVATAR_IMAGE),
+    updateAvatarImageSaga
+  );
+  yield takeEvery(
+    REQUEST(USER_ACTION.UPDATE_COVER_IMAGE),
+    updateCoverImageSaga
+  );
 }
