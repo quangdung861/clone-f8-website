@@ -311,6 +311,7 @@ export const Wrapper = styled.div`
 
       .account {
         position: relative;
+        user-select: none;
         > img {
           width: 32px;
           height: 32px;
