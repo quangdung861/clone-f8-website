@@ -354,7 +354,7 @@
       "createAt": "4 phút đọc",
       "createdAt": 1684385968091,
       "updatedAt": 1684644311976,
-      "status": "watched"
+      "status": "not seen"
     },
     {
       "id": 4,
@@ -364,7 +364,7 @@
       "createAt": "1 phút đọc",
       "createdAt": 1684384948491,
       "updatedAt": 1684644312055,
-      "status": "watched"
+      "status": "not seen"
     },
     {
       "id": 5,
@@ -374,7 +374,7 @@
       "createAt": "2 phút đọc",
       "createdAt": 1684200777439,
       "updatedAt": 1684644312131,
-      "status": "watched"
+      "status": "not seen"
     },
     {
       "id": 6,
@@ -394,7 +394,7 @@
       "createAt": "8 phút đọc",
       "createdAt": 1684406147069,
       "updatedAt": 1684644312286,
-      "status": "watched"
+      "status": "not seen"
     },
     {
       "id": 8,
@@ -404,7 +404,7 @@
       "createAt": "4 phút đọc",
       "createdAt": 1624401747260,
       "updatedAt": 1684644312362,
-      "status": "watched"
+      "status": "not seen"
     },
     {
       "id": 9,
@@ -414,7 +414,7 @@
       "createAt": "10 phút đọc",
       "createdAt": 1624401747260,
       "updatedAt": 1684644312437,
-      "status": "watched"
+      "status": "not seen"
     },
     {
       "id": 10,
@@ -424,7 +424,7 @@
       "createAt": "10 phút đọc",
       "createdAt": 1624400747260,
       "updatedAt": 1684644312506,
-      "status": "watched"
+      "status": "not seen"
     },
     {
       "id": 11,
@@ -434,7 +434,7 @@
       "createAt": "5 phút đọc",
       "createdAt": 1624401747260,
       "updatedAt": 1684644312582,
-      "status": "watched"
+      "status": "not seen"
     }
   ],
   "videos": [
