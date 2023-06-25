@@ -436,7 +436,7 @@ export const Wrapper = styled.div`
       }
       .navbar-right {
         display: flex;
-        justify-content: end;
+        justify-content: flex-end;
         align-items: center;
         .btn-search-mobile {
           display: block;
