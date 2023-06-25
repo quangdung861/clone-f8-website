@@ -197,7 +197,7 @@ export const Wrapper = styled.div`
     .navbar-right {
       flex: 1;
       display: flex;
-      justify-content: end;
+      justify-content: flex-end;
       position: relative;
       align-items: center;
       .notification {
