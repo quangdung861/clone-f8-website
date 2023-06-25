@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   .footer-container {
     display: flex;
     flex-wrap: wrap;
-    align-items: start;
+    align-items: flex-start;
     max-width: 1100px;
     margin: 0 auto;
     padding: 0px 12px;

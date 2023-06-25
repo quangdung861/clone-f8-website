@@ -10,7 +10,7 @@ export const Container = styled.div`
   }
   .container {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     position: relative;
 
     &__left {
@@ -89,7 +89,7 @@ export const Container = styled.div`
       .pagination {
         padding: 0px 64px 44px 0px;
         .pagination-list {
-          justify-content: end;
+          justify-content: flex-end;
           display: flex;
           user-select: none;
           .pagination-item {
@@ -195,7 +195,7 @@ export const Container = styled.div`
           .content-item {
             .content-item__center {
               flex-direction: column-reverse;
-              align-items: start;
+              align-items: flex-start;
               .right {
                 margin-top: 16px;
               }

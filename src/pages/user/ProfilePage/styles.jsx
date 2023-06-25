@@ -20,7 +20,7 @@ export const Container = styled.div`
         bottom: -90px;
         left: 50px;
         display: flex;
-        align-items: end;
+        align-items: flex-end;
         .box-avatar {
           position: relative;
           .custom-file-input {
@@ -103,7 +103,7 @@ export const Container = styled.div`
       top: 530px;
       left: 30px;
       display: flex;
-      align-items: end;
+      align-items: flex-end;
       > img {
         width: 48px;
         height: 48px;
@@ -167,7 +167,7 @@ export const Container = styled.div`
         .header-left {
           bottom: -130px;
           flex-direction: column;
-          align-items: start;
+          align-items: flex-start;
           .box-avatar {
             > img {
               width: 120px;
@@ -199,7 +199,7 @@ export const Container = styled.div`
           bottom: -130px;
           left: 10px;
           flex-direction: column;
-          align-items: start;
+          align-items: flex-start;
           .box-avatar {
             > img {
               width: 120px;
