@@ -5,75 +5,12 @@ import { Link } from "react-router-dom";
 import { ROUTES } from "constants/routes";
 import { useNavigate } from "react-router-dom";
 import FormEmail from "./components/FormEmail";
-import { auth, githubProvider, googleProvider } from "firebaseConfig";
-import {
-  signInWithPopup,
-  getAdditionalUserInfo,
-  createUserWithEmailAndPassword,
-} from "firebase/auth";
-import { addDocument, generateKeywords } from "../../../services";
-import { serverTimestamp } from "firebase/firestore";
-import avatarDefault from "assets/avatar-mac-dinh-1.png";
+import FormPhoneNumber from "./components/FormPhoneNumber";
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const [registerWay, setRegisterWay] = useState("");
-
-  const handleGoogleSignIn = async () => {
-    try {
-      const data = await signInWithPopup(auth, googleProvider);
-      if (data) {
-        const { isNewUser } = getAdditionalUserInfo(data);
-        if (isNewUser) {
-          addDocument("users", {
-            fullName: data.user.displayName,
-            email: data.user.email,
-            avatar: data.user.photoURL ? data.user.photoURL : avatarDefault,
-            photoCover:
-              "https://fullstack.edu.vn/static/media/cover-profile.3fb9fed576da4b28386a.png",
-            uid: data.user.uid,
-            providerId: data.providerId,
-            keywords: generateKeywords(data.user.displayName.toLowerCase()),
-          });
-        }
-      }
-    } catch (error) {
-      if (error.code === "auth/cancelled-popup-request") {
-        // Yêu cầu xác thực bằng cửa sổ popup bị hủy
-        // Xử lý tương ứng, ví dụ: thông báo cho người dùng
-      } else {
-        // Xử lý lỗi khác
-      }
-    }
-  };
-
-  const handleGithubSignIn = async () => {
-    try {
-      const data = await signInWithPopup(auth, githubProvider);
-      if (data) {
-        const { isNewUser } = getAdditionalUserInfo(data);
-        if (isNewUser) {
-          addDocument("users", {
-            fullName: data.user.displayName,
-            email: data.user.email,
-            avatar: data.user.photoURL ? data.user.photoURL : avatarDefault,
-            photoCover:
-              "https://fullstack.edu.vn/static/media/cover-profile.3fb9fed576da4b28386a.png",
-            uid: data.user.uid,
-            providerId: data.providerId,
-            keywords: generateKeywords(data.user.displayName.toLowerCase()),
-          });
-        }
-      }
-    } catch (error) {
-      if (error.code === "auth/cancelled-popup-request") {
-        // Yêu cầu xác thực bằng cửa sổ popup bị hủy
-        // Xử lý tương ứng, ví dụ: thông báo cho người dùng
-      } else {
-        // Xử lý lỗi khác
-      }
-    }
-  };
+  const [dropdownContries, setDropdownContries] = useState(false);
 
   const renderRegisterWay = () => {
     switch (registerWay) {
@@ -82,6 +19,16 @@ const LoginPage = () => {
           <FormEmail
             setRegisterWay={setRegisterWay}
             registerWay={registerWay}
+          />
+        );
+
+      case "phoneNumber":
+        return (
+          <FormPhoneNumber
+            setRegisterWay={setRegisterWay}
+            registerWay={registerWay}
+            setDropdownContries={setDropdownContries}
+            dropdownContries={dropdownContries}
           />
         );
 
@@ -115,7 +62,7 @@ const LoginPage = () => {
                 alt=""
                 onClick={() => navigate(ROUTES.USER.HOME)}
               />
-              <h1>Chào mừng đến với F8</h1>
+              <h1>Đăng ký tài khoản F8</h1>
             </div>
             <div className="login-content">
               {registerWay ? (
@@ -137,8 +84,9 @@ const LoginPage = () => {
                     </li>
                     <li className="item">
                       <button
-                        className="--btn-default btn-custome "
-                        onClick={handleGoogleSignIn}
+                        className="--btn-default btn-custome btn-custome--disable"
+                        onClick={() => setRegisterWay("google")}
+                        disabled
                       >
                         <img
                           src="https://accounts.fullstack.edu.vn/assets/images/signin/google-18px.svg"
@@ -149,8 +97,22 @@ const LoginPage = () => {
                     </li>
                     <li className="item">
                       <button
-                        className="--btn-default btn-custome "
-                        onClick={handleGithubSignIn}
+                        className="--btn-default btn-custome btn-custome--disable"
+                        onClick={() => setRegisterWay("facebook")}
+                        disabled
+                      >
+                        <img
+                          src="https://accounts.fullstack.edu.vn/assets/images/signin/facebook-18px.svg"
+                          alt=""
+                        />
+                        <span>Tiếp tục với Facebook</span>
+                      </button>
+                    </li>
+                    <li className="item">
+                      <button
+                        className="--btn-default btn-custome btn-custome--disable"
+                        onClick={() => setRegisterWay("github")}
+                        disabled
                       >
                         <img
                           src="https://accounts.fullstack.edu.vn/assets/images/signin/github-18px.svg"
@@ -164,7 +126,7 @@ const LoginPage = () => {
                     Bạn đã có tài khoản?{" "}
                     <Link
                       style={{ color: "#f05123", fontWeight: 500 }}
-                      to={ROUTES.LOGIN}
+                      to={ROUTES.USER.LOGIN}
                     >
                       Đăng nhập
                     </Link>
@@ -184,7 +146,19 @@ const LoginPage = () => {
               </p>
             </div>
           </div>
+          <div className="login-bottom">
+            <Link>Giới thiệu F8</Link> | <Link>F8 trên Youtube</Link> |{" "}
+            <Link>F8 trên Facebook</Link>
+          </div>
         </div>
+        <div
+          className={
+            dropdownContries
+              ? " modal-overlay modal-overlay-active"
+              : "modal-overlay"
+          }
+          onClick={() => setDropdownContries(false)}
+        ></div>
       </S.Container>
     </S.Wrapper>
   );

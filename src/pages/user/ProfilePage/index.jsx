@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import Footer from "layouts/user/components/Footer";
 
@@ -9,13 +9,18 @@ import {
   updateCoverImageAction,
   updateAvatarImageAction,
 } from "redux/user/actions";
+import { AuthContext } from "Context/AuthProvider";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "firebaseConfig";
 
 const ProfilePage = () => {
-  const { userInfo } = useSelector((state) => state.userReducer);
+  // const { userInfo } = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
   const [imgPreviewCover, setImgPreviewCover] = useState(null);
 
   const [isHovered, setIsHovered] = useState(null);
+
+  const { userInfo } = useContext(AuthContext);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -26,60 +31,99 @@ const ProfilePage = () => {
   };
 
   const handleCoverImagePreview = (file) => {
+    if (file.size >= 1048576) {
+      setIsShowMessageError(true);
+      setTimeout(function () {
+        setIsShowMessageError(false);
+      }, 3000);
+      return;
+    }
     const imgPreviewCoverConvert = convertImageToBase64(file);
     imgPreviewCoverConvert.then((res) => {
-      setImgPreviewCover({
-        url: res,
-        name: file.name,
-        type: file.type,
-      });
+      setImgPreviewCover(
+        res
+        //   {
+        //   url: res,
+        //   name: file.name,
+        //   type: file.type,
+        // }
+      );
     });
   };
 
-  function uploadImage() {
+  async function uploadImage() {
     if (imgPreviewCover) {
-      dispatch(
-        updateCoverImageAction({
-          imgPreviewCover: imgPreviewCover,
-          userId: userInfo.data.id,
-          callback: {
-            resetImagePreview: () => {
-              setImgPreviewCover("");
-            },
-          },
-        })
+      const userInfoRef = doc(db, "users", userInfo.id);
+      await setDoc(
+        userInfoRef,
+        {
+          photoCover: imgPreviewCover,
+        },
+        {
+          merge: true,
+        }
       );
+      setImgPreviewCover("");
+
+      // dispatch(
+      //   updateCoverImageAction({
+      //     imgPreviewCover: imgPreviewCover,
+      //     userId: userInfo.data.id,
+      //     callback: {
+      //       resetImagePreview: () => {
+      //         setImgPreviewCover("");
+      //       },
+      //     },
+      //   })
+      // );
     }
   }
+  const [isShowMessageError, setIsShowMessageError] = useState(false);
 
   const handleAvatarImage = (file) => {
     if (file) {
+      if (file.size >= 1048576) {
+        setIsShowMessageError(true);
+        setTimeout(function () {
+          setIsShowMessageError(false);
+        }, 3000);
+        return;
+      }
       let imageAvatar = convertImageToBase64(file);
       imageAvatar.then((res) => {
-        dispatch(
-          updateAvatarImageAction({
-            userId: userInfo.data.id,
-            avatarData: {
-              url: res,
-              name: file.name,
-              type: file.type,
-            },
-          })
+        const userInfoRef = doc(db, "users", userInfo.id);
+        setDoc(
+          userInfoRef,
+          {
+            avatar: res,
+          },
+          {
+            merge: true,
+          }
         );
+
+        // dispatch(
+        //   updateAvatarImageAction({
+        //     userId: userInfo.data.id,
+        //     avatarData: {
+        //       url: res,
+        //       name: file.name,
+        //       type: file.type,
+        //     },
+        //   })
+        // );
       });
     }
   };
 
   return (
     <S.Wrapper>
-      <S.Container
-        cover={imgPreviewCover?.url || userInfo.data.images?.cover?.url}
-      >
+      <S.Container cover={imgPreviewCover || userInfo.photoCover}>
         <div className="profile-container">
           <div className="header">
             <div className="header-left">
               <div className="box-avatar">
-                <img src={userInfo.data.images?.avatar?.url} alt="" />
+                <img src={userInfo.avatar} alt="" />
                 <label htmlFor="inputFileAvatar" className="box-avatar__icon">
                   <i className="fa-solid fa-camera"></i>
                 </label>
@@ -87,10 +131,11 @@ const ProfilePage = () => {
                   type="file"
                   id="inputFileAvatar"
                   className="custom-file-input"
+                  onClick={(e) => (e.target.value = null)}
                   onChange={(e) => handleAvatarImage(e.target.files[0])}
                 />
               </div>
-              <span className="fullname">{userInfo.data.fullName}</span>
+              <span className="fullname">{userInfo.fullName}</span>
             </div>
             <div className="header-right">
               {imgPreviewCover ? (
@@ -118,6 +163,7 @@ const ProfilePage = () => {
                     type="file"
                     id="myFileInput"
                     className="custom-file-input"
+                    onClick={(e) => (e.target.value = null)}
                     onChange={(e) => handleCoverImagePreview(e.target.files[0])}
                   />
                 </>
@@ -131,7 +177,7 @@ const ProfilePage = () => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <img src={userInfo.data.images?.avatar.url} alt="" />
+            <img src={userInfo?.avatar} alt="" />
             <div
               className={
                 isHovered
@@ -150,6 +196,28 @@ const ProfilePage = () => {
             </div>
           </div>
         </div>
+        {isShowMessageError && (
+          <div
+            className="message-error"
+            style={{
+              position: "absolute",
+              top: "80px",
+              left: "0px",
+              right: "0px",
+              margin: "0 auto",
+              backgroundColor: "#fff",
+              width: "300px",
+              height: "40px",
+              padding: "12px",
+              borderRadius: "4px",
+              boxShadow: "var(--box-shadow-default)",
+              textAlign: "center",
+              fontWeight: "500",
+            }}
+          >
+            Hình ảnh phải có kích thước nhỏ hơn 1MB
+          </div>
+        )}
       </S.Container>
       <Footer />
     </S.Wrapper>

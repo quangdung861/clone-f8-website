@@ -15,18 +15,24 @@ import {
 import { MyContext } from "App";
 import SidebarMobile from "../SidebarMobile";
 import moment from "moment";
+import { AuthContext } from "Context/AuthProvider";
+
+import { auth, db } from "firebaseConfig";
+import { doc } from "firebase/firestore";
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { searchList } = useSelector((state) => state.searchReducer);
-  const { userInfo } = useSelector((state) => state.userReducer);
+  // const { userInfo } = useSelector((state) => state.userReducer);
   const { notificationList } = useSelector(
     (state) => state.notificationReducer
   );
   const [keyword, setKeyword] = useState("");
   const inputRef = useRef(null);
   const { pathname } = useLocation();
+
+  const { userInfo } = useContext(AuthContext);
 
   const pathnameFinal = pathname.split("/");
   const newPathnameFinal = pathnameFinal
@@ -278,6 +284,11 @@ const Header = () => {
     });
   };
 
+  const handleLogoutAuthFirebase = async () => {
+    await auth.signOut();
+    window.location.reload();
+  };
+
   return (
     <S.Wrapper style={cssHeader}>
       <div className="navbar">
@@ -369,15 +380,12 @@ const Header = () => {
               <i className="fa-solid fa-magnifying-glass icon-search"></i>
             </Link>
           )}
-          {!userInfo.data.id && (
-            <div
-              className="btn-login"
-              onClick={() => navigate(ROUTES.USER.LOGIN)}
-            >
+          {!userInfo.id && (
+            <div className="btn-login" onClick={() => navigate(ROUTES.LOGIN)}>
               Đăng nhập
             </div>
           )}
-          {userInfo.data.id && (
+          {userInfo.id && (
             <>
               <div className="notification" ref={dropdownRef1}>
                 <i
@@ -405,7 +413,7 @@ const Header = () => {
 
               <div className="account" ref={dropdownRef2}>
                 <img
-                  src={userInfo.data?.images?.avatar?.url}
+                  src={userInfo?.avatar}
                   alt=""
                   onClick={() => {
                     setIsDropdownAccount(!isDropdownAccount);
@@ -414,8 +422,8 @@ const Header = () => {
                 {isDropdownAccount && (
                   <div className="dropdown-acount-action">
                     <div className="dropdown-acount-action__header">
-                      <img src={userInfo.data?.images?.avatar?.url} alt="" />
-                      <span>{userInfo.data.fullName}</span>
+                      <img src={userInfo?.avatar} alt="" />
+                      <span>{userInfo.fullName}</span>
                     </div>
                     <div className="dividing-line"></div>
                     <ul className="action-list">
@@ -424,7 +432,8 @@ const Header = () => {
                       </Link>
                       <li
                         className="action-item"
-                        onClick={() => handleLogout()}
+                        // onClick={() => handleLogout()}
+                        onClick={() => handleLogoutAuthFirebase()}
                       >
                         Đăng xuất
                       </li>

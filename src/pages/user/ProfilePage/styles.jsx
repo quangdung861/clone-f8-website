@@ -192,6 +192,28 @@ export const Container = styled.div`
     }
   }
 
+  .message-error {
+    animation-name: fadeIn, zoom;
+    animation-duration: 0.4s;
+  }
+
+  @keyframes zoom {
+    0% {
+      transform: translateY(-30px);
+    }
+    100% {
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0.2;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   @media only screen and (max-width: 576px) {
     .profile-container {
       .header {

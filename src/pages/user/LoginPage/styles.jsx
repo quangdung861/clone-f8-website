@@ -28,10 +28,11 @@ export const Container = styled.div`
       .login-header {
         margin-bottom: 40px;
         > img {
-          border-radius: 8px;
           width: 44px;
-          height: 44px;
+          border-radius: 8px;
+          object-fit: cover;
           cursor: pointer;
+          margin-bottom: 4px;
         }
       }
       .login-content {

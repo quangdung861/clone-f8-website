@@ -4,14 +4,11 @@ import * as S from "./styles";
 
 import { Link } from "react-router-dom";
 import { ROUTES } from "constants/routes";
-import { auth } from "firebaseConfig";
-import {
-  createUserWithEmailAndPassword,
-  getAdditionalUserInfo,
-} from "firebase/auth";
-import { addDocument, generateKeywords } from "services";
-import { serverTimestamp } from "firebase/firestore";
-import avatarDefault from "assets/avatar-mac-dinh-1.png";
+
+import axios from "axios";
+
+var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
 
 const FormEmail = ({ setRegisterWay }) => {
   const [formData, setFormData] = useState({
@@ -31,6 +28,7 @@ const FormEmail = ({ setRegisterWay }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     setFormData((prevData) => ({
       ...prevData,
       [name]: {
@@ -119,6 +117,7 @@ const FormEmail = ({ setRegisterWay }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (
       !formData.fullName.error &&
       !formData.email.error &&
@@ -172,39 +171,47 @@ const FormEmail = ({ setRegisterWay }) => {
 
   const [isRegisterSuccess, setIsRegisterSuccess] = useState(false);
 
-  const createRegister = async () => {
+  async function createRegister() {
+    // fetch(`${API}/register`, {
+    //   method: "POST",
+    //   body: JSON.stringify({
+    //     fullName: formData.fullName.value,
+    //     email: formData.email.value,
+    //     password: formData.password.value,
+    //   }),
+    //   headers: myHeaders,
+    // }).then((res) => res.json()).then((res) => console.log(res));
+
     try {
-      const data = await createUserWithEmailAndPassword(
-        auth,
-        formData.email.value,
-        formData.password.value
-      );
-      if (data) {
-        const { isNewUser } = getAdditionalUserInfo(data);
-        if (isNewUser) {
-          addDocument("users", {
-            fullName: data.user.displayName,
-            email: data.user.email,
-            avatar: data.user.photoURL ? data.user.photoURL : avatarDefault,
-            photoCover:
-              "https://fullstack.edu.vn/static/media/cover-profile.3fb9fed576da4b28386a.png",
-            uid: data.user.uid,
-            providerId: data.providerId,
-            keywords: generateKeywords(data.user.displayName.toLowerCase()),
-          });
-        }
+      const result = await axios.post("http://localhost:4000/register", {
+        fullName: formData.fullName.value,
+        email: formData.email.value,
+        password: formData.password.value,
+        role: "user",
+        // images: {
+        //   cover: {
+        //     url: "https://fullstack.edu.vn/static/media/cover-profile.3fb9fed576da4b28386a.png",
+        //   },
+        //   avatar: {
+        //     url: "https://dvdn247.net/wp-content/uploads/2020/07/avatar-mac-dinh-1.png",
+        //   },
+        // },
+      });
+      if (result.data) {
+        setIsRegisterSuccess(true);
       }
     } catch (error) {
-      if (error.code === "auth/email-already-in-use")
+      if (error.response.status === 400) {
         setFormData((prevData) => ({
           ...prevData,
           email: {
             ...prevData.email,
-            error: "Email đã tồn tại",
+            error: "Email của bạn đã tồn tại",
           },
         }));
+      }
     }
-  };
+  }
 
   return (
     <S.Wrapper>
@@ -242,10 +249,10 @@ const FormEmail = ({ setRegisterWay }) => {
               >
                 <span>Email</span>
                 <span
-                // style={{ cursor: "pointer" }}
-                // onClick={() => setRegisterWay("phoneNumber")}
+                  style={{ cursor: "pointer" }}
+                  onClick={() => setRegisterWay("phoneNumber")}
                 >
-                  {/* Đăng ký với SĐT */}
+                  Đăng ký với SĐT
                 </span>
               </div>
 

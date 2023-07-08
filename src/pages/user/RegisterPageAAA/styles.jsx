@@ -39,11 +39,10 @@ export const Container = styled.div`
       .login-header {
         margin-bottom: 40px;
         > img {
-          width: 44px;
           border-radius: 8px;
-          object-fit: cover;
+          width: 44px;
+          height: 44px;
           cursor: pointer;
-          margin-bottom: 4px;
         }
       }
       .login-content {
@@ -94,6 +93,16 @@ export const Container = styled.div`
       margin-top: 16px;
       letter-spacing: 1px;
     }
+  }
+
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0 0 0 0;
+  }
+
+  .modal-overlay-active {
+    display: block;
   }
 
   @media only screen and (max-width: 768px) {

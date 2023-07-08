@@ -5,12 +5,14 @@ import * as S from "./styles";
 import { useNavigate, Link } from "react-router-dom";
 import { ROUTES } from "constants/routes";
 
-import { auth } from "firebaseConfig";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { useDispatch, useSelector } from "react-redux";
+import { loginAction } from "redux/user/actions";
 
-const EmailFormLogin = ({ setLoginWay }) => {
+const EmailFormLogin = ({ setLoginWay, loginWay }) => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const { userInfo } = useSelector((state) => state.userReducer);
 
   const [formData, setFormData] = useState({
     email: {
@@ -19,7 +21,6 @@ const EmailFormLogin = ({ setLoginWay }) => {
     password: {
       value: undefined,
     },
-    error: null,
   });
 
   const handleChange = (e) => {
@@ -30,37 +31,75 @@ const EmailFormLogin = ({ setLoginWay }) => {
         ...prevData[name],
         value: value,
       },
-      error: null,
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (
-      formData.password.value &&
-      formData.email.value &&
-      formData.error === null
-    ) {
-      try {
-        const data = await signInWithEmailAndPassword(
-          auth,
-          formData.email.value,
-          formData.password.value
-        );
-        if (data) {
-        }
-      } catch (error) {
-        if (error.code === "auth/user-not-found") {
-          console.log(error.code);
-          setFormData((preven) => ({
-            ...preven,
-            error: "Email hoặc mật khẩu không chính xác",
-          }));
-        }
-      }
+    if (formData.password.value && formData.email.value) {
+      dispatch(
+        loginAction({
+          email: formData.email.value,
+          password: formData.password.value,
+        })
+      );
     } else {
     }
   };
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (formData.password.value && formData.email.value) {
+  //     // Nơi gán biến loading
+  //     const callAPI = new Promise((resolve, reject) => {
+  //       axios
+  //         .post("http://localhost:4000/login", {
+  //           email: formData.email.value,
+  //           password: formData.password.value,
+  //         })
+  //         .then((response) => {
+  //           // Resolve Promise với dữ liệu nhận được
+  //           // Nơi gán biến loading
+  //           resolve(response.data);
+  //         })
+  //         .catch((error) => {
+  //           // Reject Promise với lỗi
+  //           reject(error);
+  //         });
+  //     });
+
+  //     // Sử dụng hàm callAPI để gọi API
+  //     callAPI
+  //       .then((data) => {
+  //         // Xử lý dữ liệu nhận được từ API
+  //         console.log(data);
+  //         setFormData((prevData) => ({
+  //           ...prevData,
+  //           error: "",
+  //         }));
+  //       })
+  //       .catch((error) => {
+  //         // Xử lý lỗi nếu có
+  //         if (error.response.status === 400) {
+  //           setFormData((prevData) => ({
+  //             ...prevData,
+  //             password: {
+  //               ...prevData.password,
+  //             },
+  //             error: "Email hoặc mật khẩu không chính xác",
+  //           }));
+  //         }
+  //       });
+  //   } else {
+  //     setFormData((prevData) => ({
+  //       ...prevData,
+  //       password: {
+  //         ...prevData.password,
+  //       },
+  //       error: "Email hoặc mật khẩu không chính xác",
+  //     }));
+  //   }
+  // };
 
   return (
     <S.Wrapper>
@@ -99,6 +138,12 @@ const EmailFormLogin = ({ setLoginWay }) => {
             }}
           >
             <span>Email</span>
+            <span
+              style={{ cursor: "pointer" }}
+              onClick={() => setLoginWay("phoneNumber")}
+            >
+              Đăng nhập với SĐT
+            </span>
           </div>
 
           <div className="box-email">
@@ -120,8 +165,8 @@ const EmailFormLogin = ({ setLoginWay }) => {
               onChange={(e) => handleChange(e)}
             />
           </div>
-          <div className="error-fullname"></div>
-          <div style={{ color: "#f33a58" }}>{formData.error}</div>
+          <div className="error-fullname">{userInfo.error}</div>
+
           <div
             style={{
               margin: "8px 0px 20px 8px",
@@ -159,7 +204,7 @@ const EmailFormLogin = ({ setLoginWay }) => {
           Bạn chưa có tài khoản?{" "}
           <Link
             style={{ color: "#f05123", fontWeight: 500 }}
-            to={ROUTES.REGISTER}
+            to={ROUTES.USER.REGISTER}
           >
             Đăng ký
           </Link>
