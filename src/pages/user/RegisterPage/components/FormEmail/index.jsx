@@ -173,6 +173,7 @@ const FormEmail = ({ setRegisterWay }) => {
   const [isRegisterSuccess, setIsRegisterSuccess] = useState(false);
 
   const createRegister = async () => {
+    console.log('ahih');
     try {
       const data = await createUserWithEmailAndPassword(
         auth,

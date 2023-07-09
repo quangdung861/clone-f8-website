@@ -69,6 +69,7 @@ const LoginPage = () => {
       if (data) {
         const { isNewUser } = getAdditionalUserInfo(data);
         if (isNewUser) {
+          console.log("🚀 ~ file: index.jsx:72 ~ handleGithubSignIn ~ isNewUser:", isNewUser)
           addDocument("users", {
             fullName: data.user.displayName,
             email: data.user.email,
