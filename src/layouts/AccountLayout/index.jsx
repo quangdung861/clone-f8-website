@@ -32,7 +32,7 @@ const image = {
 const AccountLayout = () => {
   const { setIsBoxSearch, setCssHeader } = useContext(MyContext);
   const { userInfo } = useContext(AppContext);
-  const { user } = useContext(AuthContext);
+  console.log("🚀 ~ file: index.jsx:35 ~ AccountLayout ~ userInfo:", userInfo);
 
   useEffect(() => {
     setIsBoxSearch(false);
@@ -50,16 +50,7 @@ const AccountLayout = () => {
     };
   }, []);
 
-  // const accessToken = localStorage.getItem("accessToken");
-  // if (!accessToken) {
-  //   return <Navigate to={ROUTES.USER.HOME} />;
-  // }
-
-  // if (!userInfo?.uid && !isLoading) {
-  //   return <Navigate to={ROUTES.USER.HOME} />;
-  // }
-
-  if (userInfo === "loading") {
+  if (userInfo.loading === true) {
     return (
       <div style={loading}>
         <img
@@ -71,7 +62,7 @@ const AccountLayout = () => {
         <span>Đang đăng nhập...</span>
       </div>
     );
-  } else if (userInfo === null) {
+  } else if (userInfo.loading === false && !userInfo.data.uid) {
     return <Navigate to={ROUTES.USER.HOME} />;
   }
 

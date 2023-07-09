@@ -54,7 +54,7 @@ const ProfilePage = () => {
 
   async function uploadImage() {
     if (imgPreviewCover) {
-      const userInfoRef = doc(db, "users", userInfo.id);
+      const userInfoRef = doc(db, "users", userInfo.data.id);
       await setDoc(
         userInfoRef,
         {
@@ -92,7 +92,7 @@ const ProfilePage = () => {
       }
       let imageAvatar = convertImageToBase64(file);
       imageAvatar.then((res) => {
-        const userInfoRef = doc(db, "users", userInfo.id);
+        const userInfoRef = doc(db, "users", userInfo.data.id);
         setDoc(
           userInfoRef,
           {
@@ -117,14 +117,14 @@ const ProfilePage = () => {
     }
   };
 
-  return userInfo?.uid ? (
+  return userInfo?.data?.uid ? (
     <S.Wrapper>
-      <S.Container cover={imgPreviewCover || userInfo.photoCover}>
+      <S.Container cover={imgPreviewCover || userInfo?.data?.photoCover}>
         <div className="profile-container">
           <div className="header">
             <div className="header-left">
               <div className="box-avatar">
-                <img src={userInfo.avatar} alt="" />
+                <img src={userInfo?.data?.avatar} alt="" />
                 <label htmlFor="inputFileAvatar" className="box-avatar__icon">
                   <i className="fa-solid fa-camera"></i>
                 </label>
@@ -136,7 +136,7 @@ const ProfilePage = () => {
                   onChange={(e) => handleAvatarImage(e.target.files[0])}
                 />
               </div>
-              <span className="fullname">{userInfo.fullName}</span>
+              <span className="fullname">{userInfo?.data?.fullName}</span>
             </div>
             <div className="header-right">
               {imgPreviewCover ? (
@@ -178,7 +178,7 @@ const ProfilePage = () => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <img src={userInfo?.avatar} alt="" />
+            <img src={userInfo?.data?.avatar} alt="" />
             <div
               className={
                 isHovered

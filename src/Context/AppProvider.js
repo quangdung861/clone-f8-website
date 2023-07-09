@@ -30,10 +30,19 @@ const AppProvider = ({ children }) => {
     user: { uid },
   } = useContext(AuthContext);
 
-  const [userInfo, setUserInfo] = useState("loading");
+  const [userInfo, setUserInfo] = useState({
+    data: {},
+    loading: true,
+    erorr: null,
+  });
+  console.log("🚀 ~ file: AppProvider.js:38 ~ AppProvider ~ userInfo:", userInfo)
 
   useEffect(() => {
     let unSubcribe;
+    setUserInfo((current) => ({
+      ...current,
+      loading: true,
+    }));
     if (uid) {
       const userInfoRef = query(
         collection(db, "users"),
@@ -48,10 +57,17 @@ const AppProvider = ({ children }) => {
             id: id,
           };
         });
-        setUserInfo(documents[0]);
+        setUserInfo((current) => ({
+          ...current,
+          data: documents[0],
+          loading: false,
+        }));
       });
     } else {
-      setUserInfo(null)
+      setUserInfo((current) => ({
+        ...current,
+        loading: false,
+      }));
     }
     return () => unSubcribe && unSubcribe();
   }, [uid]);

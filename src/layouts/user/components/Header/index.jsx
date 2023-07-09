@@ -34,7 +34,6 @@ const Header = () => {
   const { pathname } = useLocation();
 
   const { userInfo } = useContext(AppContext);
-  console.log("🚀 ~ file: index.jsx:37 ~ Header ~ userInfo?:", userInfo)
 
   const pathnameFinal = pathname.split("/");
   const newPathnameFinal = pathnameFinal
@@ -382,12 +381,12 @@ const Header = () => {
               <i className="fa-solid fa-magnifying-glass icon-search"></i>
             </Link>
           )}
-          {!userInfo?.uid && (
+          {!userInfo?.data?.uid && (
             <div className="btn-login" onClick={() => navigate(ROUTES.LOGIN)}>
               Đăng nhập
             </div>
           )}
-          {userInfo?.uid && (
+          {userInfo?.data?.uid && (
             <>
               <div className="notification" ref={dropdownRef1}>
                 <i
@@ -415,7 +414,7 @@ const Header = () => {
 
               <div className="account" ref={dropdownRef2}>
                 <img
-                  src={userInfo?.avatar}
+                  src={userInfo?.data?.avatar}
                   alt=""
                   onClick={() => {
                     setIsDropdownAccount(!isDropdownAccount);
@@ -424,8 +423,8 @@ const Header = () => {
                 {isDropdownAccount && (
                   <div className="dropdown-acount-action">
                     <div className="dropdown-acount-action__header">
-                      <img src={userInfo?.avatar} alt="" />
-                      <span>{userInfo?.fullName}</span>
+                      <img src={userInfo?.data.avatar} alt="" />
+                      <span>{userInfo?.data.fullName}</span>
                     </div>
                     <div className="dividing-line"></div>
                     <ul className="action-list">

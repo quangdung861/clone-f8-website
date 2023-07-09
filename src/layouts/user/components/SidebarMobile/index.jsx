@@ -1,15 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 
 import { useLocation, useNavigate } from "react-router-dom";
+import { AppContext } from "Context/AppProvider";
 
 import * as S from "./styles";
 import { ROUTES } from "constants/routes";
 import { useSelector } from "react-redux";
+import { auth, db } from "firebaseConfig";
+
 const SidebarMobile = ({ isShowSidebarMobile, setIsShowSidebarMobile }) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
-  const { userInfo } = useSelector((state) => state.userReducer);
+  // const { userInfo } = useSelector((state) => state.userReducer);
+
+  const { userInfo } = useContext(AppContext);
 
   const [showDropdown, setShowDropdown] = useState();
   const [showDropdown2nd, setShowDropdown2nd] = useState();
@@ -19,6 +24,11 @@ const SidebarMobile = ({ isShowSidebarMobile, setIsShowSidebarMobile }) => {
   useEffect(() => {
     setIsShowSidebarMobile(null);
   }, [firstPathName]);
+
+  const handleLogoutAuthFirebase = async () => {
+    await auth.signOut();
+    window.location.reload();
+  };
 
   return (
     <S.Wrapper>
@@ -51,10 +61,10 @@ const SidebarMobile = ({ isShowSidebarMobile, setIsShowSidebarMobile }) => {
                   : "sidebar-mobile-item sidebar-mobile-item--active"
               }
             >
-              {!userInfo.data.id ? (
+              {!userInfo?.data?.uid ? (
                 <div
                   className="sidebar-mobile-item__content"
-                  onClick={() => navigate(ROUTES.USER.LOGIN)}
+                  onClick={() => navigate(ROUTES.LOGIN)}
                 >
                   <i className="fa-solid fa-right-to-bracket content-icon"></i>
                   <div className="content-text">Đăng nhập</div>
@@ -65,7 +75,7 @@ const SidebarMobile = ({ isShowSidebarMobile, setIsShowSidebarMobile }) => {
                   onClick={() => navigate(ROUTES.USER.ACCOUNT.PROFILE)}
                 >
                   <img
-                    src={userInfo.data.images?.avatar.url}
+                    src={userInfo?.data.avatar}
                     alt=""
                     style={{
                       width: "40px",
@@ -75,7 +85,7 @@ const SidebarMobile = ({ isShowSidebarMobile, setIsShowSidebarMobile }) => {
                       marginRight: "12px",
                     }}
                   />
-                  <span>{userInfo.data.fullName}</span>
+                  <span>{userInfo?.data?.fullName}</span>
                 </div>
               )}
             </li>
@@ -167,6 +177,7 @@ const SidebarMobile = ({ isShowSidebarMobile, setIsShowSidebarMobile }) => {
                 </div>
               </div>
             </li>
+
             {/* Dropdown 1 */}
             <ul
               className={
@@ -243,6 +254,17 @@ const SidebarMobile = ({ isShowSidebarMobile, setIsShowSidebarMobile }) => {
                 </li>
               </ul>
             </ul>
+            {userInfo?.data?.uid && (
+              <li
+                className="sidebar-mobile-item"
+                onClick={() => handleLogoutAuthFirebase()}
+              >
+                <div className="sidebar-mobile-item__content">
+                  <i className="fa-sharp fa-solid fa-right-from-bracket content-icon"></i>
+                  <div className="content-text">Đăng xuất</div>
+                </div>
+              </li>
+            )}
           </ul>
         </div>
       </S.Container>
