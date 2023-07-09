@@ -380,12 +380,12 @@ const Header = () => {
               <i className="fa-solid fa-magnifying-glass icon-search"></i>
             </Link>
           )}
-          {!userInfo.id && (
+          {!userInfo?.id && (
             <div className="btn-login" onClick={() => navigate(ROUTES.LOGIN)}>
               Đăng nhập
             </div>
           )}
-          {userInfo.id && (
+          {userInfo?.id && (
             <>
               <div className="notification" ref={dropdownRef1}>
                 <i
