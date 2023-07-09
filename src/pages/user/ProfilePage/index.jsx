@@ -12,6 +12,7 @@ import {
 import { AuthContext } from "Context/AuthProvider";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "firebaseConfig";
+import { AppContext } from "Context/AppProvider";
 
 const ProfilePage = () => {
   // const { userInfo } = useSelector((state) => state.userReducer);
@@ -20,7 +21,7 @@ const ProfilePage = () => {
 
   const [isHovered, setIsHovered] = useState(null);
 
-  const { userInfo } = useContext(AuthContext);
+  const { userInfo } = useContext(AppContext);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -116,7 +117,7 @@ const ProfilePage = () => {
     }
   };
 
-  return (
+  return userInfo?.uid ? (
     <S.Wrapper>
       <S.Container cover={imgPreviewCover || userInfo.photoCover}>
         <div className="profile-container">
@@ -154,7 +155,7 @@ const ProfilePage = () => {
                   </button>
                 </>
               ) : (
-                <>
+                <div>
                   <label htmlFor="myFileInput" className="custom-file-label">
                     <i className="fa-solid fa-camera"></i>
                     <span>Chỉnh sửa ảnh bìa</span>
@@ -166,7 +167,7 @@ const ProfilePage = () => {
                     onClick={(e) => (e.target.value = null)}
                     onChange={(e) => handleCoverImagePreview(e.target.files[0])}
                   />
-                </>
+                </div>
               )}
             </div>
           </div>
@@ -221,6 +222,8 @@ const ProfilePage = () => {
       </S.Container>
       <Footer />
     </S.Wrapper>
+  ) : (
+    <></>
   );
 };
 

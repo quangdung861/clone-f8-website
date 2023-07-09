@@ -42,14 +42,6 @@ const LoginPage = () => {
             uid: data.user.uid,
             providerId: data.providerId,
             keywords: generateKeywords(data.user.displayName.toLowerCase()),
-            // images: {
-            //   cover: {
-            //     url: "https://fullstack.edu.vn/static/media/cover-profile.3fb9fed576da4b28386a.png",
-            //   },
-            //   avatar: {
-            //     url: "https://dvdn247.net/wp-content/uploads/2020/07/avatar-mac-dinh-1.png",
-            //   },
-            // },
           });
         }
       }
@@ -69,7 +61,6 @@ const LoginPage = () => {
       if (data) {
         const { isNewUser } = getAdditionalUserInfo(data);
         if (isNewUser) {
-          console.log("🚀 ~ file: index.jsx:72 ~ handleGithubSignIn ~ isNewUser:", isNewUser)
           addDocument("users", {
             fullName: data.user.displayName,
             email: data.user.email,

@@ -25,6 +25,7 @@ import ProfilePage from "pages/user/ProfilePage";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserInfoAction } from "redux/user/actions";
 import AuthProvider from "Context/AuthProvider";
+import AppProvider from "Context/AppProvider";
 import LoginRegisterLayout from "layouts/LoginRegisterLayout";
 
 export const MyContext = createContext();
@@ -61,43 +62,45 @@ function App() {
 
   return (
     <AuthProvider>
-      <MyContext.Provider
-        value={{ isBoxSearch, setIsBoxSearch, cssHeader, setCssHeader }}
-      >
-        <Routes>
-          {/* <Route element={<RegisterLayout />}>
+      <AppProvider>
+        <MyContext.Provider
+          value={{ isBoxSearch, setIsBoxSearch, cssHeader, setCssHeader }}
+        >
+          <Routes>
+            {/* <Route element={<RegisterLayout />}>
             <Route path={ROUTES.USER.REGISTER} element={<RegisterPage />} />
           </Route>
           <Route element={<LoginLayout />}>
             <Route path={ROUTES.USER.LOGIN} element={<LoginPage />} />
           </Route> */}
-          <Route element={<LoginRegisterLayout />}>
-            <Route path={ROUTES.REGISTER} element={<RegisterPage />} />
-            <Route path={ROUTES.LOGIN} element={<LoginPage />} />
-          </Route>
+            <Route element={<LoginRegisterLayout />}>
+              <Route path={ROUTES.REGISTER} element={<RegisterPage />} />
+              <Route path={ROUTES.LOGIN} element={<LoginPage />} />
+            </Route>
 
-          <Route element={<AccountLayout />}>
-            <Route
-              path={ROUTES.USER.ACCOUNT.PROFILE}
-              element={<ProfilePage />}
-            />
-          </Route>
+            <Route element={<AccountLayout />}>
+              <Route
+                path={ROUTES.USER.ACCOUNT.PROFILE}
+                element={<ProfilePage />}
+              />
+            </Route>
 
-          <Route element={<UserLayout />}>
-            <Route path={ROUTES.USER.HOME} element={<HomePage />} />
-            <Route path={ROUTES.USER.SEARCH} element={<SearchPage />} />
-            <Route
-              path={ROUTES.USER.LEARNING_PATHS}
-              element={<LearningPathsPage />}
-            />
-            <Route path={ROUTES.USER.COURSES} element={<CoursesPage />} />
-            <Route path={ROUTES.USER.BLOG} element={<BlogPage />} />
-          </Route>
-          {/* <Route path={ROUTES.USER.REGISTER} element={<RegisterPage />} />
+            <Route element={<UserLayout />}>
+              <Route path={ROUTES.USER.HOME} element={<HomePage />} />
+              <Route path={ROUTES.USER.SEARCH} element={<SearchPage />} />
+              <Route
+                path={ROUTES.USER.LEARNING_PATHS}
+                element={<LearningPathsPage />}
+              />
+              <Route path={ROUTES.USER.COURSES} element={<CoursesPage />} />
+              <Route path={ROUTES.USER.BLOG} element={<BlogPage />} />
+            </Route>
+            {/* <Route path={ROUTES.USER.REGISTER} element={<RegisterPage />} />
           <Route path={ROUTES.USER.LOGIN} element={<LoginPage />} /> */}
-          <Route path={ROUTES.NOT_FOUND} element={<NotFoundPage />} />
-        </Routes>
-      </MyContext.Provider>
+            <Route path={ROUTES.NOT_FOUND} element={<NotFoundPage />} />
+          </Routes>
+        </MyContext.Provider>
+      </AppProvider>
     </AuthProvider>
   );
 }

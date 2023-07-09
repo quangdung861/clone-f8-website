@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import * as S from "./styles";
 
 import { Link } from "react-router-dom";
-import { ROUTES } from "constants/routes";
 import { auth } from "firebaseConfig";
 import {
   createUserWithEmailAndPassword,
@@ -12,6 +11,8 @@ import {
 import { addDocument, generateKeywords } from "services";
 import { serverTimestamp } from "firebase/firestore";
 import avatarDefault from "assets/avatar-mac-dinh-1.png";
+
+import { ROUTES } from "constants/routes";
 
 const FormEmail = ({ setRegisterWay }) => {
   const [formData, setFormData] = useState({
@@ -173,7 +174,6 @@ const FormEmail = ({ setRegisterWay }) => {
   const [isRegisterSuccess, setIsRegisterSuccess] = useState(false);
 
   const createRegister = async () => {
-    console.log('ahih');
     try {
       const data = await createUserWithEmailAndPassword(
         auth,
@@ -184,14 +184,14 @@ const FormEmail = ({ setRegisterWay }) => {
         const { isNewUser } = getAdditionalUserInfo(data);
         if (isNewUser) {
           addDocument("users", {
-            fullName: data.user.displayName,
+            fullName: formData.fullName.value,
             email: data.user.email,
             avatar: data.user.photoURL ? data.user.photoURL : avatarDefault,
             photoCover:
               "https://fullstack.edu.vn/static/media/cover-profile.3fb9fed576da4b28386a.png",
             uid: data.user.uid,
             providerId: data.providerId,
-            keywords: generateKeywords(data.user.displayName.toLowerCase()),
+            keywords: generateKeywords(formData.fullName.value.toLowerCase()),
           });
         }
       }

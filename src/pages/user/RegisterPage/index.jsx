@@ -11,7 +11,7 @@ import {
   getAdditionalUserInfo,
   createUserWithEmailAndPassword,
 } from "firebase/auth";
-import { addDocument, generateKeywords } from "../../../services";
+import { addDocument, generateKeywords } from "services";
 import { serverTimestamp } from "firebase/firestore";
 import avatarDefault from "assets/avatar-mac-dinh-1.png";
 

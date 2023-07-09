@@ -59,34 +59,10 @@ const AuthProvider = ({ children }) => {
     return () => {
       unsubscribed();
     };
-  }, [navigate]);
-
-  const [userInfo, setUserInfo] = useState({});
-  
-  useEffect(() => {
-    let unSubcribe;
-    if (user.uid) {
-      const userInfoRef = query(
-        collection(db, "users"),
-        where("uid", "==", user.uid)
-      );
-      unSubcribe = onSnapshot(userInfoRef, (docsSnap) => {
-        const documents = docsSnap.docs.map((doc) => {
-          const id = doc.id;
-          const data = doc.data();
-          return {
-            ...data,
-            id: id,
-          };
-        });
-        setUserInfo(documents[0]);
-      });
-    }
-    return () => unSubcribe && unSubcribe();
-  }, [user.uid]);
+  }, []);
 
   return (
-    <AuthContext.Provider value={{ userInfo, setUserInfo }}>
+    <AuthContext.Provider value={{ user, setUser }}>
       {isLoading ? (
         <div style={loading}>
           <img

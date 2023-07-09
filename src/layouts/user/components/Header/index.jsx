@@ -19,6 +19,7 @@ import { AuthContext } from "Context/AuthProvider";
 
 import { auth, db } from "firebaseConfig";
 import { doc } from "firebase/firestore";
+import { AppContext } from "Context/AppProvider";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -32,7 +33,8 @@ const Header = () => {
   const inputRef = useRef(null);
   const { pathname } = useLocation();
 
-  const { userInfo } = useContext(AuthContext);
+  const { userInfo } = useContext(AppContext);
+  console.log("🚀 ~ file: index.jsx:37 ~ Header ~ userInfo?:", userInfo)
 
   const pathnameFinal = pathname.split("/");
   const newPathnameFinal = pathnameFinal
@@ -80,10 +82,10 @@ const Header = () => {
     setLimitNotification(20);
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("accessToken");
-    dispatch(logoutAction());
-  };
+  // const handleLogout = () => {
+  //   localStorage.removeItem("accessToken");
+  //   dispatch(logoutAction());
+  // };
 
   useEffect(() => {
     if (keyword.length > 1) {
@@ -380,12 +382,12 @@ const Header = () => {
               <i className="fa-solid fa-magnifying-glass icon-search"></i>
             </Link>
           )}
-          {!userInfo?.id && (
+          {!userInfo?.uid && (
             <div className="btn-login" onClick={() => navigate(ROUTES.LOGIN)}>
               Đăng nhập
             </div>
           )}
-          {userInfo?.id && (
+          {userInfo?.uid && (
             <>
               <div className="notification" ref={dropdownRef1}>
                 <i
@@ -423,7 +425,7 @@ const Header = () => {
                   <div className="dropdown-acount-action">
                     <div className="dropdown-acount-action__header">
                       <img src={userInfo?.avatar} alt="" />
-                      <span>{userInfo.fullName}</span>
+                      <span>{userInfo?.fullName}</span>
                     </div>
                     <div className="dividing-line"></div>
                     <ul className="action-list">
