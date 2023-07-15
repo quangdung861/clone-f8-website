@@ -3,12 +3,16 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getBlogListAction } from "redux/user/actions";
 import { PAGINATE } from "constants/paginate";
+import { useLocation, useSearchParams, useNavigate } from "react-router-dom";
 
 import * as S from "./styles";
 
 const BlogPage = () => {
   const dispatch = useDispatch();
   const { blogList } = useSelector((state) => state.blogReducer);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
 
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -218,25 +222,48 @@ const BlogPage = () => {
     }
   };
 
-  useEffect(() => {
-    dispatch(
-      getBlogListAction({
-        params: {
-          limit: PAGINATE.BLOG,
-          page: currentPage,
-        },
-      })
-    );
+  const [initParams, setInitParams] = useState(false);
 
-    window.scrollTo(0, 0);
+  useEffect(() => {
+    if (initParams) {
+      const handleSearch = () => {
+        // Đặt giá trị limit và page với giá trị mặc định là 1
+        searchParams.set("page", currentPage || 1 );
+        searchParams.set("limit", PAGINATE.BLOG || 3);
+        // Đặt giá trị tìm kiếm vào tham số truy vấn 'q'
+        // searchParams.set("q", "keywords");
+
+        // Cập nhật URL với tham số truy vấn mới
+        navigate(`?${searchParams.toString()}`);
+      };
+
+      handleSearch();
+
+      dispatch(
+        getBlogListAction({
+          params: {
+            limit: PAGINATE.BLOG,
+            page: currentPage,
+          },
+        })
+      );
+      window.scrollTo(0, 0);
+    }
+
+    setInitParams(true);
   }, [currentPage]);
 
   useEffect(() => {
+    const page = parseInt(searchParams.get("page"), 10) || 1;
+    const limit = parseInt(searchParams.get("limit"), 10) || PAGINATE.BLOG;
+
+    setCurrentPage(page);
+
     dispatch(
       getBlogListAction({
         params: {
-          limit: PAGINATE.BLOG,
-          page: 1,
+          page: page,
+          limit: limit,
         },
       })
     );
