@@ -11,7 +11,6 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 const EmailFormLogin = ({ setLoginWay }) => {
   const navigate = useNavigate();
 
-
   const [formData, setFormData] = useState({
     email: {
       value: undefined,
@@ -55,6 +54,13 @@ const EmailFormLogin = ({ setLoginWay }) => {
           setFormData((preven) => ({
             ...preven,
             error: "Email hoặc mật khẩu không chính xác",
+          }));
+        }
+        if (error.code === "auth/invalid-email") {
+          console.log(error.code);
+          setFormData((preven) => ({
+            ...preven,
+            error: "Email của bạn không đúng định dạng",
           }));
         }
       }
