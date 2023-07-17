@@ -4,6 +4,9 @@ import { ROUTES } from "constants/routes";
 import "_variables.scss";
 import jwtDecode from "jwt-decode";
 import "moment/locale/vi";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
 
 // Layout
 import UserLayout from "layouts/user/UserLayout";
@@ -31,6 +34,13 @@ import LoginRegisterLayout from "layouts/LoginRegisterLayout";
 export const MyContext = createContext();
 
 function App() {
+  AOS.init(
+    {
+      once: true, // whether animation should happen only once - while scrolling down
+      mirror: true, // whether elements should animate out while scrolling past them
+    }
+  );
+
   const dispatch = useDispatch();
   const { pathname } = useLocation();
 

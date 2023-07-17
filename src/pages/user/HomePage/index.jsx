@@ -209,8 +209,12 @@ const HomePage = () => {
 
           {item.priceAfterDiscount ? (
             <div className="sub-name">
-              <span className="price-cancel">{item.price.toLocaleString()}đ</span>
-              <span className="discount-price">{item.priceAfterDiscount.toLocaleString()}đ</span>
+              <span className="price-cancel">
+                {item.price.toLocaleString()}đ
+              </span>
+              <span className="discount-price">
+                {item.priceAfterDiscount.toLocaleString()}đ
+              </span>
             </div>
           ) : (
             <div className="sub-name">
@@ -423,7 +427,14 @@ const HomePage = () => {
             <h2 className="title">Khóa học</h2>
             <span className="logo">mới</span>
           </div>
-          <div className="box-content">{renderCourseProList()}</div>
+          <div
+            className="box-content"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+            data-aos-delay="500"
+          >
+            {renderCourseProList()}
+          </div>
           <p style={{ color: "#82919b", margin: "14px 0px 0px 0px" }}>
             <span style={{ fontWeight: "500" }}>311.160+ </span> người khác đã
             học
@@ -435,7 +446,15 @@ const HomePage = () => {
               <i className="fa-solid fa-angle-right"></i>
             </Link>
           </div>
-          <div className="box-content">{renderCourseFreeList()}</div>
+          <div
+            className="box-content"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+            data-aos-delay="500"
+            data-aos-offset="300"
+          >
+            {renderCourseFreeList()}
+          </div>
           <div className="box-header">
             <h2 className="title">Bài viết nổi bật</h2>
             <Link className="box-header__right" to={ROUTES.USER.BLOG}>
