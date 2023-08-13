@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import bg from "assets/bg-login.jpg";
 
 export const Wrapper = styled.div`
   background-color: rgba(0, 0, 0, 0.2);
   background-blend-mode: multiply; /* Áp dụng chế độ blend */
-  background-image: url("https://accounts.fullstack.edu.vn/static/media/f8_bg_auth_1366.cb1a38f30212c78aa891.png");
+  background-image: url(${bg});
 `;
 
 export const Container = styled.div`
