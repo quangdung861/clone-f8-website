@@ -195,7 +195,7 @@ const HomePage = () => {
           >
             <img className="image" src={item.image} alt="" />
             <div className="box-logo">
-              <img src={item.logo} alt="" />
+              <img src={require("assets/crown.webp")} alt="" />
             </div>
             <div className="hover-action">
               <div className="btn-action">Xem khóa học</div>

@@ -111,7 +111,7 @@ const LoginPage = () => {
 
             <div className="login-header">
               <img
-                src="https://accounts.fullstack.edu.vn/assets/icon/f8_icon.png"
+                src={require('assets/f8-logo.png')}
                 alt=""
                 onClick={() => navigate(ROUTES.USER.HOME)}
               />
@@ -129,7 +129,7 @@ const LoginPage = () => {
                         onClick={() => setRegisterWay("email")}
                       >
                         <img
-                          src="https://accounts.fullstack.edu.vn/assets/images/signin/personal-18px.svg"
+                          src={require('assets/Sample_User_Icon.png')}
                           alt=""
                         />
                         <span>Sử dụng email/ số điện thoại</span>
@@ -141,7 +141,7 @@ const LoginPage = () => {
                         onClick={handleGoogleSignIn}
                       >
                         <img
-                          src="https://accounts.fullstack.edu.vn/assets/images/signin/google-18px.svg"
+                          src={require('assets/Google_Icons-09-512.webp')}
                           alt=""
                         />
                         <span>Tiếp tục với Google</span>
@@ -153,7 +153,7 @@ const LoginPage = () => {
                         onClick={handleGithubSignIn}
                       >
                         <img
-                          src="https://accounts.fullstack.edu.vn/assets/images/signin/github-18px.svg"
+                          src={require('assets/25231.png')}
                           alt=""
                         />
                         <span>Tiếp tục với Github</span>

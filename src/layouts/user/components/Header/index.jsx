@@ -296,7 +296,7 @@ const Header = () => {
         <div className="navbar-left">
           <img
             className="img-logo"
-            src="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
+            src={require('assets/f8-logo.png')}
             alt=""
             onClick={() => navigate(ROUTES.USER.HOME)}
           />

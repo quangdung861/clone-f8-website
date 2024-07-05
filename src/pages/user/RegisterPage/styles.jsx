@@ -57,6 +57,11 @@ export const Container = styled.div`
           li.item {
             margin-bottom: 16px;
             width: 50%;
+            img {
+              width: 24px;
+              height: 24px;
+              object-fit: cover;
+            }
             .btn-custome {
               display: flex;
               align-items: center;
