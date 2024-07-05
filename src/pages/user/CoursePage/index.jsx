@@ -53,7 +53,7 @@ const HomePage = () => {
               !item.active ? { cursor: "default", pointerEvents: "none" } : {}
             }
           >
-            <img className="image" src={item.image} alt="" />
+            <img className="image" src={require("assets/crown.webp")} alt="" />
             <div className="box-logo">
               <img src={item.logo} alt="" />
             </div>
