@@ -162,8 +162,9 @@ const HomePage = () => {
               </div>
             </div>
             <div className="section-suggest__right">
+              dsadsa
               <img
-                src="https://fullstack.edu.vn/static/media/fb-group-cards.4bd525b1b8baf7b1e5a2.png"
+                src={require('assets/fb-group-cards-CAn_kGMe.png')}
                 alt=""
               />
             </div>

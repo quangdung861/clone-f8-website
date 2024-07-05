@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="container-item-start">
           <div className="title title-first">
             <img
-              src="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
+              src={require('assets/f8-logo.png')}
               alt=""
             />
             <h3>học Lập Trình Để Đi Làm</h3>
@@ -26,7 +26,7 @@ const Footer = () => {
           </div>
           <img
             className="logo-dmca"
-            src="https://fullstack.edu.vn/static/media/dmca.2593d9ecf1c982e3c3a2.png"
+            src={require('assets/DMCA.png')}
             alt=""
           />
         </div>

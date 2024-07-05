@@ -27,7 +27,7 @@ const LearningPathsPage = () => {
               </div>
               <div className="content-right">
                 <img
-                  src="https://files.fullstack.edu.vn/f8-prod/learning-paths/2/63b4642136f3e.png"
+                  src={require('assets/user217.png')}
                   alt=""
                 />
               </div>
@@ -50,7 +50,7 @@ const LearningPathsPage = () => {
               </div>
               <div className="content-right">
                 <img
-                  src="https://files.fullstack.edu.vn/f8-prod/learning-paths/3/63b4641535b16.png"
+                  src={require('assets/63b4641535b16.png')}
                   alt=""
                 />
               </div>
@@ -77,7 +77,7 @@ const LearningPathsPage = () => {
           </div>
           <div className="section-suggest__right">
             <img
-              src="https://fullstack.edu.vn/static/media/fb-group-cards.4bd525b1b8baf7b1e5a2.png"
+              src={require('assets/fb-group-cards-CAn_kGMe.png')}
               alt=""
             />
           </div>
