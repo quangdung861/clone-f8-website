@@ -15,6 +15,7 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 import { db } from "firebaseConfig";
+import f8_icon from "../assets/f8-logo.png";
 
 export const AuthContext = createContext();
 
@@ -66,8 +67,8 @@ const AuthProvider = ({ children }) => {
       {isLoading ? (
         <div style={loading}>
           <img
-            src="https://accounts.fullstack.edu.vn/assets/icon/f8_icon.png"
-            alt="zalo"
+            src={f8_icon}
+            alt="f8-icon"
             style={image}
           />
           <i className="fas fa-spinner fa-spin" style={spinner}></i>

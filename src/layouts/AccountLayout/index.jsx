@@ -7,6 +7,7 @@ import Header from "layouts/user/components/Header";
 import { MyContext } from "App";
 import { AuthContext } from "Context/AuthProvider";
 import { AppContext } from "Context/AppProvider";
+import f8_icon from "../../assets/f8-logo.png";
 
 const loading = {
   display: "flex",
@@ -54,8 +55,8 @@ const AccountLayout = () => {
     return (
       <div style={loading}>
         <img
-          src="https://accounts.fullstack.edu.vn/assets/icon/f8_icon.png"
-          alt="zalo"
+          src={f8_icon}
+          alt="f8-icon"
           style={image}
         />
         <i className="fas fa-spinner fa-spin" style={spinner}></i>

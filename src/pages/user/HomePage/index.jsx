@@ -15,6 +15,12 @@ import {
 import * as S from "./styles";
 import { ROUTES } from "constants/routes";
 
+import Banner_web_ReactJS from "../../../assets/slide/Banner_web_ReactJS.png"
+import practice_8 from "../../../assets/slide/8_practice.png"
+import Banner_04_2 from "../../../assets/slide/Banner_04_2.png"
+import Banner_03_youtube from "../../../assets/slide/Banner_03_youtube.png"
+import Banner_01_2 from "../../../assets/slide/Banner_01_2.png"
+
 const HomePage = () => {
   const dispatch = useDispatch();
 
@@ -77,7 +83,7 @@ const HomePage = () => {
         from: "rgb(5, 178, 255)",
       },
       imageRight:
-        "https://files.fullstack.edu.vn/f8-prod/banners/Banner_01_2.png",
+        Banner_01_2,
     },
     {
       title: "F8 trên Youtube",
@@ -89,7 +95,7 @@ const HomePage = () => {
         from: "rgb(255, 148, 2)",
       },
       imageRight:
-        "https://files.fullstack.edu.vn/f8-prod/banners/Banner_03_youtube.png",
+        Banner_03_youtube,
     },
     {
       title: "F8 trên Facebook",
@@ -101,20 +107,19 @@ const HomePage = () => {
         from: "rgb(6, 195, 254)",
       },
       imageRight:
-        "https://files.fullstack.edu.vn/f8-prod/banners/Banner_04_2.png",
+        Banner_04_2,
     },
     {
       title: "Khóa học HTML CSS Pro",
       description:
         "Đây là khóa học đầy đủ và chi tiết nhất bạn có thể tìm thấy được ở trên Internet!",
       button: "Tìm hiểu thêm",
-      icon: "https://fullstack.edu.vn/static/media/crown_icon.3e4800f7485935ab6ea312a7080a85fe.svg",
       linearGradient: {
         to: "rgb(104, 40, 250)",
         from: "rgb(255, 186, 164)",
       },
       imageRight:
-        "https://files.fullstack.edu.vn/f8-prod/banners/20/6308a6bf603a4.png",
+        practice_8,
     },
     {
       title: "Học ReactJS Miễn Phí",
@@ -126,7 +131,7 @@ const HomePage = () => {
         from: "rgb(103, 23, 205)",
       },
       imageRight:
-        "https://files.fullstack.edu.vn/f8-prod/banners/Banner_web_ReactJS.png",
+        Banner_web_ReactJS,
     },
   ];
 
@@ -139,8 +144,8 @@ const HomePage = () => {
             style={
               item.linearGradient
                 ? {
-                    background: `linear-gradient(to right, ${item.linearGradient.to}, ${item.linearGradient.from})`,
-                  }
+                  background: `linear-gradient(to right, ${item.linearGradient.to}, ${item.linearGradient.from})`,
+                }
                 : {}
             }
           >
