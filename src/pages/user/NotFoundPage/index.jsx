@@ -12,7 +12,7 @@ const NotFoundPage = () => {
         <div className="header">
           <div className="header__left">
             <img
-              src="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
+              src={require("assets/f8-logo.png")}
               alt=""
               onClick={() => navigate(ROUTES.USER.HOME)}
             />
@@ -22,7 +22,7 @@ const NotFoundPage = () => {
         <div className="content">
           <img
             className="content__icon-not-found"
-            src="https://www.ecommerce-nation.com/wp-content/uploads/2018/10/404-error.jpg.webp"
+            src={require("assets/404-error.jpg.webp")}
             alt=""
           />
           <h1>Không tìm thấy nội dung 😓</h1>
