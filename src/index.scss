@@ -26,6 +26,12 @@ body {
   }
 }
 
+html, body, #root {
+  max-width: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
 :root {
   --header-height: 65px;
   --sidebar-app-width: 96px;

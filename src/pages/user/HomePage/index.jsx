@@ -119,7 +119,7 @@ const HomePage = () => {
         from: "rgb(255, 186, 164)",
       },
       imageRight:
-        practice_8,
+        Banner_04_2,
     },
     {
       title: "Học ReactJS Miễn Phí",
